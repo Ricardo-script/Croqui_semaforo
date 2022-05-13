@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import ItemDraggable from '../../ItemDraggable';
 import direita from '../../img/direita.png';
-import { Container, MoveRight } from './styles';
+import close from '../../img/close.png';
+import { Container, MoveRight, Options } from './styles';
 
-export default function CarRight(){
-
-    const [moveRight, setMoveRight] = useState(true);
-    const [carRight, setCarRight] = useState([{ top: 46, left: 35},{ top: 44, left: 16},{ top: 38, left: 8}]);
-    
+export default function CarRight(props){
 
     return(
         <Container>
-            {carRight.map((item,index) => (
-                <ItemDraggable key={index} index={index} object='carRight' top={item.top} left={item.left} setCarRight={setCarRight} carRight={carRight}>
-                    <MoveRight src={direita} alt="" move={moveRight} onClick={() => setMoveRight(true)}/>
-                </ItemDraggable>
-            ))}
+            {props.carRight.map((item,index) => {
+                if(props.carRight[index] !== ''){
+                    return(
+                        <ItemDraggable key={index} index={index} object='carRight' top={item.top} left={item.left} setCarRight={props.setCarRight} carRight={props.carRight}>
+                            <MoveRight src={direita} alt="" move={props.moveRight}/>
+                            <Options remove={props.remove} onClick={() => props.removeCarRight(index,item)}>
+                                <img src={close} alt="" />
+                            </Options>
+                        </ItemDraggable>
+                    )
+                }
+            })}
         </Container>
     );
 }

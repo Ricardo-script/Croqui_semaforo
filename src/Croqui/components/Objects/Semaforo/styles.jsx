@@ -1,14 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-const goTop = keyframes`
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-355px);
-    }
-`;
-
 const zoom = keyframes`
     0%{
         transform: scale(.5);
@@ -24,13 +15,12 @@ const zoom = keyframes`
     }
 `;
 
+export const Container = styled.div`
+`;
 
-export const Container = styled.div``;
-
-export const MoveTop = styled.img`
-    width: 33px;
-    height: auto;
-    animation: ${ props => props.move === true ? goTop : zoom } ${props => props.move === true ? '3s infinite'  : '.5s linear' };
+export const Img = styled.img`
+    width: 100px;
+    animation: ${ zoom } .3s linear;
 `;
 
 export const Options = styled.div`

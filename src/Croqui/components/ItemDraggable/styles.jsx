@@ -11,8 +11,12 @@ export const Container = styled.section`
     }
 
     .elementHeader {
-        cursor: move;
+        cursor: grab;
         z-index: 10;
         user-select: none;
+
+        &:active{
+            cursor: grabbing;
+        }
     }
 `;

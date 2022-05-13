@@ -93,6 +93,9 @@ export const Buttom = styled.div`
     border-radius: 7px;
     padding: 7px;
     box-shadow: 7px 7px 7px rgb(53 50 50 / 63%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 
     &:hover{
@@ -108,17 +111,49 @@ export const Buttom = styled.div`
 
 export const Img = styled.img`
     width: 100%;
-
-    &#top-left {
+    user-select: none;
+   
+    &#top-left{
         transform: scaleX(-1);
     }
-    &#right-down {
+    &#right-down{
         transform: rotate(90deg);
     }
-    &#right-top {
+    &#right-top{
         transform: rotate(90deg) scaleX(-1);
     }
-    &#right {
+    &#right{
         transform: rotate(90deg);
+    }
+    &#left-down{
+        transform: rotate(-90deg) scaleX(-1);
+    }
+    &#left-top{
+        transform: rotate(-90deg);
+    }
+    &#left{
+        transform: rotate(-90deg);
+    }
+    &#down-left{
+        transform: rotate(-180deg) scaleX(1);
+    }
+    &#down{
+        transform: rotate(180deg);
+    }
+    &#down-right{
+        transform: rotate(180deg) scaleX(-1);
+    }
+    &#play{
+        width: 17px;
+    }
+    &#stop{
+        width: 17px;
+    }
+    &#icoSemaforo {
+        width: 15px;
+        padding-right: 1px;
+    }
+    &#close{
+        width: 17px;
     }
 `;

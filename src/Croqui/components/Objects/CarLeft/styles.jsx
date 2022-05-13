@@ -1,11 +1,11 @@
 import styled, { keyframes } from 'styled-components';
 
-const goTop = keyframes`
+const goLeft = keyframes`
     from {
-        transform: translateY(0);
+        transform: translateX(0);
     }
     to {
-        transform: translateY(-355px);
+        transform: translateX(-400px);
     }
 `;
 
@@ -24,13 +24,12 @@ const zoom = keyframes`
     }
 `;
 
-
 export const Container = styled.div``;
 
-export const MoveTop = styled.img`
-    width: 33px;
+export const MoveLeft = styled.img`
+    width: 70px;
     height: auto;
-    animation: ${ props => props.move === true ? goTop : zoom } ${props => props.move === true ? '3s infinite'  : '.5s linear' };
+    animation: ${ props => props.move === true ? goLeft : zoom } ${props => props.move === true ? '3s infinite'  : '.5s linear' };
 `;
 
 export const Options = styled.div`

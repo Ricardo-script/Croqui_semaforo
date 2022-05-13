@@ -31,8 +31,8 @@ export default function ItemDraggable(props){
             pos4 = e.clientY;
 
 
-            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            //elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            //elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
             //elmnt.style.left = (elmnt.offsetLeft - pos1 > props.limitScreen ? props.limitScreen : elmnt.offsetLeft - pos1) + "px";
 
             //converte px em vw:
@@ -44,15 +44,33 @@ export default function ItemDraggable(props){
                 const valuesCarRight = [...props.carRight];
                 valuesCarRight[props.index].top = top;
                 valuesCarRight[props.index].left = left;
-                props.setCarRight(valuesCarRight); 
+                props.setCarRight(valuesCarRight);
             }
             if(props.carTop){
                 const valuesCarTop = [...props.carTop];
                 valuesCarTop[props.index].top = top;
                 valuesCarTop[props.index].left = left;
-                props.setCarTop(valuesCarTop); 
+                props.setCarTop(valuesCarTop);
             }
-            
+            if(props.carLeft){
+                const valuesCarLeft = [...props.carLeft];
+                valuesCarLeft[props.index].top = top;
+                valuesCarLeft[props.index].left = left;
+                props.setCarLeft(valuesCarLeft);
+            }
+            if(props.carBottom){
+                const valuesCarBottom = [...props.carBottom];
+                valuesCarBottom[props.index].top = top;
+                valuesCarBottom[props.index].left = left;
+                props.setCarBottom(valuesCarBottom);
+            }
+            if(props.objSemaforo){
+                const valuesSemaforo = [...props.objSemaforo];
+                valuesSemaforo[props.index].top = top;
+                valuesSemaforo[props.index].left = left;
+                props.setObjSemaforo(valuesSemaforo);
+            }
+             
         }
     
         function closeDragElement() {
