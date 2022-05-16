@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ItemDraggable from '../../ItemDraggable';
 import direita from '../../img/direita.png';
 import close from '../../img/close.png';
-import { Container, MoveRight, Options } from './styles';
+import { Container, MoveRight, Options, Arrow } from './styles';
 
 export default function CarRight(props){
 

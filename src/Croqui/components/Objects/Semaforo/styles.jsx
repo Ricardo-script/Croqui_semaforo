@@ -19,8 +19,8 @@ export const Container = styled.div`
 `;
 
 export const Img = styled.img`
-    width: 100px;
-    animation: ${ zoom } .3s linear;
+    width: 110px;
+    animation: ${ zoom } .3s ease-in-out;
 `;
 
 export const Options = styled.div`

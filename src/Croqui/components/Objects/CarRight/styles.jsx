@@ -1,11 +1,17 @@
 import styled, { keyframes } from 'styled-components';
 
 const goRight = keyframes`
-    from {
+    0% {
         transform: translateX(0);
+        opacity: 1;
     }
-    to {
-        transform: translateX(400px);
+    90%{
+        transform: translateX(22vw);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(21vw);
+        opacity: 0;
     }
 `;
 
@@ -24,12 +30,19 @@ const zoom = keyframes`
     }
 `;
 
+const pause = keyframes` // parar carro no farol vermelho
+    0%{
+        transform: translateX(0);
+    }
+`;
+
 export const Container = styled.div``;
 
 export const MoveRight = styled.img`
     width: 70px;
     height: auto;
-    animation: ${ props => props.move === true ? goRight : zoom } ${props => props.move === true ? '3s infinite'  : '.5s linear' };
+    position: relative;
+    animation: ${ props => props.move === true ? goRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
 `;
 
 export const Options = styled.div`
@@ -43,3 +56,4 @@ export const Options = styled.div`
         right: -25px;
     }
 `;
+

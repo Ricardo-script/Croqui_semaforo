@@ -1,14 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, AreaMapaCroqui, ButtonOpen, MapaCroqui, AreaEditor, Editor, Header, AreaTools, Fieldset, Legend, AreaButtons, Buttom, Img } from './styles';
 import { GiHamburgerMenu } from "react-icons/gi";
 import CarRight from './components/Objects/CarRight';
 import CarTop from './components/Objects/CarTop';
 import CarLeft from './components/Objects/CarLeft';
 import CarBottom from './components/Objects/CarBottom';
+import CarTopToRight from './components/Objects/CarTopToRight';
+import CarTopToLeft from './components/Objects/CarTopToLeft';
 import Semaforo from './components/Objects/Semaforo';
-import mapa from './components/img/mapaCroqui.jpg';
+//import mapa from './components/img/mapaCroqui.jpg';
 import editMapa from './components/img/editMapa.jpg';
-import cruzamento from './components/img/cruzamento.png';
+//import cruzamento from './components/img/cruzamento.png';
 import logo from './components/img/logoCroqui.svg';
 import arrow from './components/img/arrow.png';
 import arrowSide from './components/img/arrow-side.png';
@@ -28,6 +30,8 @@ export default function Croqui() {
     const [carTop, setCarTop] = useState([]);
     const [carLeft, setCarLeft] = useState([]);
     const [carBottom, setCarBottom] = useState([]);
+    const [carTopToRight, setCarTopToRight] = useState([]);
+    const [carTopToLeft, setCarTopToLeft] = useState([]);
     const [objSemaforo, setObjSemaforo] = useState([]);
 
     // states para animações dos objetos no mapa
@@ -35,6 +39,8 @@ export default function Croqui() {
     const [moveTop, setMoveTop] = useState(false);
     const [moveLeft, setMoveLeft] = useState(false);
     const [moveBottom, setMoveBottom] = useState(false);
+    const [moveTopToRight, setMoveTopToRight] = useState(false);
+    const [moveTopToLeft, setMoveTopToLeft] = useState(false);
 
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
@@ -77,6 +83,21 @@ export default function Croqui() {
         setCarBottom(objects);
     }
 
+    const addCarTopToRight = () => {
+        setRemove(false);
+        const objects = [...carTopToRight];
+        objects.push({ id: objects.length, top: 39.43, left: 46.45 });
+        setCarTopToRight(objects);
+    }
+
+    
+    const addCarTopToLeft = () => {
+        setRemove(false);
+        const objects = [...carTopToLeft];
+        objects.push({ id: objects.length, top: 39.43, left: 46.45 });
+        setCarTopToLeft(objects);
+    }
+
     const addSemaforo = () => {
         setRemove(false);
         const objects = [...objSemaforo];
@@ -115,6 +136,18 @@ export default function Croqui() {
         setCarBottom(objects);
     }
 
+    const removeCarTopToRight = (item, index) => {
+        const objects = [...carTopToRight];
+        objects[objects.indexOf(index)] = '';
+        setCarTopToRight(objects);
+    }
+
+    const removeCarTopToLeft = (item, index) => {
+        const objects = [...carTopToLeft];
+        objects[objects.indexOf(index)] = '';
+        setCarTopToLeft(objects);
+    }
+
     // Animações
     const playAnimate = () => {
         setRemove(false);
@@ -122,20 +155,41 @@ export default function Croqui() {
         setMoveTop(true);
         setMoveLeft(true);
         setMoveBottom(true);
+        setMoveTopToRight(true);
+        setMoveTopToLeft(true);
     }
 
+    // parar animação
     const stopAnimate = () => {
         setMoveRight(false);
         setMoveTop(false);
         setMoveLeft(false);
         setMoveBottom(false);
+        setMoveTopToRight(false);
+        setMoveTopToLeft(false);
         setRemove(false);
     }
 
+    //parar carro no farol vermelho
+    const pause = () => {
+        setMoveRight('pause');
+        setMoveRight('pause');
+        setMoveTop('pause');
+        setMoveLeft('pause');
+        setMoveBottom('pause');
+        setMoveTopToRight('pause');
+        setMoveTopToLeft('pause');
+        setRemove(false);
+    }
+
+    //habilitar icone de excluir objeto
     const enabledClose = () => {
         setMoveRight(false);
         setMoveTop(false);
         setMoveLeft(false);
+        setMoveBottom(false);
+        setMoveTopToRight(false);
+        setMoveTopToLeft(false);
         if (remove) {
             setRemove(false);
         } else {
@@ -165,6 +219,13 @@ export default function Croqui() {
                 <CarBottom carBottom={carBottom} setCarBottom={setCarBottom} moveBottom={moveBottom}
                     setMoveBottom={setMoveBottom} remove={remove} removeCarBottom={removeCarBottom}
                 />
+                <CarTopToRight carTopToRight={carTopToRight} setCarTopToRight={setCarTopToRight} moveTopToRight={moveTopToRight}
+                    setMoveTopToRight={setMoveTopToRight} remove={remove} removeCarTopToRight={removeCarTopToRight}
+                />
+                <CarTopToLeft carTopToLeft={carTopToLeft} setCarTopToLeft={setCarTopToLeft} moveTopToLeft={moveTopToLeft}
+                    setMoveTopToLeft={setMoveTopToLeft} remove={remove} removeCarTopToLeft={removeCarTopToLeft}
+
+                />
                 <Semaforo objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
                     remove={remove} removeSemaforo={removeSemaforo}
                 />
@@ -179,8 +240,8 @@ export default function Croqui() {
                         <Fieldset>
                             <Legend>Cima</Legend>
                             <AreaButtons>
-                                <Buttom><Img id='top-right' src={arrowSide} alt='' /></Buttom>
-                                <Buttom><Img id='top-left' src={arrowSide} alt='' /></Buttom>
+                                <Buttom onClick={addCarTopToRight}><Img id='top-right' src={arrowSide} alt='' /></Buttom>
+                                <Buttom onClick={addCarTopToLeft}><Img id='top-left' src={arrowSide} alt='' /></Buttom>
                                 <Buttom onClick={addCarTop}><Img id='top' src={arrow} alt='' /></Buttom>
                                 <Buttom><Img id='top-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
@@ -216,7 +277,7 @@ export default function Croqui() {
                             <Legend>Outros</Legend>
                             <AreaButtons>
                                 <Buttom onClick={addSemaforo}><Img id='icoSemaforo' src={icoSemaforo} alt='' /></Buttom>
-                                <Buttom><Img id='' src='' alt='' /></Buttom>
+                                <Buttom onClick={pause}><Img id='' src='' alt='' /></Buttom>
                                 <Buttom><Img id='' src='' alt='' /></Buttom>
                                 <Buttom><Img id='' src='' alt='' /></Buttom>
                             </AreaButtons>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ItemDraggable from '../../ItemDraggable';
 import subindo from '../../img/subindo.png';
 import close from '../../img/close.png';

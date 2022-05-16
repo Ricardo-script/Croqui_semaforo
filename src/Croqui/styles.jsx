@@ -28,8 +28,7 @@ export const MapaCroqui = styled.div`
     width: 100%;
     img{
         width: 100%;
-        height: 99.9vh;
-        //object-fit: cover;
+        height: 100vh;
     }
 `;
 
