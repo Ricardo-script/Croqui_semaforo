@@ -8,8 +8,10 @@ import CarBottom from './components/Objects/CarBottom';
 import CarTopToRight from './components/Objects/CarTopToRight';
 import CarTopToLeft from './components/Objects/CarTopToLeft';
 import Semaforo from './components/Objects/Semaforo';
+import WalkLeft from './components/Objects/WalkLeft';
+import WalkBottom from './components/Objects/WalkBottom';
 //import mapa from './components/img/mapaCroqui.jpg';
-import editMapa from './components/img/editMapa.jpg';
+import MapaDefault from './components/img/MapaDefault.png';
 //import cruzamento from './components/img/cruzamento.png';
 import logo from './components/img/logoCroqui.svg';
 import arrow from './components/img/arrow.png';
@@ -19,7 +21,7 @@ import play from './components/img/play.png';
 import stop from './components/img/stop.png';
 import icoSemaforo from './components/img/icoSemaforo.png';
 import toolclose from './components/img/toolclose.png';
-
+import WalkRight from './components/Objects/walkRight';
 
 export default function Croqui() {
 
@@ -33,6 +35,9 @@ export default function Croqui() {
     const [carTopToRight, setCarTopToRight] = useState([]);
     const [carTopToLeft, setCarTopToLeft] = useState([]);
     const [objSemaforo, setObjSemaforo] = useState([]);
+    const [walkLeft, setWalkLeft] = useState([]);
+    const [walkRight, setWalkRight] = useState([]);
+    const [walkBottom, setWalkBottom] = useState([]);
 
     // states para animações dos objetos no mapa
     const [moveRight, setMoveRight] = useState(false);
@@ -41,6 +46,9 @@ export default function Croqui() {
     const [moveBottom, setMoveBottom] = useState(false);
     const [moveTopToRight, setMoveTopToRight] = useState(false);
     const [moveTopToLeft, setMoveTopToLeft] = useState(false);
+    const [moveWalkLeft, setMoveWalkLeft] = useState(false);
+    const [moveWalkRight, setMoveWalkRight] = useState(false);
+    const [moveWalkBottom, setMoveWalkBottom] = useState(false);
 
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
@@ -105,6 +113,27 @@ export default function Croqui() {
         setObjSemaforo(objects);
     }
 
+    const addWalkLeft = () => {
+        setRemove(false);
+        const objects = [...walkLeft];
+        objects.push({ id: objects.length, top: 39.43, left: 46.45 });
+        setWalkLeft(objects);
+    }
+
+    const addWalkRight = () => {
+        setRemove(false);
+        const objects = [...walkRight];
+        objects.push({ id: objects.length, top: 39.43, left: 46.45 });
+        setWalkRight(objects);
+    }
+
+    const addWalkBottom = () => {
+        setRemove(false);
+        const objects = [...walkBottom];
+        objects.push({ id: objects.length, top: 39.43, left: 46.45 });
+        setWalkBottom(objects);
+    }
+
     //funções para remever objetos em tela
     const removeCarRight = (item, index) => {
         const objects = [...carRight];
@@ -148,6 +177,24 @@ export default function Croqui() {
         setCarTopToLeft(objects);
     }
 
+    const removeWalkLeft = (item, index) => {
+        const objects = [...walkLeft];
+        objects[objects.indexOf(index)] = '';
+        setWalkLeft(objects);
+    }
+
+    const removeWalkRight = (item, index) => {
+        const objects = [...walkRight];
+        objects[objects.indexOf(index)] = '';
+        setWalkRight(objects);
+    }
+
+    const removeWalkBottom = (item, index) => {
+        const objects = [...walkBottom];
+        objects[objects.indexOf(index)] = '';
+        setWalkBottom(objects);
+    }
+
     // Animações
     const playAnimate = () => {
         setRemove(false);
@@ -157,6 +204,9 @@ export default function Croqui() {
         setMoveBottom(true);
         setMoveTopToRight(true);
         setMoveTopToLeft(true);
+        setMoveWalkLeft(true);
+        setMoveWalkRight(true);
+        setMoveWalkBottom(true);
     }
 
     // parar animação
@@ -167,18 +217,23 @@ export default function Croqui() {
         setMoveBottom(false);
         setMoveTopToRight(false);
         setMoveTopToLeft(false);
+        setMoveWalkLeft(false);
+        setMoveWalkRight(false);
+        setMoveWalkBottom(false);
         setRemove(false);
     }
 
     //parar carro no farol vermelho
     const pause = () => {
         setMoveRight('pause');
-        setMoveRight('pause');
         setMoveTop('pause');
         setMoveLeft('pause');
         setMoveBottom('pause');
         setMoveTopToRight('pause');
         setMoveTopToLeft('pause');
+        setMoveWalkLeft('pause');
+        setMoveWalkRight('pause');
+        setMoveWalkBottom('pause');
         setRemove(false);
     }
 
@@ -190,6 +245,9 @@ export default function Croqui() {
         setMoveBottom(false);
         setMoveTopToRight(false);
         setMoveTopToLeft(false);
+        setMoveWalkLeft(false);
+        setMoveWalkRight(false);
+        setMoveWalkBottom(false);
         if (remove) {
             setRemove(false);
         } else {
@@ -201,7 +259,7 @@ export default function Croqui() {
         <Container>
             <AreaMapaCroqui>
                 <MapaCroqui>
-                    <img src={editMapa} alt="" />
+                    <img src={MapaDefault} alt="" />
                 </MapaCroqui>
                 <ButtonOpen onClick={() => openDrawer()} title={openTools === false ? 'Abrir editor' : 'Fechar editor'}>
                     <GiHamburgerMenu size={35} color={openTools === false ? '#062467' : '#FFF'} />
@@ -224,10 +282,18 @@ export default function Croqui() {
                 />
                 <CarTopToLeft carTopToLeft={carTopToLeft} setCarTopToLeft={setCarTopToLeft} moveTopToLeft={moveTopToLeft}
                     setMoveTopToLeft={setMoveTopToLeft} remove={remove} removeCarTopToLeft={removeCarTopToLeft}
-
                 />
                 <Semaforo objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
                     remove={remove} removeSemaforo={removeSemaforo}
+                />
+                <WalkLeft walkLeft={walkLeft} setWalkLeft={setWalkLeft} moveWalkLeft={moveWalkLeft}
+                    setMoveWalkLeft={setMoveWalkLeft} remove={remove} removeWalkLeft={removeWalkLeft}
+                />
+                <WalkRight walkRight={walkRight} setWalkRight={setWalkRight} moveWalkRight={moveWalkRight}
+                    setMoveWalkRight={setMoveWalkRight} remove={remove} removeWalkRight={removeWalkRight}
+                />
+                <WalkBottom walkBottom={walkBottom} setWalkBottom={setWalkBottom} moveWalkBottom={moveWalkBottom}
+                    setMoveWalkBottom={setMoveWalkBottom} remove={remove} removeWalkBottom={removeWalkBottom}
                 />
                 
             </AreaMapaCroqui>
@@ -252,7 +318,7 @@ export default function Croqui() {
                                 <Buttom><Img id='right-down' src={arrowSide} alt='' /></Buttom>
                                 <Buttom><Img id='right-top' src={arrowSide} alt='' /></Buttom>
                                 <Buttom onClick={addCarRight}><Img id='right' src={arrow} alt='' /></Buttom>
-                                <Buttom><Img id='right-pedestre' src={pedestre} alt='' /></Buttom>
+                                <Buttom onClick={addWalkRight}><Img id='right-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
@@ -261,7 +327,7 @@ export default function Croqui() {
                                 <Buttom><Img id='left-down' src={arrowSide} alt='' /></Buttom>
                                 <Buttom><Img id='left-top' src={arrowSide} alt='' /></Buttom>
                                 <Buttom onClick={addCarLeft}><Img id='left' src={arrow} alt='' /></Buttom>
-                                <Buttom><Img id='left-pedestre' src={pedestre} alt='' /></Buttom>
+                                <Buttom onClick={addWalkLeft}><Img id='left-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
@@ -270,7 +336,7 @@ export default function Croqui() {
                                 <Buttom><Img id='down-left' src={arrowSide} alt='' /></Buttom>
                                 <Buttom><Img id='down-right' src={arrowSide} alt='' /></Buttom>
                                 <Buttom onClick={addCarBottom}><Img id='down' src={arrow} alt='' /></Buttom>
-                                <Buttom><Img id='down-pedestre' src={pedestre} alt='' /></Buttom>
+                                <Buttom onClick={addWalkBottom}><Img id='down-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>

@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Img = styled.img`
-    width: 110px;
+    width: 130px;
     animation: ${ zoom } .3s ease-in-out;
 `;
 

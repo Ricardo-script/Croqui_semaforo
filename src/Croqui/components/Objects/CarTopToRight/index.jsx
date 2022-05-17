@@ -11,7 +11,7 @@ export default function CarTopToRight(props){
             {props.carTopToRight.map((item,index) => {
                 if(props.carTopToRight[index] !== ''){
                     return(
-                        <ItemDraggable key={index} index={index} object='carTopToRight' top={item.top} left={item.left} setCarTop={props.setCarTopToRight} carTop={props.carTopToRight}>
+                        <ItemDraggable key={index} index={index} object='carTopToRight' top={item.top} left={item.left} setCarTopToRight={props.setCarTopToRight} carTopToRight={props.carTopToRight}>
                             <MoveTopToRight src={subindo} alt="" move={props.moveTopToRight}/>
                             <Options remove={props.remove} onClick={() => props.removeCarTopToRight(index,item)}>
                                 <img src={close} alt="" />

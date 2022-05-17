@@ -11,7 +11,7 @@ export default function CarLeft(props){
             {props.carLeft.map((item,index) => {
                 if(props.carLeft[index] !== ''){
                     return(
-                        <ItemDraggable key={index} index={index} object='carLeft' top={item.top} left={item.left} setCarRight={props.setCarLeft} carRight={props.carLeft}>
+                        <ItemDraggable key={index} index={index} object='carLeft' top={item.top} left={item.left} setCarLeft={props.setCarLeft} carLeft={props.carLeft}>
                             <MoveLeft src={esquerda} alt="" move={props.moveLeft}/>
                             <Options remove={props.remove} onClick={() => props.removeCarLeft(index,item)}>
                                 <img src={close} alt="" />
