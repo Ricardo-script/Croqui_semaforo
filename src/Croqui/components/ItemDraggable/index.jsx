@@ -51,13 +51,13 @@ export default function ItemDraggable(props){
                 valuesCarTop[props.index].top = top;
                 valuesCarTop[props.index].left = left;
                 props.setCarTop(valuesCarTop);
-                console.log(valuesCarTop)
             }
             if(props.carLeft){
                 const valuesCarLeft = [...props.carLeft];
                 valuesCarLeft[props.index].top = top;
                 valuesCarLeft[props.index].left = left;
                 props.setCarLeft(valuesCarLeft);
+                console.log(valuesCarLeft)
             }
             if(props.carBottom){
                 const valuesCarBottom = [...props.carBottom];
@@ -83,6 +83,24 @@ export default function ItemDraggable(props){
                 valuesCarTopToLeft[props.index].left = left;
                 props.setCarTopToLeft(valuesCarTopToLeft);
             }
+            if(props.carRightToTop){
+                const valuesCarRightToTop = [...props.carRightToTop];
+                valuesCarRightToTop[props.index].top = top;
+                valuesCarRightToTop[props.index].left = left;
+                props.setCarRightToTop(valuesCarRightToTop);
+            }
+            if(props.carRightToBottom){
+                const valuesCarRightToBottom = [...props.carRightToBottom];
+                valuesCarRightToBottom[props.index].top = top;
+                valuesCarRightToBottom[props.index].left = left;
+                props.setCarRightToBottom(valuesCarRightToBottom);
+            }
+            if(props.carLeftToBottom){
+                const valuesCarLeftToBottom = [...props.carLeftToBottom];
+                valuesCarLeftToBottom[props.index].top = top;
+                valuesCarLeftToBottom[props.index].left = left;
+                props.setCarLeftToBottom(valuesCarLeftToBottom);
+            }
             if(props.walkLeft){
                 const valuesWalkLeft = [...props.walkLeft];
                 valuesWalkLeft[props.index].top = top;
@@ -100,6 +118,12 @@ export default function ItemDraggable(props){
                 valuesWalkBottom[props.index].top = top;
                 valuesWalkBottom[props.index].left = left;
                 props.setWalkBottom(valuesWalkBottom);
+            }
+            if(props.walkTop){
+                const valuesWalkTop = [...props.walkTop];
+                valuesWalkTop[props.index].top = top;
+                valuesWalkTop[props.index].left = left;
+                props.setWalkTop(valuesWalkTop);
             }
         }
     

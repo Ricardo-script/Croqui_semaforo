@@ -1,4 +1,4 @@
-import styled  from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
@@ -26,9 +26,15 @@ export const ButtonOpen = styled.div`
 
 export const MapaCroqui = styled.div`
     width: 100%;
+    display: flex;
     img{
         width: 100%;
         height: 100vh;
+
+        @media(max-width: 580px){
+            object-fit: none;
+            background: #383737;
+        }
     }
 `;
 
@@ -37,9 +43,6 @@ export const AreaEditor = styled.div`
     background: #062467;
     overflow: hidden;
     transition: .5s;
-    //position: relative;
-    //display: none;
-
     position: fixed;
     top: 0;
     right: 0;
@@ -47,7 +50,28 @@ export const AreaEditor = styled.div`
     z-index: 11;
 
     @media(max-width: 580px){
-        width: 100%;
+        width: ${props => props.open === true ? '100%' : '0'};
+    }
+
+    @media(max-height: 520px){
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+		    width: 4px;
+            &-track-piece {
+                background-color: #383838;
+            }
+
+            &-thumb:vertical,
+            &-thumb:horizontal {
+                background-color: #141414;
+                border-radius:5px;
+            }
+
+            &-thumb:vertical:hover,
+            &-thumb:horizontal:hover {
+                background-color: #717171;
+            }
+	    }
     }
 `;
 export const Editor = styled.div`
@@ -108,9 +132,11 @@ export const Buttom = styled.div`
     }
 `;
 
+export const OptionButton = styled.div``;
+
 export const Img = styled.img`
     width: 100%;
-    user-select: none;
+    //user-select: none;
    
     &#top-left{
         transform: scaleX(-1);
@@ -154,5 +180,8 @@ export const Img = styled.img`
     }
     &#close{
         width: 17px;
+    }
+    &#clear{
+        
     }
 `;

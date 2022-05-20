@@ -13,15 +13,15 @@ const goTopToRight = keyframes`
     }
     75%{
         transform: translateY(-19vw) rotate(90deg);
-        left: 50px;
+        left: 2vw;
         transition: 1s;
         opacity: 1;
     }
     100% {
         transform: translateY(-19vw) rotate(90deg);
-        left: 200px;
+        left: 20vw;
         transition: 1s;
-        opacity: 0;
+        opacity: 0.4;
     }
 
 `;
@@ -51,7 +51,7 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveTopToRight = styled.img`
-    width: 33px;
+    width: 67%;
     height: auto;
     position: relative;
     animation: ${ props => props.move === true ? goTopToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };

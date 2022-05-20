@@ -43,7 +43,7 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveWalkRight = styled.img`
-    width: 26px;
+    width: 45%;
     height: auto;
     position: relative;
     animation: ${ props => props.move === true ? walkToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '4s infinite'  : '.5s ease-in-out' };

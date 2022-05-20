@@ -40,7 +40,7 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveBottom = styled.img`
-    width: 33px;
+    width: 50%;
     height: auto;
     animation: ${ props => props.move === true ? goBottom : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
 `;
