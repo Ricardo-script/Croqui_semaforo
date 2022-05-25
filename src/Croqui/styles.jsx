@@ -18,7 +18,7 @@ export const AreaMapaCroqui = styled.div`
 
 export const ButtonOpen = styled.div`
     position: absolute;
-    z-index: 12;
+    z-index: 5;
     top: 7px;
     right: 7px;
     cursor: pointer;
@@ -32,7 +32,7 @@ export const MapaCroqui = styled.div`
         height: 100vh;
 
         @media(max-width: 580px){
-            object-fit: none;
+            object-fit: contain;
             background: #383737;
         }
     }
@@ -47,7 +47,7 @@ export const AreaEditor = styled.div`
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 11;
+    z-index: 4;
 
     @media(max-width: 580px){
         width: ${props => props.open === true ? '100%' : '0'};

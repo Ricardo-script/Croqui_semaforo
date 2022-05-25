@@ -12,6 +12,7 @@ export const Container = styled.div`
     height: fit-content;
     box-shadow: rgb(121 121 121 / 27%) -6px 6px 3px -1px;
     display: ${props => props.open === false ? 'none' : 'block'};
+    z-index: 4;
 `;
 
 export const Header = styled.div`

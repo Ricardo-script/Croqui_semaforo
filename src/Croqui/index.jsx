@@ -3,22 +3,29 @@ import { Container, AreaMapaCroqui, ButtonOpen, MapaCroqui, AreaEditor, Editor, 
 Buttom, Img } from './styles';
 import { GiHamburgerMenu } from "react-icons/gi";
 import ModalConfirm from './components/Modals/modalConfirm';
-import CarRight from './components/Objects/CarRight';
-import CarTop from './components/Objects/CarTop';
-import CarLeft from './components/Objects/CarLeft';
-import CarBottom from './components/Objects/CarBottom';
-import CarTopToRight from './components/Objects/CarTopToRight';
-import CarTopToLeft from './components/Objects/CarTopToLeft';
-import CarRightToBottom from './components/Objects/CarRightToBottom';
-import CarLeftToBottom from './components/Objects/CarLeftToBottom';
-import CarRightToTop from './components/Objects/CarRightToTop';
-import Semaforo from './components/Objects/Semaforo';
-import WalkLeft from './components/Objects/WalkLeft';
-import WalkRight from './components/Objects/walkRight';
-import WalkBottom from './components/Objects/WalkBottom';
-import WalkTop from './components/Objects/WalkTop';
+import CarRight from './components/Objects/animated/CarRight';
+import CarTop from './components/Objects/animated/CarTop';
+import CarLeft from './components/Objects/animated/CarLeft';
+import CarBottom from './components/Objects/animated/CarBottom';
+import CarTopToRight from './components/Objects/animated/CarTopToRight';
+import CarTopToLeft from './components/Objects/animated/CarTopToLeft';
+import CarRightToBottom from './components/Objects/animated/CarRightToBottom';
+import CarLeftToBottom from './components/Objects/animated/CarLeftToBottom';
+import CarRightToTop from './components/Objects/animated/CarRightToTop';
+import CarLeftToTop from './components/Objects/animated/CarLeftToTop';
+import Semaforo from './components/Objects/animated/Semaforo';
+import WalkLeft from './components/Objects/animated/WalkLeft';
+import WalkRight from './components/Objects/animated/walkRight';
+import WalkBottom from './components/Objects/animated/WalkBottom';
+import WalkTop from './components/Objects/animated/WalkTop';
+import ArrowTopToRight from './components/Objects/default/ArrowTopToRight';
+import ArrowTopToLeft from './components/Objects/default/ArrowTopToLeft';
+import ArrowRightToBottom from './components/Objects/default/ArrowRightToBottom';
+import ArrowRightToTop from './components/Objects/default/ArrowRightToTop';
+import ArrowTop from './components/Objects/default/ArrowTop';
 //import mapa from './components/img/mapaCroqui.jpg';
 import MapaDefault from './components/img/MapaDefault.png';
+import MapaCroqui02  from './components/img/mapaCroqui02.jpg';
 //import cruzamento from './components/img/cruzamento.png';
 import logo from './components/img/logoCroqui.svg';
 import arrow from './components/img/arrow.png';
@@ -40,7 +47,8 @@ export default function Croqui() {
     const [openTypesTopRigth, setOpenTypesTopRigth] = useState(false);
     const [openTypesTopLeft, setOpenTypesTopLeft] = useState(false);
     const [openTypesTop, setOpenTypesTop] = useState(false);
-    //const [openTypesBottomRigth, setOpenTypesBottomRigth] = useState(false);
+    const [openTypeRigthToBottom, setopenTypeRigthToBottom] = useState(false);
+    const [openTypeRigthToTop, setOpenTypeRigthToTop] = useState(false);
     
 
     // states dos objetos a ser inseridos no mapa
@@ -59,6 +67,12 @@ export default function Croqui() {
     const [walkRight, setWalkRight] = useState([]);
     const [walkBottom, setWalkBottom] = useState([]);
     const [walkTop, setWalkTop] = useState([]);
+    const [arrowTopToRight, setArrowTopToRight] = useState([]);
+    const [arrowTopToLeft, setArrowTopToLeft] = useState([]);
+    const [arrowRightToBottom, setArrowRightToBottom] = useState([]);
+    const [arrowTop, setArrowTop] = useState([]);
+    const [arrowRight, setArrowRight] = useState([])
+    const [arrowRightToTop, setArrowRightToTop] = useState([]);
     const [openModal, setOpenModal] = useState(false);
 
     // states para animações dos objetos no mapa
@@ -76,7 +90,8 @@ export default function Croqui() {
     const [moveWalkRight, setMoveWalkRight] = useState(false);
     const [moveWalkBottom, setMoveWalkBottom] = useState(false);
     const [moveWalkTop, setMoveWalkTop] = useState(false);
-
+    const [moveArrowTop, setMoveArrowTop] = useState(false);
+    const [moveArrowRight ,setMoveArrowRight] = useState(false);
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
 
@@ -88,6 +103,8 @@ export default function Croqui() {
             setOpenTypesTopRigth(false);
             setOpenTypesTopLeft(false);
             setOpenTypesTop(false);
+            setopenTypeRigthToBottom(false);
+            setOpenTypeRigthToTop(false);
         } else {
             setOpenTools(true);
         }
@@ -129,7 +146,6 @@ export default function Croqui() {
         setCarTopToRight(objects);
     }
 
-    
     const addCarTopToLeft = () => {
         setRemove(false);
         const objects = [...carTopToLeft];
@@ -200,8 +216,65 @@ export default function Croqui() {
         setWalkTop(objects);
     }
 
+    const addArrowTopToRight = () => {
+        setRemove(false);
+        const objects = [...arrowTopToRight];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowTopToRight(objects);
+    }
+
+    const addArrowTopToLeft = () => {
+        setRemove(false);
+        const objects = [...arrowTopToLeft];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowTopToLeft(objects);
+    }
+
+    const addArrowRightToBottom = () => {
+        setRemove(false);
+        const objects = [...arrowRightToBottom];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowRightToBottom(objects);
+    }
+
+    const addArrowTop = () => {
+        setRemove(false);
+        const objects = [...arrowTop];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowTop(objects);
+    }
+
+    const addArrowRightToTop = () => {
+        setRemove(false);
+        const objects = [...arrowRightToTop];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowRightToTop(objects);
+    }
+
 
     //funções para remever objetos em tela
+
+    const removeAll = () => {
+        setCarRight([]);
+        setCarTop([]);
+        setCarLeft([]);
+        setCarBottom([]);
+        setCarTopToRight([]);
+        setCarTopToLeft([]);
+        setCarRightToBottom([]);
+        setCarLeftToBottom([]);
+        setCarLeftToTop([]);
+        setCarRightToTop([]);
+        setObjSemaforo([]);
+        setWalkLeft([]);
+        setWalkRight([]);
+        setWalkBottom([]);
+        setWalkTop([]);
+        setArrowTopToRight([]);
+        setArrowTop([]);
+        setOpenModal(false);
+    }
+
     const removeCarRight = (item, index) => {
         const objects = [...carRight];
         objects[objects.indexOf(index)] = '';
@@ -292,6 +365,42 @@ export default function Croqui() {
         setWalkTop(objects);
     }
 
+    const removeArrowTopToRight = (item, index) => {
+        const objects = [...arrowTopToRight];
+        objects[objects.indexOf(index)] = '';
+        setArrowTopToRight(objects);
+    }
+
+    const removeArrowTopToLeft = (item, index) => {
+        const objects = [...arrowTopToLeft];
+        objects[objects.indexOf(index)] = '';
+        setArrowTopToLeft(objects);
+    }
+
+    const removeArrowTop = (item, index) => {
+        const objects = [...arrowTop];
+        objects[objects.indexOf(index)] = '';
+        setArrowTop(objects);
+    }
+
+    const removeArrowRightToBottom = (item, index) => {
+        const objects = [...arrowRightToBottom];
+        objects[objects.indexOf(index)] = '';
+        setArrowRightToBottom(objects);
+    }
+
+    const removeArrowRightToTop = (item, index) => {
+        const objects = [...arrowRightToTop];
+        objects[objects.indexOf(index)] = '';
+        setArrowRightToTop(objects);
+    }
+
+    const removeArrowRight = (item, index) => {
+        const objects = [...arrowRight];
+        objects[objects.indexOf(index)] = '';
+        setArrowRight(objects);
+    }
+
     // Animações
     const playAnimate = () => {
         setRemove(false);
@@ -309,7 +418,7 @@ export default function Croqui() {
         setMoveWalkRight(true);
         setMoveWalkBottom(true);
         setMoveWalkTop(true);
-       
+        setMoveArrowTop(true);
     }
 
     // parar animação
@@ -328,6 +437,7 @@ export default function Croqui() {
         setMoveWalkRight(false);
         setMoveWalkBottom(false);
         setMoveWalkTop(false);
+        setMoveArrowTop(false);
         setRemove(false);
     }
 
@@ -347,6 +457,7 @@ export default function Croqui() {
         setMoveWalkRight('pause');
         setMoveWalkBottom('pause');
         setMoveWalkTop('pause');
+        setMoveArrowTop('pause');
         setRemove(false);
     }
 
@@ -366,6 +477,7 @@ export default function Croqui() {
         setMoveWalkRight(false);
         setMoveWalkBottom(false);
         setMoveWalkTop(false);
+        setMoveArrowTop(false);
         if (remove) {
             setRemove(false);
         } else {
@@ -388,7 +500,8 @@ export default function Croqui() {
                 setOpenTypesTopRigth(true);
                 setOpenTypesTopLeft(false);
                 setOpenTypesTop(false);
-                //setOpenTypesBottomRigth(false)
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
             }else{
                 setOpenTypesTopRigth(false);
             }
@@ -398,7 +511,8 @@ export default function Croqui() {
                 setOpenTypesTopLeft(true);
                 setOpenTypesTopRigth(false);
                 setOpenTypesTop(false);
-                //setOpenTypesBottomRigth(false)
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
                 
             }else{
                 setOpenTypesTopLeft(false);
@@ -409,21 +523,46 @@ export default function Croqui() {
                 setOpenTypesTopLeft(false);
                 setOpenTypesTopRigth(false);
                 setOpenTypesTop(true);
-                //setOpenTypesBottomRigth(false)
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
                 
             }else{
                 setOpenTypesTop(false);
             }
         }
+        if(name === 'right-down'){
+            if(openTypeRigthToBottom === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(true);
+                setOpenTypeRigthToTop(false);
+                
+            }else{
+                setopenTypeRigthToBottom(false);
+            }
+        }
+        if(name === 'right-top'){
+            if(openTypeRigthToTop === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(true);
+                
+            }else{
+                setOpenTypeRigthToTop(false);
+            }
+        }
         //inserir depois que criar o right-down
-       
+    
     }
 
     return (
         <Container>
             <AreaMapaCroqui>
                 <MapaCroqui>
-                    <img src={MapaDefault} alt="" />
+                    <img src={MapaCroqui02} alt="" />
                 </MapaCroqui>
                 <ButtonOpen onClick={() => openDrawer()} title={openTools === false ? 'Abrir editor' : 'Fechar editor'}>
                     <GiHamburgerMenu size={35} color={openTools === false ? '#062467' : '#FFF'} />
@@ -456,6 +595,9 @@ export default function Croqui() {
                 <CarRightToTop carRightToTop={carRightToTop} setCarRightToTop={setCarRightToTop} moveRightToTop={moveRightToTop}
                     setMoveRightToTop={setMoveRightToTop} remove={remove} removeRightToTop={removeRightToTop}
                 />
+                <CarLeftToTop carLeftToTop={carLeftToTop} setCarLeftToTop={setCarLeftToTop} moveLeftToTop={moveLeftToTop}
+                    setMoveLeftToTop={setMoveLeftToTop} remove={remove} removeLeftToTop={removeLeftToTop}
+                />
                 <Semaforo objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
                     remove={remove} removeSemaforo={removeSemaforo}
                 />
@@ -471,7 +613,25 @@ export default function Croqui() {
                 <WalkTop walkTop={walkTop} setWalkTop={setWalkTop} moveWalkTop={moveWalkTop}
                     setMoveWalkTop={setMoveWalkTop} remove={remove} removeWalkTop={removeWalkTop}
                 />
-                <ModalConfirm openModal={openModal} setOpenModal={setOpenModal}/>
+                <ArrowTopToRight arrowTopToRight={arrowTopToRight} setArrowTopToRight={setArrowTopToRight} 
+                    remove={remove} removeArrowTopToRight={removeArrowTopToRight}
+                />
+                <ArrowTopToLeft arrowTopToLeft={arrowTopToLeft} setArrowTopToLeft={setArrowTopToLeft} 
+                    remove={remove} removeArrowTopToLeft={removeArrowTopToLeft}
+                />
+                <ArrowTop arrowTop={arrowTop} setArrowTop={setArrowTop} moveArrowTop={moveArrowTop}
+                    setMoveArrowTop={setMoveArrowTop} remove={remove} removeArrowTop={removeArrowTop}
+                />
+                <arrowRight arrowRight={arrowRight} setArrowRight={setArrowRight} moveArrowRight={moveArrowRight}
+                    setMoveArrowRight={setMoveArrowRight} remove={remove} removeArrowRight={removeArrowRight}
+                />
+                <ArrowRightToBottom arrowRightToBottom={arrowRightToBottom} setArrowRightToBottom={setArrowRightToBottom} 
+                    remove={remove} removeArrowRightToBottom={removeArrowRightToBottom}
+                />
+                <ArrowRightToTop arrowRightToTop={arrowRightToTop} setArrowRightToTop={setArrowRightToTop} 
+                    remove={remove} removeArrowRightToTop={removeArrowRightToTop}
+                />
+                <ModalConfirm openModal={openModal} setOpenModal={setOpenModal} removeAll={removeAll}/>
                 
             </AreaMapaCroqui>
             <AreaEditor open={openTools}>
@@ -485,15 +645,15 @@ export default function Croqui() {
                             <AreaButtons>
                                 <OptionButton>
                                     <Buttom onClick={() => openTypes('top-right')}><Img id='top-right' src={arrowSide} alt='' /></Buttom>
-                                    <MenuType name='topToright' openTypes={openTypesTopRigth} setOpenTypes={setOpenTypesTopRigth} addObject={addCarTopToRight}/>
+                                    <MenuType name='topToright' openTypes={openTypesTopRigth} setOpenTypes={setOpenTypesTopRigth} addObject={addCarTopToRight} addObjectArrow={addArrowTopToRight}/>
                                 </OptionButton>
                                 <OptionButton>
                                     <Buttom onClick={() => openTypes('top-left')}><Img id='top-left' src={arrowSide} alt='' /></Buttom>
-                                    <MenuType name='topToleft' openTypes={openTypesTopLeft} setOpenTypes={setOpenTypesTopLeft} addObject={addCarTopToLeft}/>
+                                    <MenuType name='topToleft' openTypes={openTypesTopLeft} setOpenTypes={setOpenTypesTopLeft} addObject={addCarTopToLeft} addObjectArrow={addArrowTopToLeft}/>
                                 </OptionButton>
                                 <OptionButton>
                                     <Buttom onClick={() => openTypes('top')}><Img id='top' src={arrow} alt='' /></Buttom>
-                                    <MenuType name='top' openTypes={openTypesTop} setOpenTypes={setOpenTypesTop} addObject={addCarTop}/>
+                                    <MenuType name='top' openTypes={openTypesTop} setOpenTypes={setOpenTypesTop} addObject={addCarTop} addObjectArrow={addArrowTop}/>
                                 </OptionButton>
                                 <Buttom onClick={addWalkTop}><Img id='top-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
@@ -502,10 +662,14 @@ export default function Croqui() {
                             <Legend>Direita</Legend>
                             <AreaButtons>
                                 <OptionButton>
-                                    <Buttom onClick={addCarRightToBottom}><Img id='right-down' src={arrowSide} alt='' /></Buttom>
-                                    {/* <MenuType name='BottomToright' openTypes={openTypesBottomRigth} setOpenTypes={setOpenTypesBottomRigth}/>*/}
+                                    <Buttom onClick={() => openTypes('right-down')}><Img id='right-down' src={arrowSide} alt='' /></Buttom>
+                                    <MenuType name='rightToDown' openTypes={openTypeRigthToBottom} setOpenTypes={setopenTypeRigthToBottom} addObject={addCarRightToBottom} addObjectArrow={addArrowRightToBottom}/>
                                 </OptionButton>
-                                <Buttom onClick={addCarRightToTop}><Img id='right-top' src={arrowSide} alt='' /></Buttom>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('right-top')}><Img id='right-top' src={arrowSide} alt='' /></Buttom>
+                                    <MenuType name='rightTotop' openTypes={openTypeRigthToTop} setOpenTypes={setOpenTypeRigthToTop} addObject={addCarRightToTop} addObjectArrow={addArrowRightToTop}/>
+                                </OptionButton>
+                                {/*continuar daqui inserir */}
                                 <Buttom onClick={addCarRight}><Img id='right' src={arrow} alt='' /></Buttom>
                                 <Buttom onClick={addWalkRight}><Img id='right-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
@@ -514,7 +678,7 @@ export default function Croqui() {
                             <Legend>Esquerda</Legend>
                             <AreaButtons>
                                 <Buttom onClick={addCarLeftToBottom}><Img id='left-down' src={arrowSide} alt='' /></Buttom>
-                                <Buttom><Img id='left-top' src={arrowSide} alt='' /></Buttom>
+                                <Buttom onClick={addCarLeftToTop}><Img id='left-top' src={arrowSide} alt='' /></Buttom>
                                 <Buttom onClick={addCarLeft}><Img id='left' src={arrow} alt='' /></Buttom>
                                 <Buttom onClick={addWalkLeft}><Img id='left-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>

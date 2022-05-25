@@ -13,7 +13,7 @@ export default function ModalConfirm(props) {
             <Content>
                 <span>Deseja realmente apagar todos os objetos inseridos no croqui?</span>
                 <AreaButtons>
-                    <Buttom>Sim</Buttom>
+                    <Buttom onClick={() => props.removeAll()}>Sim</Buttom>
                     <Buttom onClick={() => props.setOpenModal(false)}>Não</Buttom>
                 </AreaButtons>
             </Content>

@@ -89,6 +89,12 @@ export default function ItemDraggable(props){
                 valuesCarRightToTop[props.index].left = left;
                 props.setCarRightToTop(valuesCarRightToTop);
             }
+            if(props.carLeftToTop){
+                const valuesCarLeftToTop = [...props.carLeftToTop];
+                valuesCarLeftToTop[props.index].top = top;
+                valuesCarLeftToTop[props.index].left = left;
+                props.setCarLeftToTop(valuesCarLeftToTop);
+            }
             if(props.carRightToBottom){
                 const valuesCarRightToBottom = [...props.carRightToBottom];
                 valuesCarRightToBottom[props.index].top = top;
@@ -124,6 +130,42 @@ export default function ItemDraggable(props){
                 valuesWalkTop[props.index].top = top;
                 valuesWalkTop[props.index].left = left;
                 props.setWalkTop(valuesWalkTop);
+            }
+            if(props.arrowTopToRight){
+                const valuesArrowTopToRight = [...props.arrowTopToRight];
+                valuesArrowTopToRight[props.index].top = top;
+                valuesArrowTopToRight[props.index].left = left;
+                props.setArrowTopToRight(valuesArrowTopToRight);
+            }
+            if(props.arrowTopToLeft){
+                const valuesArrowTopToLeft = [...props.arrowTopToLeft];
+                valuesArrowTopToLeft[props.index].top = top;
+                valuesArrowTopToLeft[props.index].left = left;
+                props.setArrowTopToLeft(valuesArrowTopToLeft);
+            }
+            if(props.arrowRightToBottom){
+                const valuesArrowRightToBottom = [...props.arrowRightToBottom];
+                valuesArrowRightToBottom[props.index].top = top;
+                valuesArrowRightToBottom[props.index].left = left;
+                props.setArrowRightToBottom(valuesArrowRightToBottom);
+            }
+            if(props.arrowRightToTop){
+                const valuesArrowRightToTop = [...props.arrowRightToTop];
+                valuesArrowRightToTop[props.index].top = top;
+                valuesArrowRightToTop[props.index].left = left;
+                props.setArrowRightToTop(valuesArrowRightToTop);
+            }
+            if(props.arrowTop){
+                const valuesArrowTop = [...props.arrowTop];
+                valuesArrowTop[props.index].top = top;
+                valuesArrowTop[props.index].left = left;
+                props.setArrowTop(valuesArrowTop);
+            }
+            if(props.arrowRight){
+                const valuesArrowRight = [...props.arrowRight];
+                valuesArrowRight[props.index].top = top;
+                valuesArrowRight[props.index].left = left;
+                props.setArrowRight(valuesArrowRight);
             }
         }
     

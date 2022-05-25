@@ -34,6 +34,20 @@ export const TypeObjects = styled.div`
         right: ${props => props.open === false ? '0' : '285px'};
         transition: .3s;
     }
+    &#rightToDown{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 150px;
+        transition: .3s;
+    }
+    &#rightTotop{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 150px;
+        transition: .3s;
+    }
 `;
 
 export const Buttom = styled.div`
@@ -74,8 +88,19 @@ export const Ico = styled.img`
         width: 38px;
         transform: rotate(-90deg);
     }
-    &#arrow{
-        width: 30px;
+    &#rightToDown{
+        width: 38px;
+        transform: rotate(50deg);
     }
-
+    &#rightTotop{
+        width: 38px;
+        transform: rotate(-90deg);
+    }
+    &#arrowtop{
+        width: 30px;
+        transform: rotate(-90deg);
+    }
+    &arrowrightToDown {
+        
+    }
 `;
