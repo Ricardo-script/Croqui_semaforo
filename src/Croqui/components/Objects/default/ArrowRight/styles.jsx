@@ -2,15 +2,15 @@ import styled, { keyframes } from 'styled-components';
 
 const goTop = keyframes`
     0% {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
     }
     90%{
-        transform: translateY(-2.7vw);
+        transform: translateX(2.7vw);
         opacity: 1;
     }
     100% {
-        transform: translateY(-3vw);
+        transform: translatex(3vw);
         opacity: 0;
     }
 `;
@@ -39,7 +39,7 @@ const pause = keyframes` // parar carro no farol vermelho
 
 export const Container = styled.div``;
 
-export const MoveTop = styled.img`
+export const MoveRight = styled.img`
     width: 82%;
     height: auto;
     position: relative;

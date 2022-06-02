@@ -1,16 +1,16 @@
 import styled, { keyframes } from 'styled-components';
 
-const goLeft = keyframes`
+const goBottom = keyframes`
     0% {
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
     }
     90%{
-        transform: translateX(-22vw);
-        opacity: 0.7;
+        transform: translateY(2.7vw);
+        opacity: 1;
     }
     100% {
-        transform: translateX(-22vw);
+        transform: translateY(3vw);
         opacity: 0;
     }
 `;
@@ -36,12 +36,14 @@ const pause = keyframes` // parar carro no farol vermelho
     }
 `;
 
+
 export const Container = styled.div``;
 
-export const MoveLeft = styled.img`
-    width: 130%;
+export const MoveBottom = styled.img`
+    width: 82%;
     height: auto;
-    animation: ${ props => props.move === true ? goLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
+    position: relative;
+    animation: ${ props => props.move === true ? goBottom : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '1.3s infinite'  : '.5s ease-in-out' };
 `;
 
 export const Options = styled.div`

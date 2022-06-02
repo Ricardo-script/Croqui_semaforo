@@ -1,18 +1,29 @@
 import styled, { keyframes } from 'styled-components';
 
-const goLeft = keyframes`
-    0% {
-        transform: translateX(0);
+const goBottomToLeft = keyframes`
+    0%{
+        transform: translateY(0);
+        left: 0;
         opacity: 1;
     }
-    90%{
-        transform: translateX(-22vw);
-        opacity: 0.7;
+    50%{
+        transform: translateY(-18vw) rotate(0deg);
+        left: 0;
+        opacity: 1;
+    }
+    75%{
+        transform: translateY(-19vw) rotate(90deg);
+        left: 2vw;
+        transition: 1s;
+        opacity: 1;
     }
     100% {
-        transform: translateX(-22vw);
-        opacity: 0;
+        transform: translateY(-19vw) rotate(90deg);
+        left: 20vw;
+        transition: 1s;
+        opacity: 0.4;
     }
+
 `;
 
 const zoom = keyframes`
@@ -36,12 +47,14 @@ const pause = keyframes` // parar carro no farol vermelho
     }
 `;
 
+
 export const Container = styled.div``;
 
-export const MoveLeft = styled.img`
-    width: 130%;
+export const MoveBottomToLeft = styled.img`
+    width: 80%;
     height: auto;
-    animation: ${ props => props.move === true ? goLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
+    position: relative;
+    animation: ${ props => props.move === true ? goBottomToLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
 `;
 
 export const Options = styled.div`

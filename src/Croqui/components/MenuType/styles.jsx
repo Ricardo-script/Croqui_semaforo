@@ -48,6 +48,55 @@ export const TypeObjects = styled.div`
         top: 150px;
         transition: .3s;
     }
+    &#right{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 150px;
+        transition: .3s;
+    }
+    &#leftToBottom{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 227px;
+        transition: .3s;
+    }
+    &#leftToTop{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 227px;
+        transition: .3s;
+    }
+    &#left{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 227px;
+        transition: .3s;
+    }
+    &#bottomToLeft{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 300px;
+        transition: .3s;
+    }
+    &#bottomToRight{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 300px;
+        transition: .3s;
+    }
+    &#bottom{
+        overflow: hidden;
+        width: ${props => props.open === false ? '0' : '170px'};
+        right: ${props => props.open === false ? '0' : '285px'};
+        top: 300px;
+        transition: .3s;
+    }
 `;
 
 export const Buttom = styled.div`
@@ -60,6 +109,7 @@ export const Buttom = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     cursor: pointer;
 
     &:hover{
@@ -78,7 +128,7 @@ export const Ico = styled.img`
 
     &#topToright{
         width: 38px;
-        transform: rotate(-44deg);
+        transform: rotate(-45deg);
     }
     &#topToleft{
         width: 38px;
@@ -90,17 +140,42 @@ export const Ico = styled.img`
     }
     &#rightToDown{
         width: 38px;
-        transform: rotate(50deg);
+        transform: rotate(45deg);
     }
     &#rightTotop{
         width: 38px;
         transform: rotate(-90deg);
     }
     &#arrowtop{
-        width: 30px;
         transform: rotate(-90deg);
     }
-    &arrowrightToDown {
-        
+    &#right {
+        width: 38px;
     }
+    &#leftToBottom{
+        width: 38px;
+    }
+    &#leftToTop{
+        width: 38px;
+        transform: rotate(45deg);
+    }
+    &#arrowleft{
+        transform: rotate(180deg);
+    }
+    &#left{
+        width: 38px;
+    }
+    &#bottomToLeft{
+        width: 38px;
+        transform: rotate(-45deg);
+    }
+    &#bottomToRight{
+        width: 38px;
+        transform: rotate(-135deg);
+    }
+    &#bottom{
+        width: 38px;
+        transform: rotate(-90deg);
+    }
+
 `;

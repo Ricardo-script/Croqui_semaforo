@@ -13,7 +13,9 @@ import CarRightToBottom from './components/Objects/animated/CarRightToBottom';
 import CarLeftToBottom from './components/Objects/animated/CarLeftToBottom';
 import CarRightToTop from './components/Objects/animated/CarRightToTop';
 import CarLeftToTop from './components/Objects/animated/CarLeftToTop';
-import Semaforo from './components/Objects/animated/Semaforo';
+import CarBottomToLeft from './components/Objects/animated/CarBottomToLeft';
+import CarBottomToRight from './components/Objects/animated/CarBottomToRight';
+import SemaforoFront from './components/Objects/animated/SemaforoFront';
 import WalkLeft from './components/Objects/animated/WalkLeft';
 import WalkRight from './components/Objects/animated/walkRight';
 import WalkBottom from './components/Objects/animated/WalkBottom';
@@ -23,8 +25,15 @@ import ArrowTopToLeft from './components/Objects/default/ArrowTopToLeft';
 import ArrowRightToBottom from './components/Objects/default/ArrowRightToBottom';
 import ArrowRightToTop from './components/Objects/default/ArrowRightToTop';
 import ArrowTop from './components/Objects/default/ArrowTop';
+import ArrowRight from './components/Objects/default/ArrowRight';
+import ArrowLeftToBottom from './components/Objects/default/ArrowLeftToBottom';
+import ArrowLeftToTop from './components/Objects/default/ArrowLeftToTop';
+import ArrowLeft from './components/Objects/default/ArrowLeft';
+import ArrowBottomToLeft from './components/Objects/default/ArrowBottomToLeft';
+import ArrowBottomToRight from './components/Objects/default/ArrowBottomToRight';
+import ArrowBottom from './components/Objects/default/ArrowBottom';
 //import mapa from './components/img/mapaCroqui.jpg';
-import MapaDefault from './components/img/MapaDefault.png';
+//import MapaDefault from './components/img/MapaDefault.png';
 import MapaCroqui02  from './components/img/mapaCroqui02.jpg';
 //import cruzamento from './components/img/cruzamento.png';
 import logo from './components/img/logoCroqui.svg';
@@ -37,19 +46,27 @@ import icoSemaforo from './components/img/icoSemaforo.png';
 import toolclose from './components/img/toolclose.png';
 import clear from './components/img/clear.png';
 import MenuType from './components/MenuType';
-
+import MenuTypeSemaforo from './components/MenuTypeSemaforo';
 
 export default function Croqui() {
 
+    //state para abrir editor
     const [openTools, setOpenTools] = useState(false);
 
-    //states para menu de opções de objetos
+    //states para menu de opções de objetos no editor
     const [openTypesTopRigth, setOpenTypesTopRigth] = useState(false);
     const [openTypesTopLeft, setOpenTypesTopLeft] = useState(false);
     const [openTypesTop, setOpenTypesTop] = useState(false);
     const [openTypeRigthToBottom, setopenTypeRigthToBottom] = useState(false);
     const [openTypeRigthToTop, setOpenTypeRigthToTop] = useState(false);
-    
+    const [openTypeRight, setOpenTypeRight] = useState(false);
+    const [openTypeLeftToBottom, setOpenTypeLeftToBottom] = useState(false);
+    const [openTypeLeftToTop, setOpenTypeLeftToTop] = useState(false);
+    const [openTypeLeft, setOpenTypeLeft] = useState(false);
+    const [openTypeBottomToLeft, setOpenTypeBottomToLeft] = useState(false);
+    const [openTypeBottomToRight, setOpenTypeBottomToRight] = useState(false);
+    const [openTypeBottom, setOpenTypeBottom] = useState(false);
+    const [openTypeSemaforo, setOpenTypeSemaforo] = useState(false);
 
     // states dos objetos a ser inseridos no mapa
     const [carRight, setCarRight] = useState([]); //{ top: 42, left: 53},{ top: 42, left: 5},{ top: 37, left: 0}
@@ -62,6 +79,8 @@ export default function Croqui() {
     const [carLeftToBottom, setCarLeftToBottom] = useState([]);
     const [carLeftToTop, setCarLeftToTop] = useState([]);
     const [carRightToTop, setCarRightToTop] = useState([]);
+    const [carBottomToLeft, setCarBottomToLeft] = useState([]);
+    const [carBottomToRight, setCarBottomToRight] = useState([]);
     const [objSemaforo, setObjSemaforo] = useState([]);
     const [walkLeft, setWalkLeft] = useState([]);
     const [walkRight, setWalkRight] = useState([]);
@@ -71,8 +90,14 @@ export default function Croqui() {
     const [arrowTopToLeft, setArrowTopToLeft] = useState([]);
     const [arrowRightToBottom, setArrowRightToBottom] = useState([]);
     const [arrowTop, setArrowTop] = useState([]);
-    const [arrowRight, setArrowRight] = useState([])
+    const [arrowRight, setArrowRight] = useState([]);
+    const [arrowLeft, setArrowLeft] = useState([]);
     const [arrowRightToTop, setArrowRightToTop] = useState([]);
+    const [arrowLeftToBottom, setArrowLeftToBottom] = useState([]);
+    const [arrowLeftToTop, setArrowLeftToTop] = useState([]);
+    const [arrowBottomToLeft, setArrowBottomToLeft] = useState([]);
+    const [arrowBottomToRight, setArrowBottomToRight] = useState([]);
+    const [arrowBottom, setArrowBottom] = useState([]);
     const [openModal, setOpenModal] = useState(false);
 
     // states para animações dos objetos no mapa
@@ -86,16 +111,30 @@ export default function Croqui() {
     const [moveLeftToBottom, setMoveLeftToBottom] = useState(false);
     const [moveRightToTop, setMoveRightToTop] = useState(false);
     const [moveLeftToTop, setMoveLeftToTop] = useState(false);
+    const [moveBottomToLeft, setMoveBottomToLeft] = useState(false);
+    const [moveBottomToRight, setMoveBottomToRight] = useState(false);
     const [moveWalkLeft, setMoveWalkLeft] = useState(false);
     const [moveWalkRight, setMoveWalkRight] = useState(false);
     const [moveWalkBottom, setMoveWalkBottom] = useState(false);
     const [moveWalkTop, setMoveWalkTop] = useState(false);
     const [moveArrowTop, setMoveArrowTop] = useState(false);
     const [moveArrowRight ,setMoveArrowRight] = useState(false);
+    const [moveArrowLeft, setMoveArrowLeft] = useState(false);
+    const [moveArrowTopToRight, setMoveArrowTopToRight] = useState(false);
+    const [moveArrowTopToLeft, setMoveArrowTopToLeft] = useState(false);
+    const [moveArrowRightToBottom, setMoveArrowRightToBottom] = useState(false);
+    const [moveArrowRightToTop, setMoveArrowRightToTop] = useState(false);
+    const [moveArrowLeftToBottom, setMoveArrowLeftBottom] = useState(false);
+    const [moveArrowLeftToTop, setMoveArrowLeftToTop] = useState(false);
+    const [moveArrowBottomToLeft, setMoveArrowBottomToLeft] = useState(false);
+    const [moveArrowBottomToRight, setMoveArrowBottomToRight] = useState(false);
+    const [moveArrowBottom, setMoveArrowBottom] = useState(false);
+
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
 
 
+    //Função abrir editor 
     const openDrawer = () => {
         if (openTools) {
             setOpenTools(false);
@@ -105,6 +144,15 @@ export default function Croqui() {
             setOpenTypesTop(false);
             setopenTypeRigthToBottom(false);
             setOpenTypeRigthToTop(false);
+            setOpenTypeRight(false);
+            setOpenTypeLeftToBottom(false);
+            setOpenTypeLeftToTop(false);
+            setOpenTypeLeft(false);
+            setOpenTypeBottomToLeft(false);
+            setOpenTypeBottomToRight(false);
+            setOpenTypeBottom(false);
+            setOpenTypeSemaforo(false);
+            
         } else {
             setOpenTools(true);
         }
@@ -181,6 +229,20 @@ export default function Croqui() {
         setCarLeftToTop(objects);
     }
 
+    const addCarBottomToLeft = () => {
+        setRemove(false);
+        const objects = [...carBottomToLeft];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setCarBottomToLeft(objects);
+    }
+
+    const addCarBottomToRight = () => {
+        setRemove(false);
+        const objects = [...carBottomToRight];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setCarBottomToRight(objects);
+    }
+
     const addSemaforo = () => {
         setRemove(false);
         const objects = [...objSemaforo];
@@ -251,9 +313,57 @@ export default function Croqui() {
         setArrowRightToTop(objects);
     }
 
+    const addArrowRight = () => {
+        setRemove(false);
+        const objects = [...arrowRight];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowRight(objects);
+    }
+
+    const addArrowLeftToBottom = () => {
+        setRemove(false);
+        const objects = [...arrowLeftToBottom];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowLeftToBottom(objects);
+    }
+
+    const addArrowLeftToTop = () => {
+        setRemove(false);
+        const objects = [...arrowLeftToTop];
+        objects.push({ id: objects.length, top: 47.89, left: 47.96 });
+        setArrowLeftToTop(objects);
+    }
+
+    const addArrowLeft = () => {
+        setRemove(false);
+        const objects = [...arrowLeft];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setArrowLeft(objects);
+    }
+
+    const addArrowBottomToLeft = () => {
+        setRemove(false);
+        const objects = [...arrowBottomToLeft];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setArrowBottomToLeft(objects);
+    }
+
+    const addArrowBottomToRight = () => {
+        setRemove(false);
+        const objects = [...arrowBottomToRight];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setArrowBottomToRight(objects);
+    }   
+
+    const addArrowBottom = () => {
+        setRemove(false);
+        const objects = [...arrowBottom];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setArrowBottom(objects);
+    }
+
 
     //funções para remever objetos em tela
-
     const removeAll = () => {
         setCarRight([]);
         setCarTop([]);
@@ -265,6 +375,8 @@ export default function Croqui() {
         setCarLeftToBottom([]);
         setCarLeftToTop([]);
         setCarRightToTop([]);
+        setCarBottomToLeft([]);
+        setCarBottomToRight([]);
         setObjSemaforo([]);
         setWalkLeft([]);
         setWalkRight([]);
@@ -272,6 +384,13 @@ export default function Croqui() {
         setWalkTop([]);
         setArrowTopToRight([]);
         setArrowTop([]);
+        setArrowRight([]);
+        setArrowRightToTop([]);
+        setArrowLeftToBottom([]);
+        setArrowLeftToTop([]);
+        setArrowBottomToLeft([]);
+        setArrowBottomToRight([]);
+        setArrowBottom([]);
         setOpenModal(false);
     }
 
@@ -324,9 +443,9 @@ export default function Croqui() {
     }
 
     const removeLeftToTop = (item, index) => {
-        const objects = [...carRightToTop];
+        const objects = [...carLeftToTop];
         objects[objects.indexOf(index)] = '';
-        setCarRightToTop(objects);
+        setCarLeftToTop(objects);
     }
 
     const removeRightToBottom = (item, index) => {
@@ -339,6 +458,18 @@ export default function Croqui() {
         const objects = [...carLeftToBottom];
         objects[objects.indexOf(index)] = '';
         setCarLeftToBottom(objects);
+    }
+
+    const removeBottomToLeft = (items,index) => {
+        const objects = [...carBottomToLeft];
+        objects[objects.indexOf(index)] = '';
+        setCarBottomToLeft(objects);
+    }
+
+    const removeBottomToRight = (items, index) => {
+        const objects = [...carBottomToRight];
+        objects[objects.indexOf(index)] = '';
+        setCarBottomToRight(objects);
     }
 
     const removeWalkLeft = (item, index) => {
@@ -401,6 +532,42 @@ export default function Croqui() {
         setArrowRight(objects);
     }
 
+    const removeArrowLeftToBottom = (items, index) => {
+        const objects = [...arrowLeftToBottom];
+        objects[objects.indexOf(index)] = '';
+        setArrowLeftToBottom(objects);
+    }
+
+    const removeArrowLeftToTop = (items, index) => {
+        const objects = [...arrowLeftToTop];
+        objects[objects.indexOf(index)] = '';
+        setArrowLeftToTop(objects);
+    }
+
+    const removeArrowLeft = (items, index) => {
+        const objects = [...arrowLeft];
+        objects[objects.indexOf(index)] = '';
+        setArrowLeft(objects);
+    }
+
+    const removeArrowBottomToLeft = (items, index) => {
+        const objects = [...arrowBottomToLeft];
+        objects[objects.indexOf(index)] = '';
+        setArrowBottomToLeft(objects);
+    }
+
+    const removeArrowBottomToRight = (items, index) => {
+        const objects = [...arrowBottomToRight];
+        objects[objects.indexOf(index)] = '';
+        setArrowBottomToRight(objects);
+    }
+
+    const removeArrowBottom = (items, index) => {
+        const objects = [...arrowBottom];
+        objects[objects.indexOf(index)] = '';
+        setArrowBottom(objects);
+    }
+
     // Animações
     const playAnimate = () => {
         setRemove(false);
@@ -414,11 +581,24 @@ export default function Croqui() {
         setMoveLeftToBottom(true);
         setMoveLeftToTop(true);
         setMoveRightToTop(true);
+        setMoveBottomToLeft(true);
+        setMoveBottomToRight(true);
         setMoveWalkLeft(true);
         setMoveWalkRight(true);
         setMoveWalkBottom(true);
         setMoveWalkTop(true);
         setMoveArrowTop(true);
+        setMoveArrowRight(true);
+        setMoveArrowLeft(true);
+        setMoveArrowTopToRight(true);
+        setMoveArrowTopToLeft(true);
+        setMoveArrowRightToBottom(true);
+        setMoveArrowRightToTop(true);
+        setMoveArrowLeftBottom(true);
+        setMoveArrowLeftToTop(true);
+        setMoveArrowBottomToLeft(true);
+        setMoveArrowBottomToRight(true);
+        setMoveArrowBottom(true);
     }
 
     // parar animação
@@ -433,11 +613,24 @@ export default function Croqui() {
         setMoveLeftToBottom(false);
         setMoveLeftToTop(false);
         setMoveRightToTop(false);
+        setMoveBottomToLeft(false);
+        setMoveBottomToRight(false);
         setMoveWalkLeft(false);
         setMoveWalkRight(false);
         setMoveWalkBottom(false);
         setMoveWalkTop(false);
         setMoveArrowTop(false);
+        setMoveArrowRight(false);
+        setMoveArrowLeft(false);
+        setMoveArrowTopToRight(false);
+        setMoveArrowTopToLeft(false);
+        setMoveArrowRightToBottom(false);
+        setMoveArrowRightToTop(false);
+        setMoveArrowLeftBottom(false);
+        setMoveArrowLeftToTop(false);
+        setMoveArrowBottomToLeft(false);
+        setMoveArrowBottomToRight(false);
+        setMoveArrowBottom(false);
         setRemove(false);
     }
 
@@ -453,31 +646,30 @@ export default function Croqui() {
         setMoveLeftToBottom('pause');
         setMoveLeftToTop('pause');
         setMoveRightToTop('pause');
+        setMoveBottomToLeft('pause');
+        setMoveBottomToRight('pause');
         setMoveWalkLeft('pause');
         setMoveWalkRight('pause');
         setMoveWalkBottom('pause');
         setMoveWalkTop('pause');
         setMoveArrowTop('pause');
+        setMoveArrowRight('pause');
+        setMoveArrowLeft('pause');
+        setMoveArrowTopToRight('pause');
+        setMoveArrowTopToLeft('pause');
+        setMoveArrowRightToBottom('pause');
+        setMoveArrowRightToTop('pause');
+        setMoveArrowLeftBottom('pause');
+        setMoveArrowLeftToTop('pause');
+        setMoveArrowBottomToLeft('pause');
+        setMoveArrowBottomToRight('pause');
+        setMoveArrowBottom('pause');
         setRemove(false);
     }
 
     //habilitar icone de excluir objeto
     const enabledClose = () => {
-        setMoveRight(false);
-        setMoveTop(false);
-        setMoveLeft(false);
-        setMoveBottom(false);
-        setMoveTopToRight(false);
-        setMoveTopToLeft(false);
-        setMoveRightToBottom(false);
-        setMoveLeftToBottom(false);
-        setMoveLeftToTop(false);
-        setMoveRightToTop(false);
-        setMoveWalkLeft(false);
-        setMoveWalkRight(false);
-        setMoveWalkBottom(false);
-        setMoveWalkTop(false);
-        setMoveArrowTop(false);
+        stopAnimate();
         if (remove) {
             setRemove(false);
         } else {
@@ -502,6 +694,14 @@ export default function Croqui() {
                 setOpenTypesTop(false);
                 setopenTypeRigthToBottom(false);
                 setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
             }else{
                 setOpenTypesTopRigth(false);
             }
@@ -513,7 +713,14 @@ export default function Croqui() {
                 setOpenTypesTop(false);
                 setopenTypeRigthToBottom(false);
                 setOpenTypeRigthToTop(false);
-                
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
             }else{
                 setOpenTypesTopLeft(false);
             }
@@ -525,7 +732,14 @@ export default function Croqui() {
                 setOpenTypesTop(true);
                 setopenTypeRigthToBottom(false);
                 setOpenTypeRigthToTop(false);
-                
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
             }else{
                 setOpenTypesTop(false);
             }
@@ -537,7 +751,14 @@ export default function Croqui() {
                 setOpenTypesTop(false);
                 setopenTypeRigthToBottom(true);
                 setOpenTypeRigthToTop(false);
-                
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
             }else{
                 setopenTypeRigthToBottom(false);
             }
@@ -549,13 +770,171 @@ export default function Croqui() {
                 setOpenTypesTop(false);
                 setopenTypeRigthToBottom(false);
                 setOpenTypeRigthToTop(true);
-                
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
             }else{
                 setOpenTypeRigthToTop(false);
             }
         }
-        //inserir depois que criar o right-down
-    
+        if(name === 'right'){
+            if(openTypeRight === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(true);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
+            }else{
+                setOpenTypeRight(false);
+            }
+        }
+        if(name === 'left-bottom'){
+            if(openTypeLeftToBottom === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(true);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);     
+                setOpenTypeBottomToLeft(false); 
+                setOpenTypeBottomToRight(false);   
+                setOpenTypeBottom(false);    
+                setOpenTypeSemaforo(false);   
+            }else{
+                setOpenTypeLeftToBottom(false);
+            }
+        }
+        if(name === 'left-top'){
+            if(openTypeLeftToTop === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(true);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
+            }else{
+                setOpenTypeLeftToTop(false);
+            }
+        }
+        if(name === 'left'){
+            if(openTypeLeft === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(true);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
+            }else{
+                setOpenTypeLeft(false);
+            }
+        }
+        if(name === 'down-left'){
+            if(openTypeBottomToLeft === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(true);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
+            }else{
+                setOpenTypeBottomToLeft(false);
+            }
+        }
+        if(name === 'down-right'){
+            if(openTypeBottomToRight === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(true);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
+            }else{
+                setOpenTypeBottomToRight(false);
+            }
+        }
+        if(name === 'down'){
+            if(openTypeBottom === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(true);
+                setOpenTypeSemaforo(false);
+            }else{
+                setOpenTypeBottom(false);
+            }
+        }
+        if(name === 'semaforo'){
+            if(openTypeSemaforo === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(true);
+
+            }else{
+                setOpenTypeSemaforo(false);
+            }
+        }
     }
 
     return (
@@ -598,7 +977,13 @@ export default function Croqui() {
                 <CarLeftToTop carLeftToTop={carLeftToTop} setCarLeftToTop={setCarLeftToTop} moveLeftToTop={moveLeftToTop}
                     setMoveLeftToTop={setMoveLeftToTop} remove={remove} removeLeftToTop={removeLeftToTop}
                 />
-                <Semaforo objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
+                <CarBottomToLeft carBottomToLeft={carBottomToLeft} setCarBottomToLeft={setCarBottomToLeft} moveBottomToLeft={moveBottomToLeft}
+                    setMoveBottomToLeft={setMoveBottomToLeft} remove={remove} removeBottomToLeft={removeBottomToLeft}
+                />
+                <CarBottomToRight carBottomToRight={carBottomToRight} setCarBottomToRight={setCarBottomToRight} moveBottomToRight={moveBottomToRight}
+                    setMoveBottomToRight={setMoveBottomToRight} remove={remove} removeBottomToRight={removeBottomToRight}
+                />
+                <SemaforoFront objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
                     remove={remove} removeSemaforo={removeSemaforo}
                 />
                 <WalkLeft walkLeft={walkLeft} setWalkLeft={setWalkLeft} moveWalkLeft={moveWalkLeft}
@@ -614,22 +999,40 @@ export default function Croqui() {
                     setMoveWalkTop={setMoveWalkTop} remove={remove} removeWalkTop={removeWalkTop}
                 />
                 <ArrowTopToRight arrowTopToRight={arrowTopToRight} setArrowTopToRight={setArrowTopToRight} 
-                    remove={remove} removeArrowTopToRight={removeArrowTopToRight}
+                    remove={remove} moveArrowTopToRight={moveArrowTopToRight} removeArrowTopToRight={removeArrowTopToRight}
                 />
                 <ArrowTopToLeft arrowTopToLeft={arrowTopToLeft} setArrowTopToLeft={setArrowTopToLeft} 
-                    remove={remove} removeArrowTopToLeft={removeArrowTopToLeft}
+                    remove={remove} removeArrowTopToLeft={removeArrowTopToLeft} moveArrowTopToLeft={moveArrowTopToLeft}
                 />
                 <ArrowTop arrowTop={arrowTop} setArrowTop={setArrowTop} moveArrowTop={moveArrowTop}
                     setMoveArrowTop={setMoveArrowTop} remove={remove} removeArrowTop={removeArrowTop}
                 />
-                <arrowRight arrowRight={arrowRight} setArrowRight={setArrowRight} moveArrowRight={moveArrowRight}
+                <ArrowRight arrowRight={arrowRight} setArrowRight={setArrowRight} moveArrowRight={moveArrowRight}
                     setMoveArrowRight={setMoveArrowRight} remove={remove} removeArrowRight={removeArrowRight}
                 />
                 <ArrowRightToBottom arrowRightToBottom={arrowRightToBottom} setArrowRightToBottom={setArrowRightToBottom} 
-                    remove={remove} removeArrowRightToBottom={removeArrowRightToBottom}
+                    remove={remove} removeArrowRightToBottom={removeArrowRightToBottom} moveArrowRightToBottom={moveArrowRightToBottom}
                 />
                 <ArrowRightToTop arrowRightToTop={arrowRightToTop} setArrowRightToTop={setArrowRightToTop} 
-                    remove={remove} removeArrowRightToTop={removeArrowRightToTop}
+                    remove={remove} removeArrowRightToTop={removeArrowRightToTop} moveArrowRightToTop={moveArrowRightToTop}
+                />
+                <ArrowLeftToBottom arrowLeftToBottom={arrowLeftToBottom} setArrowLeftToBottom={setArrowLeftToBottom} 
+                    remove={remove} removeArrowLeftToBottom={removeArrowLeftToBottom} moveArrowLeftToBottom={moveArrowLeftToBottom}
+                />
+                <ArrowLeftToTop arrowLeftToTop={arrowLeftToTop} setArrowLeftToTop={setArrowLeftToTop} 
+                    remove={remove} removeArrowLeftToTop={removeArrowLeftToTop} moveArrowLeftToTop={moveArrowLeftToTop}
+                />
+                <ArrowLeft arrowLeft={arrowLeft} setArrowLeft={setArrowLeft} moveArrowLeft={moveArrowLeft}
+                    setMoveArrowLeft={setMoveArrowLeft} remove={remove} removeArrowLeft={removeArrowLeft}
+                />
+                <ArrowBottomToLeft arrowBottomToLeft={arrowBottomToLeft} setArrowBottomToLeft={setArrowBottomToLeft} 
+                    remove={remove} removeArrowBottomToLeft={removeArrowBottomToLeft} moveArrowBottomToLeft={moveArrowBottomToLeft}
+                />
+                <ArrowBottomToRight arrowBottomToRight={arrowBottomToRight} setArrowBottomToRight={setArrowBottomToRight} 
+                    remove={remove} removeArrowBottomToRight={removeArrowBottomToRight} moveArrowBottomToRight={moveArrowBottomToRight}
+                />
+                <ArrowBottom arrowBottom={arrowBottom} setArrowBottom={setArrowBottom} moveArrowBottom={moveArrowBottom}
+                    setMoveArrowBottom={setMoveArrowBottom} remove={remove} removeArrowBottom={removeArrowBottom}
                 />
                 <ModalConfirm openModal={openModal} setOpenModal={setOpenModal} removeAll={removeAll}/>
                 
@@ -669,33 +1072,58 @@ export default function Croqui() {
                                     <Buttom onClick={() => openTypes('right-top')}><Img id='right-top' src={arrowSide} alt='' /></Buttom>
                                     <MenuType name='rightTotop' openTypes={openTypeRigthToTop} setOpenTypes={setOpenTypeRigthToTop} addObject={addCarRightToTop} addObjectArrow={addArrowRightToTop}/>
                                 </OptionButton>
-                                {/*continuar daqui inserir */}
-                                <Buttom onClick={addCarRight}><Img id='right' src={arrow} alt='' /></Buttom>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('right')}><Img id='right' src={arrow} alt='' /></Buttom>
+                                    <MenuType name='right' openTypes={openTypeRight} setOpenTypes={setOpenTypeRight} addObject={addCarRight} addObjectArrow={addArrowRight}/>
+                                </OptionButton>
                                 <Buttom onClick={addWalkRight}><Img id='right-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
                             <Legend>Esquerda</Legend>
                             <AreaButtons>
-                                <Buttom onClick={addCarLeftToBottom}><Img id='left-down' src={arrowSide} alt='' /></Buttom>
-                                <Buttom onClick={addCarLeftToTop}><Img id='left-top' src={arrowSide} alt='' /></Buttom>
-                                <Buttom onClick={addCarLeft}><Img id='left' src={arrow} alt='' /></Buttom>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('left-bottom')}><Img id='left-down' src={arrowSide} alt='' /></Buttom>
+                                    <MenuType name='leftToBottom' openTypes={openTypeLeftToBottom} setOpenTypes={setOpenTypeLeftToBottom} addObject={addCarLeftToBottom} addObjectArrow={addArrowLeftToBottom}/>
+                                </OptionButton>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('left-top')}><Img id='left-top' src={arrowSide} alt='' /></Buttom>
+                                    <MenuType name='leftToTop' openTypes={openTypeLeftToTop} setOpenTypes={setOpenTypeLeftToTop} addObject={addCarLeftToTop} addObjectArrow={addArrowLeftToTop}/>
+                                </OptionButton>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('left')}><Img id='left' src={arrow} alt='' /></Buttom>
+                                    <MenuType name='left' openTypes={openTypeLeft} setOpenTypes={setOpenTypeLeft} addObject={addCarLeft} addObjectArrow={addArrowLeft}/>
+                                </OptionButton>
                                 <Buttom onClick={addWalkLeft}><Img id='left-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
                             <Legend>Baixo</Legend>
                             <AreaButtons>
-                                <Buttom><Img id='down-left' src={arrowSide} alt='' /></Buttom>
-                                <Buttom><Img id='down-right' src={arrowSide} alt='' /></Buttom>
-                                <Buttom onClick={addCarBottom}><Img id='down' src={arrow} alt='' /></Buttom>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('down-left')}><Img id='down-left' src={arrowSide} alt='' /></Buttom>
+                                    <MenuType name='bottomToLeft' openTypes={openTypeBottomToLeft} setOpenTypes={setOpenTypeBottomToLeft} addObject={addCarBottomToLeft} addObjectArrow={addArrowBottomToLeft} />
+                                </OptionButton>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('down-right')}><Img id='down-right' src={arrowSide} alt='' /></Buttom>
+                                    <MenuType name='bottomToRight' openTypes={openTypeBottomToRight} setOpenTypes={setOpenTypeBottomToRight} addObject={addCarBottomToRight} addObjectArrow={addArrowBottomToRight}/>
+                                </OptionButton>
+                                <OptionButton>
+                                    <Buttom onClick={() => openTypes('down')}><Img id='down' src={arrow} alt='' /></Buttom>
+                                    <MenuType name='bottom' openTypes={openTypeBottom} setOpenTypes={setOpenTypeBottom} addObject={addCarBottom} addObjectArrow={addArrowBottom}/>
+                                </OptionButton>
                                 <Buttom onClick={addWalkBottom}><Img id='down-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
                             <Legend>Outros</Legend>
                             <AreaButtons>
-                                <Buttom onClick={addSemaforo}><Img id='icoSemaforo' src={icoSemaforo} alt='' /></Buttom>
+                            <OptionButton>
+                                <Buttom onClick={() => openTypes('semaforo')}><Img id='icoSemaforo' src={icoSemaforo} alt='' /></Buttom>
+                                <MenuTypeSemaforo name='semaforo' openTypes={openTypeSemaforo} setOpenTypes={setOpenTypeSemaforo} 
+                                    addObject={addSemaforo}
+                                />
+                            </OptionButton>
                                 <Buttom onClick={pause}><Img id='' src='' alt='' /></Buttom>
                                 <Buttom><Img id='' src='' alt='' /></Buttom>
                                 <Buttom><Img id='' src='' alt='' /></Buttom>
