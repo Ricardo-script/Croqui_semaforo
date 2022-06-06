@@ -210,6 +210,32 @@ export default function ItemDraggable(props){
                 valuesArrowBottom[props.index].left = left;
                 props.setArrowBottom(valuesArrowBottom);
             }
+            if(props.objSemaforoLeft){
+                const valuesSemaforoLeft = [...props.objSemaforoLeft];
+                valuesSemaforoLeft[props.index].top = top;
+                valuesSemaforoLeft[props.index].left = left;
+                props.setObjSemaforoLeft(valuesSemaforoLeft);
+            }
+
+            if(props.objSemaforoRight){
+                const valuesSemaforoRight = [...props.objSemaforoRight];
+                valuesSemaforoRight[props.index].top = top;
+                valuesSemaforoRight[props.index].left = left;
+                props.setObjSemaforoRight(valuesSemaforoRight);
+            }
+
+            if(props.objBotoeira){
+                const valuesBotoeira = [...props.objBotoeira];
+                valuesBotoeira[props.index].top = top;
+                valuesBotoeira[props.index].left = left;
+                props.setObjBotoeira(valuesBotoeira);
+            }
+            if(props.objOcupacao){
+                const valuesOcupacao = [...props.objOcupacao];
+                valuesOcupacao[props.index].top = top;
+                valuesOcupacao[props.index].left = left;
+                props.setObjOcupacao(valuesOcupacao);
+            }
         }
     
         function closeDragElement() {

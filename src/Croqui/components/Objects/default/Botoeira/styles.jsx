@@ -1,23 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-const walkToLeft = keyframes`
-    0%{
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    98%{
-        transform: translateX(-9vw);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-9vw);
-        opacity: 0;
-    }
-
-`;
-
 const zoom = keyframes`
     0%{
         transform: scale(.5);
@@ -33,23 +15,20 @@ const zoom = keyframes`
     }
 `;
 
-const pause = keyframes` // parar carro no farol vermelho
-    0%{
-        transform: translateX(0);
-    }
-`;
-
-
 export const Container = styled.div``;
 
-export const MoveWalkLeft = styled.img`
-    width: 45%;
+export const Img = styled.img`
+    width: 26%;
     height: auto;
     position: relative;
-    animation: ${ props => props.move === true ? walkToLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '4s infinite'  : '.5s ease-in-out' };
     transition: .2s;
+    animation: ${ zoom } .3s ease-in-out;
+
+    &:hover{
+        cursor: pointer;
+    }
     &:active{
-        transform: scale(1.4);
+        transform: scale(1.4); 
     }
 `;
 

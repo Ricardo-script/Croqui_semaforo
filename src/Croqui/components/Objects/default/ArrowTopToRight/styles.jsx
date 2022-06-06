@@ -1,4 +1,19 @@
-import styled  from 'styled-components';
+import styled, { keyframes }  from 'styled-components';
+
+const zoom = keyframes`
+    0%{
+        transform: scale(.5);
+    }
+    25%{
+        transform: scale(2.0);
+    }
+    50%{
+        transform: scale(.7);
+    }
+    100%{
+        transform: scale(1);
+    }
+`;
 
 export const Container = styled.div``;
 
@@ -6,6 +21,11 @@ export const MoveTopToRight = styled.img`
     width: 80%;
     height: auto;
     position: relative;
+    animation: ${ zoom } ${props => props.move === true ? '1.3s infinite'  : '.5s ease-in-out' };
+    transition: .2s;
+    &:active{
+        transform: scale(1.4);
+    }
 `;
 
 export const Options = styled.div`

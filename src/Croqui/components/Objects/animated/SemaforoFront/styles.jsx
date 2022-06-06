@@ -19,8 +19,12 @@ export const Container = styled.div`
 `;
 
 export const Img = styled.img`
-    width: 30%;
+    width: 32%;
     animation: ${ zoom } .3s ease-in-out;
+    transition: .2s;
+    &:active{
+        transform: scale(1.4);
+    }
 `;
 
 export const Options = styled.div`

@@ -16,6 +16,8 @@ import CarLeftToTop from './components/Objects/animated/CarLeftToTop';
 import CarBottomToLeft from './components/Objects/animated/CarBottomToLeft';
 import CarBottomToRight from './components/Objects/animated/CarBottomToRight';
 import SemaforoFront from './components/Objects/animated/SemaforoFront';
+import SemaforoLeft from './components/Objects/animated/SemaforoLeft';
+import SemaforoRight from './components/Objects/animated/SemaforoRight';
 import WalkLeft from './components/Objects/animated/WalkLeft';
 import WalkRight from './components/Objects/animated/walkRight';
 import WalkBottom from './components/Objects/animated/WalkBottom';
@@ -32,6 +34,7 @@ import ArrowLeft from './components/Objects/default/ArrowLeft';
 import ArrowBottomToLeft from './components/Objects/default/ArrowBottomToLeft';
 import ArrowBottomToRight from './components/Objects/default/ArrowBottomToRight';
 import ArrowBottom from './components/Objects/default/ArrowBottom';
+import Botoeira from './components/Objects/default/Botoeira';
 //import mapa from './components/img/mapaCroqui.jpg';
 //import MapaDefault from './components/img/MapaDefault.png';
 import MapaCroqui02  from './components/img/mapaCroqui02.jpg';
@@ -47,6 +50,8 @@ import toolclose from './components/img/toolclose.png';
 import clear from './components/img/clear.png';
 import MenuType from './components/MenuType';
 import MenuTypeSemaforo from './components/MenuTypeSemaforo';
+import botoeiraIco from './components/img/botoeiraIco.png';
+import Ocupacao from './components/Objects/default/Ocupacao';
 
 export default function Croqui() {
 
@@ -82,6 +87,11 @@ export default function Croqui() {
     const [carBottomToLeft, setCarBottomToLeft] = useState([]);
     const [carBottomToRight, setCarBottomToRight] = useState([]);
     const [objSemaforo, setObjSemaforo] = useState([]);
+    const [objSemaforoLeft, setObjSemaforoLeft] = useState([]);
+    const [objSemaforoRight, setObjSemaforoRight] = useState([]);
+    const [objBotoeira, setObjBotoeira] = useState([]);
+    const [objOcupacao, setObjOcupacao] = useState([]);
+
     const [walkLeft, setWalkLeft] = useState([]);
     const [walkRight, setWalkRight] = useState([]);
     const [walkBottom, setWalkBottom] = useState([]);
@@ -250,6 +260,19 @@ export default function Croqui() {
         setObjSemaforo(objects);
     }
 
+    const addSemaforoLeft = () => {
+        setRemove(false);
+        const objects = [...objSemaforoLeft];
+        objects.push({ id: objects.length, top: 44.89, left: 48.22 });
+        setObjSemaforoLeft(objects);
+    }
+    const addSemaforoRight = () => {
+        setRemove(false);
+        const objects = [...objSemaforoRight];
+        objects.push({ id: objects.length, top: 44.89, left: 48.22 });
+        setObjSemaforoRight(objects);
+    }
+
     const addWalkLeft = () => {
         setRemove(false);
         const objects = [...walkLeft];
@@ -362,6 +385,20 @@ export default function Croqui() {
         setArrowBottom(objects);
     }
 
+    const addBotoeira = () => {
+        setRemove(false);
+        const objects = [...objBotoeira];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setObjBotoeira(objects);
+    }
+
+    const addOcupacao = () => {
+        setRemove(false);
+        const objects = [...objOcupacao];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setObjOcupacao(objects);
+    }
+
 
     //funções para remever objetos em tela
     const removeAll = () => {
@@ -391,6 +428,12 @@ export default function Croqui() {
         setArrowBottomToLeft([]);
         setArrowBottomToRight([]);
         setArrowBottom([]);
+        setArrowRightToBottom([]);
+        setObjBotoeira([]);
+        setObjSemaforo([]);
+        setObjSemaforoLeft([]);
+        setObjSemaforoRight([]);
+        setObjOcupacao([]);
         setOpenModal(false);
     }
 
@@ -416,6 +459,24 @@ export default function Croqui() {
         const objects = [...objSemaforo];
         objects[objects.indexOf(index)] = '';
         setObjSemaforo(objects);
+    }
+
+    const removeBotoeira = (item, index) => {
+        const objects = [...objBotoeira];
+        objects[objects.indexOf(index)] = '';
+        setObjBotoeira(objects);
+    }
+
+    const removeSemaforoLeft = (item, index) => {
+        const objects = [...objSemaforoLeft];
+        objects[objects.indexOf(index)] = '';
+        setObjSemaforoLeft(objects);
+    }
+
+    const removeSemaforoRight = (items, index) => {
+        const objects = [...objSemaforoRight];
+        objects[objects.indexOf(index)] = '';
+        setObjSemaforoRight(objects);
     }
 
     const removeCarBottom = (item, index) => {
@@ -568,6 +629,12 @@ export default function Croqui() {
         setArrowBottom(objects);
     }
 
+    const removeOcupacao = (items, index) => {
+        const objects = [...objOcupacao];
+        objects[objects.indexOf(index)] = '';
+        setObjOcupacao(objects);
+    }
+
     // Animações
     const playAnimate = () => {
         setRemove(false);
@@ -632,6 +699,8 @@ export default function Croqui() {
         setMoveArrowBottomToRight(false);
         setMoveArrowBottom(false);
         setRemove(false);
+
+        pause() // inserido aqui temporariamente, criar uma lógica para sinal vermelho e chamar essa função, logo após remover ela daqui
     }
 
     //parar carro no farol vermelho
@@ -986,6 +1055,12 @@ export default function Croqui() {
                 <SemaforoFront objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
                     remove={remove} removeSemaforo={removeSemaforo}
                 />
+                <SemaforoLeft objSemaforoLeft={objSemaforoLeft} setObjSemaforoLeft={setObjSemaforoLeft}
+                    remove={remove} removeSemaforoLeft={removeSemaforoLeft}
+                />
+                <SemaforoRight objSemaforoRight={objSemaforoRight} setObjSemaforoRight={setObjSemaforoRight}
+                    remove={remove} removeSemaforoRight={removeSemaforoRight}
+                />
                 <WalkLeft walkLeft={walkLeft} setWalkLeft={setWalkLeft} moveWalkLeft={moveWalkLeft}
                     setMoveWalkLeft={setMoveWalkLeft} remove={remove} removeWalkLeft={removeWalkLeft}
                 />
@@ -1033,6 +1108,12 @@ export default function Croqui() {
                 />
                 <ArrowBottom arrowBottom={arrowBottom} setArrowBottom={setArrowBottom} moveArrowBottom={moveArrowBottom}
                     setMoveArrowBottom={setMoveArrowBottom} remove={remove} removeArrowBottom={removeArrowBottom}
+                />
+                <Botoeira objBotoeira={objBotoeira} setObjBotoeira={setObjBotoeira}
+                    remove={remove} removeBotoeira={removeBotoeira}
+                />
+                <Ocupacao objOcupacao={objOcupacao} setObjOcupacao={setObjOcupacao}
+                    remove={remove} removeOcupacao={removeOcupacao}
                 />
                 <ModalConfirm openModal={openModal} setOpenModal={setOpenModal} removeAll={removeAll}/>
                 
@@ -1121,11 +1202,11 @@ export default function Croqui() {
                             <OptionButton>
                                 <Buttom onClick={() => openTypes('semaforo')}><Img id='icoSemaforo' src={icoSemaforo} alt='' /></Buttom>
                                 <MenuTypeSemaforo name='semaforo' openTypes={openTypeSemaforo} setOpenTypes={setOpenTypeSemaforo} 
-                                    addObject={addSemaforo}
+                                    addObject={addSemaforo} addObjectLeft={addSemaforoLeft} addObjectRight={addSemaforoRight}
                                 />
                             </OptionButton>
-                                <Buttom onClick={pause}><Img id='' src='' alt='' /></Buttom>
-                                <Buttom><Img id='' src='' alt='' /></Buttom>
+                                <Buttom onClick={addBotoeira}><Img id='' src={botoeiraIco} alt='' /></Buttom>
+                                <Buttom onClick={addOcupacao}><Img id='' src='' alt='' /></Buttom>
                                 <Buttom><Img id='' src='' alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>

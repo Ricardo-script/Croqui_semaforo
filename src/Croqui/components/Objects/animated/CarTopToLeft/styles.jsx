@@ -53,6 +53,10 @@ export const MoveTopToLeft = styled.img`
     height: auto;
     position: relative;
     animation: ${ props => props.move === true ? goTopToLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
+    transition: .2s;
+    &:active{
+        transform: scale(1.4);
+    }
 `;
 
 export const Options = styled.div`

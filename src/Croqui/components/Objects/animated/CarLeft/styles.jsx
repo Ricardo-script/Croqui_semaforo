@@ -42,6 +42,10 @@ export const MoveLeft = styled.img`
     width: 130%;
     height: auto;
     animation: ${ props => props.move === true ? goLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
+    transition: .2s;
+    &:active{
+        transform: scale(1.4);
+    }
 `;
 
 export const Options = styled.div`

@@ -15,14 +15,12 @@ const zoom = keyframes`
     }
 `;
 
+export const Container = styled.div`
+`;
 
-export const Container = styled.div``;
-
-export const MoveRightToBottom = styled.img`
-    width: 80%;
-    height: auto;
-    position: relative;
-    animation: ${ zoom } ${props => props.move === true ? '1.3s infinite'  : '.5s ease-in-out' };
+export const Img = styled.img`
+    width: 38%;
+    animation: ${ zoom } .3s ease-in-out;
     transition: .2s;
     &:active{
         transform: scale(1.4);
