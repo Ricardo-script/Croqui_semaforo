@@ -22,6 +22,7 @@ import WalkLeft from './components/Objects/animated/WalkLeft';
 import WalkRight from './components/Objects/animated/walkRight';
 import WalkBottom from './components/Objects/animated/WalkBottom';
 import WalkTop from './components/Objects/animated/WalkTop';
+import Ocupacao from './components/Objects/default/Ocupacao';
 import ArrowTopToRight from './components/Objects/default/ArrowTopToRight';
 import ArrowTopToLeft from './components/Objects/default/ArrowTopToLeft';
 import ArrowRightToBottom from './components/Objects/default/ArrowRightToBottom';
@@ -35,6 +36,7 @@ import ArrowBottomToLeft from './components/Objects/default/ArrowBottomToLeft';
 import ArrowBottomToRight from './components/Objects/default/ArrowBottomToRight';
 import ArrowBottom from './components/Objects/default/ArrowBottom';
 import Botoeira from './components/Objects/default/Botoeira';
+import Detector from './components/Objects/default/Detector';
 //import mapa from './components/img/mapaCroqui.jpg';
 //import MapaDefault from './components/img/MapaDefault.png';
 import MapaCroqui02  from './components/img/mapaCroqui02.jpg';
@@ -44,19 +46,25 @@ import arrow from './components/img/arrow.png';
 import arrowSide from './components/img/arrow-side.png';
 import pedestre from './components/img/pedestre.png';
 import play from './components/img/play.png';
-import stop from './components/img/stop.png';
+import pauseSwitch from './components/img/pause.png';
+import icoSettings from './components/img/icoSettings.png';
 import icoSemaforo from './components/img/icoSemaforo.png';
 import toolclose from './components/img/toolclose.png';
 import clear from './components/img/clear.png';
 import MenuType from './components/MenuType';
 import MenuTypeSemaforo from './components/MenuTypeSemaforo';
 import botoeiraIco from './components/img/botoeiraIco.png';
-import Ocupacao from './components/Objects/default/Ocupacao';
+import icoTaxa from './components/img/icoTaxa.png';
+import icoContagem from './components/img/icoContagem.png';
+import Settings from './components/settings';
 
 export default function Croqui() {
 
     //state para abrir editor
     const [openTools, setOpenTools] = useState(false);
+
+    //controlador do play da animação
+    const [statusPlay, setStatusPlay] = useState('stop');
 
     //states para menu de opções de objetos no editor
     const [openTypesTopRigth, setOpenTypesTopRigth] = useState(false);
@@ -91,6 +99,7 @@ export default function Croqui() {
     const [objSemaforoRight, setObjSemaforoRight] = useState([]);
     const [objBotoeira, setObjBotoeira] = useState([]);
     const [objOcupacao, setObjOcupacao] = useState([]);
+    const [objDetector, setObjDetector] = useState([]);
 
     const [walkLeft, setWalkLeft] = useState([]);
     const [walkRight, setWalkRight] = useState([]);
@@ -142,7 +151,6 @@ export default function Croqui() {
 
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
-
 
     //Função abrir editor 
     const openDrawer = () => {
@@ -399,6 +407,13 @@ export default function Croqui() {
         setObjOcupacao(objects);
     }
 
+    const addDetector = () => {
+        setRemove(false);
+        const objects = [...objDetector];
+        objects.push({id: objects.length, top: 47.89, left: 47.96});
+        setObjDetector(objects);
+    }
+
 
     //funções para remever objetos em tela
     const removeAll = () => {
@@ -434,6 +449,7 @@ export default function Croqui() {
         setObjSemaforoLeft([]);
         setObjSemaforoRight([]);
         setObjOcupacao([]);
+        setObjDetector([]);
         setOpenModal(false);
     }
 
@@ -635,6 +651,12 @@ export default function Croqui() {
         setObjOcupacao(objects);
     }
 
+    const removeDetector = (item,index) => {
+        const objects = [...objDetector];
+        objects[objects.indexOf(index)] = '';
+        setObjDetector(objects);
+    }
+
     // Animações
     const playAnimate = () => {
         setRemove(false);
@@ -700,7 +722,7 @@ export default function Croqui() {
         setMoveArrowBottom(false);
         setRemove(false);
 
-        pause() // inserido aqui temporariamente, criar uma lógica para sinal vermelho e chamar essa função, logo após remover ela daqui
+        //pause() // inserido aqui temporariamente, criar uma lógica para sinal vermelho e chamar essa função, logo após remover ela daqui
     }
 
     //parar carro no farol vermelho
@@ -734,6 +756,19 @@ export default function Croqui() {
         setMoveArrowBottomToRight('pause');
         setMoveArrowBottom('pause');
         setRemove(false);
+    }
+
+    //play e stop de animações
+
+    const activeAnimate = () => {
+        if(statusPlay === 'stop'){
+            playAnimate();
+            setStatusPlay('play');
+            console.log(moveArrowTopToRight)
+        }else{
+            stopAnimate();
+            setStatusPlay('stop');
+        }
     }
 
     //habilitar icone de excluir objeto
@@ -1015,7 +1050,7 @@ export default function Croqui() {
                 <ButtonOpen onClick={() => openDrawer()} title={openTools === false ? 'Abrir editor' : 'Fechar editor'}>
                     <GiHamburgerMenu size={35} color={openTools === false ? '#062467' : '#FFF'} />
                 </ButtonOpen>
-
+                <Settings />
                 <CarRight carRight={carRight} setCarRight={setCarRight} moveRight={moveRight}
                     setMoveRight={setMoveRight} remove={remove} removeCarRight={removeCarRight}
                 />
@@ -1115,6 +1150,9 @@ export default function Croqui() {
                 <Ocupacao objOcupacao={objOcupacao} setObjOcupacao={setObjOcupacao}
                     remove={remove} removeOcupacao={removeOcupacao}
                 />
+                <Detector objDetector={objDetector} setObjDetector={setObjDetector}
+                    remove={remove} removeDetector={removeDetector}
+                />
                 <ModalConfirm openModal={openModal} setOpenModal={setOpenModal} removeAll={removeAll}/>
                 
             </AreaMapaCroqui>
@@ -1206,15 +1244,15 @@ export default function Croqui() {
                                 />
                             </OptionButton>
                                 <Buttom onClick={addBotoeira}><Img id='' src={botoeiraIco} alt='' /></Buttom>
-                                <Buttom onClick={addOcupacao}><Img id='' src='' alt='' /></Buttom>
-                                <Buttom><Img id='' src='' alt='' /></Buttom>
+                                <Buttom onClick={addOcupacao}><Img id='' src={icoTaxa} alt='' /></Buttom>
+                                <Buttom onClick={addDetector}><Img id='' src={icoContagem} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
                             <Legend>Animação</Legend>
                             <AreaButtons>
-                                <Buttom onClick={playAnimate}><Img id='play' src={play} alt='' /></Buttom>
-                                <Buttom onClick={stopAnimate}><Img id='stop' src={stop} alt='' /></Buttom>
+                                <Buttom onClick={activeAnimate}><Img id='play' src={statusPlay === 'stop' ? play : pauseSwitch} alt='' /></Buttom>
+                                <Buttom><Img id='settings' src={icoSettings} alt='' /></Buttom>
                                 <Buttom onClick={enabledClose}><Img id='close' src={toolclose} alt='' /></Buttom>
                                 <Buttom onClick={modalStatus} title='Limpar tudo'><Img id='clear' src={clear} alt='' /></Buttom>
                             </AreaButtons>

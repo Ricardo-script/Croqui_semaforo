@@ -171,8 +171,8 @@ export const Img = styled.img`
     &#play{
         width: 17px;
     }
-    &#stop{
-        width: 17px;
+    &#settings{
+        width: 25px;
     }
     &#icoSemaforo {
         width: 15px;

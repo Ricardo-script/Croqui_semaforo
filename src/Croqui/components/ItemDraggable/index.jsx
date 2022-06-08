@@ -57,7 +57,6 @@ export default function ItemDraggable(props){
                 valuesCarLeft[props.index].top = top;
                 valuesCarLeft[props.index].left = left;
                 props.setCarLeft(valuesCarLeft);
-                console.log(valuesCarLeft)
             }
             if(props.carBottom){
                 const valuesCarBottom = [...props.carBottom];
@@ -204,6 +203,13 @@ export default function ItemDraggable(props){
                 valuesArrowBottomToLeft[props.index].left = left;
                 props.setArrowBottomToLeft(valuesArrowBottomToLeft);
             }
+
+            if(props.arrowBottomToRight){
+                const valuesArrowBottomToRight = [...props.arrowBottomToRight];
+                valuesArrowBottomToRight[props.index].top = top;
+                valuesArrowBottomToRight[props.index].left = left;
+                props.setArrowBottomToRight(valuesArrowBottomToRight);
+            }
             if(props.arrowBottom){
                 const valuesArrowBottom = [...props.arrowBottom];
                 valuesArrowBottom[props.index].top = top;
@@ -235,6 +241,12 @@ export default function ItemDraggable(props){
                 valuesOcupacao[props.index].top = top;
                 valuesOcupacao[props.index].left = left;
                 props.setObjOcupacao(valuesOcupacao);
+            }
+            if(props.objDetector){
+                const valuesDetector = [...props.objDetector];
+                valuesDetector[props.index].top = top;
+                valuesDetector[props.index].left = left;
+                props.setObjDetector(valuesDetector);
             }
         }
     

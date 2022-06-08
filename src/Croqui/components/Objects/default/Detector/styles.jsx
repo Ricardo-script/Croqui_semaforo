@@ -17,17 +17,13 @@ const zoom = keyframes`
 
 export const Container = styled.div``;
 
-export const AreaOcupacao = styled.div`
+export const AreaDetector = styled.div`
     width: 3.17vw;
     height: 5.17vh;
     position: relative;
     border: 2px solid #FFF;
     border-radius: 4px;
-    background: ${ 
-        props => props.taxa <= 33 ? '#25ff2596' : 
-        props.taxa >= 33 && props.taxa <= 67 ? '#e4ff00b8' : 
-        props.taxa > 67 ? '#ff5454ba' : ''
-    };
+    background: #488be49e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,13 +35,9 @@ export const AreaOcupacao = styled.div`
     }
 `;
 
-export const TaxaOcupacao = styled.div`
+export const QntTotal = styled.div`
     font-size: 1vw;
-    color: ${ 
-        props => props.taxa <= 33 ? '#024602' : 
-        props.taxa >= 33 && props.taxa <= 67 ? '#585c34' : 
-        props.taxa > 67 ? '#6b1212' : ''
-    };
+    color: #054597;
     font-weight: 600;
 `;
 
