@@ -18,6 +18,8 @@ export default function CarTopToLeft(props){
                             </Options>
                         </ItemDraggable>
                     );
+                }else{
+                    return '';
                 }
             })}
         </Container>

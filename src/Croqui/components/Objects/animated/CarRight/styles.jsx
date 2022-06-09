@@ -38,6 +38,8 @@ const pause = keyframes` // parar carro no farol vermelho
 
 export const Container = styled.div``;
 
+export const Content = styled.div``;
+
 export const MoveRight = styled.img`
     width: 130%;
     height: auto;
@@ -61,3 +63,11 @@ export const Options = styled.div`
     }
 `;
 
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
+    }
+`;

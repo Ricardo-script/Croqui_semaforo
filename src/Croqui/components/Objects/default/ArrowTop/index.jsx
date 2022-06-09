@@ -18,6 +18,8 @@ export default function ArrowTop(props){
                             </Options>
                         </ItemDraggable>
                     );
+                }else{
+                    return null;
                 }
             })}
         </Container>

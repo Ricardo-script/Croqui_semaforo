@@ -19,6 +19,8 @@ export default function WalkBottom(props){
                             </Options>
                         </ItemDraggable>
                     );
+                }else{
+                    return '';
                 }
             })}
         </Container>

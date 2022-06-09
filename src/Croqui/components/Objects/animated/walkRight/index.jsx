@@ -19,6 +19,8 @@ export default function WalkRight(props){
                             </Options>
                         </ItemDraggable>
                     );
+                }else{
+                    return null;
                 }
             })}
         </Container>

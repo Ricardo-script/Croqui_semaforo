@@ -18,6 +18,8 @@ export default function CarTop(props){
                             </Options>
                         </ItemDraggable>
                     );
+                }else{
+                    return '';
                 }
             })}
         </Container>

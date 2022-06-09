@@ -49,14 +49,13 @@ import play from './components/img/play.png';
 import pauseSwitch from './components/img/pause.png';
 import icoSettings from './components/img/icoSettings.png';
 import icoSemaforo from './components/img/icoSemaforo.png';
-import toolclose from './components/img/toolclose.png';
+//import toolclose from './components/img/toolclose.png';
 import clear from './components/img/clear.png';
 import MenuType from './components/MenuType';
 import MenuTypeSemaforo from './components/MenuTypeSemaforo';
 import botoeiraIco from './components/img/botoeiraIco.png';
 import icoTaxa from './components/img/icoTaxa.png';
 import icoContagem from './components/img/icoContagem.png';
-import Settings from './components/settings';
 
 export default function Croqui() {
 
@@ -1050,7 +1049,6 @@ export default function Croqui() {
                 <ButtonOpen onClick={() => openDrawer()} title={openTools === false ? 'Abrir editor' : 'Fechar editor'}>
                     <GiHamburgerMenu size={35} color={openTools === false ? '#062467' : '#FFF'} />
                 </ButtonOpen>
-                <Settings />
                 <CarRight carRight={carRight} setCarRight={setCarRight} moveRight={moveRight}
                     setMoveRight={setMoveRight} remove={remove} removeCarRight={removeCarRight}
                 />
@@ -1252,8 +1250,8 @@ export default function Croqui() {
                             <Legend>Animação</Legend>
                             <AreaButtons>
                                 <Buttom onClick={activeAnimate}><Img id='play' src={statusPlay === 'stop' ? play : pauseSwitch} alt='' /></Buttom>
-                                <Buttom><Img id='settings' src={icoSettings} alt='' /></Buttom>
-                                <Buttom onClick={enabledClose}><Img id='close' src={toolclose} alt='' /></Buttom>
+                                <Buttom onClick={enabledClose}><Img id='settings' src={icoSettings} alt='' /></Buttom>
+                                <Buttom><Img id='close' src={''} alt='' /></Buttom>
                                 <Buttom onClick={modalStatus} title='Limpar tudo'><Img id='clear' src={clear} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>

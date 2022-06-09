@@ -18,6 +18,8 @@ export default function Botoeira(props){
                             </Options>
                         </ItemDraggable>
                     );
+                }else{
+                    return null;
                 }
             })}
         </Container>

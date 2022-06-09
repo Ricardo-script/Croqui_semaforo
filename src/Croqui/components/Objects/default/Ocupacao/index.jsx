@@ -5,7 +5,7 @@ import { Container, AreaOcupacao, TaxaOcupacao, Options } from './styles';
 
 export default function Ocupacao(props){  
 
-    const [taxa, setTaxa] = useState('33%')
+    const [taxa ] = useState('33%')
     
     return(
         <Container>
