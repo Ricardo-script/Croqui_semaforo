@@ -1,16 +1,17 @@
 import styled, { keyframes } from 'styled-components';
 
-const goRight = keyframes`
+
+const goRight = (props) => keyframes` 
     0% {
         transform: translateX(0);
         opacity: 1;
     }
     90%{
-        transform: translateX(22vw);
+        transform: translateX(${props.percurso + 'vw'});
         opacity: 1;
     }
     100% {
-        transform: translateX(21vw);
+        transform: translateX(${props.percurso + 'vw'});
         opacity: 0;
     }
 `;
@@ -35,16 +36,33 @@ const pause = keyframes` // parar carro no farol vermelho
         transform: translateX(0);
     }
 `;
+   
 
 export const Container = styled.div``;
 
 export const Content = styled.div``;
 
 export const MoveRight = styled.img`
-    width: 130%;
+    width: ${props => props.tamanho + 30 + '%'};
     height: auto;
     position: relative;
-    animation: ${ props => props.move === true ? goRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
+    animation: ${ props => props.move === true ? goRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? 
+
+    (
+        props.velocidade === 10 ? '1s infinite' :
+        props.velocidade ===  9 ? '1.5s infinite' :
+        props.velocidade ===  8 ? '2s infinite' :
+        props.velocidade ===  7 ? '2.5s infinite' :
+        props.velocidade ===  6 ? '3s infinite' :
+        props.velocidade ===  5 ? '3.5s infinite' :
+        props.velocidade ===  4 ? '4s infinite' :
+        props.velocidade ===  3 ? '4.5s infinite' :
+        props.velocidade ===  2 ? '5s infinite' :
+        props.velocidade ===  1 ? '5.5s infinite' :
+        props.velocidade ===  0 ? '10s infinite' : ''
+    ) 
+    
+    : '.5s ease-in-out' };
     transition: .2s;
     &:active{
         transform: scale(1.4);

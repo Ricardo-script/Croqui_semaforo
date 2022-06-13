@@ -179,7 +179,7 @@ export default function Croqui() {
     const addCarRight = () => {
         setRemove(false);
         const objects = [...carRight];
-        objects.push({ id: objects.length, top: 44.89, left: 48.22 });
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30}); 
         setCarRight(objects);
     }
 
@@ -455,205 +455,205 @@ export default function Croqui() {
     const removeCarRight = (item, index) => {
         const objects = [...carRight];
         objects[objects.indexOf(index)] = '';
-        setCarRight(objects);
+        setCarRight(objects.filter(Boolean));
     }
 
     const removeCarTop = (item, index) => {
         const objects = [...carTop];
         objects[objects.indexOf(index)] = '';
-        setCarTop(objects);
+        setCarTop(objects.filter(Boolean));
     }
 
     const removeCarLeft = (item, index) => {
         const objects = [...carLeft];
         objects[objects.indexOf(index)] = '';
-        setCarLeft(objects);
+        setCarLeft(objects.filter(Boolean));
     }
 
     const removeSemaforo = (item, index) => {
         const objects = [...objSemaforo];
         objects[objects.indexOf(index)] = '';
-        setObjSemaforo(objects);
+        setObjSemaforo(objects.filter(Boolean));
     }
 
     const removeBotoeira = (item, index) => {
         const objects = [...objBotoeira];
         objects[objects.indexOf(index)] = '';
-        setObjBotoeira(objects);
+        setObjBotoeira(objects.filter(Boolean));
     }
 
     const removeSemaforoLeft = (item, index) => {
         const objects = [...objSemaforoLeft];
         objects[objects.indexOf(index)] = '';
-        setObjSemaforoLeft(objects);
+        setObjSemaforoLeft(objects.filter(Boolean));
     }
 
     const removeSemaforoRight = (items, index) => {
         const objects = [...objSemaforoRight];
         objects[objects.indexOf(index)] = '';
-        setObjSemaforoRight(objects);
+        setObjSemaforoRight(objects.filter(Boolean));
     }
 
     const removeCarBottom = (item, index) => {
         const objects = [...carBottom];
         objects[objects.indexOf(index)] = '';
-        setCarBottom(objects);
+        setCarBottom(objects.filter(Boolean));
     }
 
     const removeCarTopToRight = (item, index) => {
         const objects = [...carTopToRight];
         objects[objects.indexOf(index)] = '';
-        setCarTopToRight(objects);
+        setCarTopToRight(objects.filter(Boolean));
     }
 
     const removeCarTopToLeft = (item, index) => {
         const objects = [...carTopToLeft];
         objects[objects.indexOf(index)] = '';
-        setCarTopToLeft(objects);
+        setCarTopToLeft(objects.filter(Boolean));
     }
 
     const removeRightToTop = (item, index) => {
         const objects = [...carRightToTop];
         objects[objects.indexOf(index)] = '';
-        setCarRightToTop(objects);
+        setCarRightToTop(objects.filter(Boolean));
     }
 
     const removeLeftToTop = (item, index) => {
         const objects = [...carLeftToTop];
         objects[objects.indexOf(index)] = '';
-        setCarLeftToTop(objects);
+        setCarLeftToTop(objects.filter(Boolean));
     }
 
     const removeRightToBottom = (item, index) => {
         const objects = [...carRightToBottom];
         objects[objects.indexOf(index)] = '';
-        setCarRightToBottom(objects);
+        setCarRightToBottom(objects.filter(Boolean));
     }
 
     const removeLeftToBottom = (item, index) => {
         const objects = [...carLeftToBottom];
         objects[objects.indexOf(index)] = '';
-        setCarLeftToBottom(objects);
+        setCarLeftToBottom(objects.filter(Boolean));
     }
 
     const removeBottomToLeft = (items,index) => {
         const objects = [...carBottomToLeft];
         objects[objects.indexOf(index)] = '';
-        setCarBottomToLeft(objects);
+        setCarBottomToLeft(objects.filter(Boolean));
     }
 
     const removeBottomToRight = (items, index) => {
         const objects = [...carBottomToRight];
         objects[objects.indexOf(index)] = '';
-        setCarBottomToRight(objects);
+        setCarBottomToRight(objects.filter(Boolean));
     }
 
     const removeWalkLeft = (item, index) => {
         const objects = [...walkLeft];
         objects[objects.indexOf(index)] = '';
-        setWalkLeft(objects);
+        setWalkLeft(objects.filter(Boolean));
     }
 
     const removeWalkRight = (item, index) => {
         const objects = [...walkRight];
         objects[objects.indexOf(index)] = '';
-        setWalkRight(objects);
+        setWalkRight(objects.filter(Boolean));
     }
 
     const removeWalkBottom = (item, index) => {
         const objects = [...walkBottom];
         objects[objects.indexOf(index)] = '';
-        setWalkBottom(objects);
+        setWalkBottom(objects.filter(Boolean));
     }
 
     const removeWalkTop = (item, index) => {
         const objects = [...walkTop];
         objects[objects.indexOf(index)] = '';
-        setWalkTop(objects);
+        setWalkTop(objects.filter(Boolean));
     }
 
     const removeArrowTopToRight = (item, index) => {
         const objects = [...arrowTopToRight];
         objects[objects.indexOf(index)] = '';
-        setArrowTopToRight(objects);
+        setArrowTopToRight(objects.filter(Boolean));
     }
 
     const removeArrowTopToLeft = (item, index) => {
         const objects = [...arrowTopToLeft];
         objects[objects.indexOf(index)] = '';
-        setArrowTopToLeft(objects);
+        setArrowTopToLeft(objects.filter(Boolean));
     }
 
     const removeArrowTop = (item, index) => {
         const objects = [...arrowTop];
         objects[objects.indexOf(index)] = '';
-        setArrowTop(objects);
+        setArrowTop(objects.filter(Boolean));
     }
 
     const removeArrowRightToBottom = (item, index) => {
         const objects = [...arrowRightToBottom];
         objects[objects.indexOf(index)] = '';
-        setArrowRightToBottom(objects);
+        setArrowRightToBottom(objects.filter(Boolean));
     }
 
     const removeArrowRightToTop = (item, index) => {
         const objects = [...arrowRightToTop];
         objects[objects.indexOf(index)] = '';
-        setArrowRightToTop(objects);
+        setArrowRightToTop(objects.filter(Boolean));
     }
 
     const removeArrowRight = (item, index) => {
         const objects = [...arrowRight];
         objects[objects.indexOf(index)] = '';
-        setArrowRight(objects);
+        setArrowRight(objects.filter(Boolean));
     }
 
     const removeArrowLeftToBottom = (items, index) => {
         const objects = [...arrowLeftToBottom];
         objects[objects.indexOf(index)] = '';
-        setArrowLeftToBottom(objects);
+        setArrowLeftToBottom(objects.filter(Boolean));
     }
 
     const removeArrowLeftToTop = (items, index) => {
         const objects = [...arrowLeftToTop];
         objects[objects.indexOf(index)] = '';
-        setArrowLeftToTop(objects);
+        setArrowLeftToTop(objects.filter(Boolean));
     }
 
     const removeArrowLeft = (items, index) => {
         const objects = [...arrowLeft];
         objects[objects.indexOf(index)] = '';
-        setArrowLeft(objects);
+        setArrowLeft(objects.filter(Boolean));
     }
 
     const removeArrowBottomToLeft = (items, index) => {
         const objects = [...arrowBottomToLeft];
         objects[objects.indexOf(index)] = '';
-        setArrowBottomToLeft(objects);
+        setArrowBottomToLeft(objects.filter(Boolean));
     }
 
     const removeArrowBottomToRight = (items, index) => {
         const objects = [...arrowBottomToRight];
         objects[objects.indexOf(index)] = '';
-        setArrowBottomToRight(objects);
+        setArrowBottomToRight(objects.filter(Boolean));
     }
 
     const removeArrowBottom = (items, index) => {
         const objects = [...arrowBottom];
         objects[objects.indexOf(index)] = '';
-        setArrowBottom(objects);
+        setArrowBottom(objects.filter(Boolean));
     }
 
     const removeOcupacao = (items, index) => {
         const objects = [...objOcupacao];
         objects[objects.indexOf(index)] = '';
-        setObjOcupacao(objects);
+        setObjOcupacao(objects.filter(Boolean));
     }
 
     const removeDetector = (item,index) => {
         const objects = [...objDetector];
         objects[objects.indexOf(index)] = '';
-        setObjDetector(objects);
+        setObjDetector(objects.filter(Boolean));
     }
 
     // Animações

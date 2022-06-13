@@ -59,3 +59,13 @@ export const Options = styled.div`
         right: -25px;
     }
 `;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
+    }
+`;
+
