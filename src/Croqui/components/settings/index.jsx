@@ -75,8 +75,8 @@ export default function Settings(props){
 
     return(
         <Container open={props.open}>
-			<div id="mydiv" onMouseOver={(e) => dragElement(document.getElementById("mydiv"))}>
-				<div id="mydivheader">
+			<div id="mydiv" className="element" onMouseOver={(e) => dragElement(document.getElementById("mydiv"))}>
+				<div id="mydivheader" className='elementHeader'>
                     Configurações
                     <div id="close" onClick={() => props.close(false)}><img src={closeModal} alt="" /></div>
                 </div>

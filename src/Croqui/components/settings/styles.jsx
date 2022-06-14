@@ -8,19 +8,19 @@ const girar = keyframes`
 
 export const Container = styled.div`
     
-    #mydiv {
+    .element {
         position: absolute;
         z-index: 9;
         background-color: #FFF;
         text-align: center;
         //border: 1px solid #d3d3d3;
         top: 0;
-        width: 270px;
+        width: 330px;
         border-radius: 9px;
         display: ${props => props.open === false ? 'none' : 'block'};
     }
 
-    #mydivheader {
+    .elementHeader {
         position: relative;
         height: 30px;
         z-index: 10;
@@ -141,8 +141,9 @@ export const AreaDescription = styled.div`
 `;
 
 export const Description = styled.div`
-    width: 115px;
+    width: 100%;
     height: 19px;
+    margin-top: 40px;
     transform: skew(0deg);
     background: #b1b1b1;
     box-shadow: -7px 0px 0px 0px #14A7CA;
