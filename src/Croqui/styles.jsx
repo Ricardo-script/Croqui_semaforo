@@ -119,6 +119,7 @@ export const Buttom = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
     cursor: pointer;
 
     &:hover{

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ItemDraggable from '../../../ItemDraggable';
 import direita from '../../../img/direita.png';
 import close from '../../../img/close.png';
 import settings from '../../../img/tool.png';
 import { Container, Content, MoveRight, Options, ButtonSettings } from './styles';
-import Settings from '../../../settings';
 
 export default function CarRight(props) {
     
-    const [openSettings, setOpenSettings] = useState(false);
+    const insertConfigModalSettings = () => {
+        props.setPropsSettings({title: 'Carro horizontal direita', image: direita, object: props.carRight, setObject: props.setCarRight});
+        props.setOpenSettings(true);
+    }
  
     return (
         <Container>
@@ -22,7 +24,7 @@ export default function CarRight(props) {
                                     <img src={close} alt="" />
                                 </Options>
                                 <ButtonSettings remove={props.remove}>
-                                    <img src={settings} alt="" onClick={()=> setOpenSettings(true)}/>
+                                    <img src={settings} alt="" onClick={insertConfigModalSettings}/>
                                 </ButtonSettings>
                             </ItemDraggable>
                         </Content>
@@ -31,7 +33,6 @@ export default function CarRight(props) {
                     return '';
                 }
             })}
-            <Settings title="Carro sentido á direita" open={openSettings} close={setOpenSettings} imgObject={direita} object={props.carRight} setObject={props.setCarRight} />
         </Container>
     );
 }

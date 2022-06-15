@@ -60,7 +60,7 @@ export const BodySettings = styled.div`
 export const AreaItems = styled.div`
     margin-bottom: 10px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
 `;
 
 export const Item = styled.div`
@@ -137,7 +137,7 @@ export const Total = styled.div`
 // AreaDescription, Description, Title
 
 export const AreaDescription = styled.div`
-    width: 50%;
+    width: 60%;
 `;
 
 export const Description = styled.div`

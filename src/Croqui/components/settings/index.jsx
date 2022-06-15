@@ -36,9 +36,6 @@ export default function Settings(props){
             // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-
-
-            
         }
     
         function closeDragElement() {

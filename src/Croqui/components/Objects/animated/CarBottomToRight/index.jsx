@@ -2,7 +2,8 @@ import React from 'react';
 import ItemDraggable from '../../../ItemDraggable';
 import descendo from '../../../img/descendo.png';
 import close from '../../../img/close.png';
-import { Container, MoveBottomToRight, Options } from './styles';
+import settings from '../../../img/tool.png';
+import { Container, MoveBottomToRight, Options, ButtonSettings } from './styles';
 
 export default function CarBottomToRight(props){  
     
@@ -16,6 +17,9 @@ export default function CarBottomToRight(props){
                             <Options remove={props.remove} onClick={() => props.removeBottomToRight(index,item)}>
                                 <img src={close} alt="" />
                             </Options>
+                            <ButtonSettings remove={props.remove}>
+                                <img src={settings} alt=""/>
+                            </ButtonSettings>
                         </ItemDraggable>
                     );
                 }else{
