@@ -1,18 +1,18 @@
 import styled, { keyframes } from 'styled-components';
 
-const walkToTop = keyframes`
+const walkToTop = (props) => keyframes`
     0%{
         transform: translateY(0);
         opacity: 1;
     }
 
     95%{
-        transform: translateY(-8vw);
+		transform: translateY(${'-' + props.percurso + 'vw'});
         opacity: 1;
     }
 
     100% {
-        transform: translateY(-8vw);
+		transform: translateY(${'-' + props.percurso + 'vw'});
         opacity: 0;
     }
 
@@ -43,10 +43,25 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveWalkTop = styled.img`
-    width: 46%;
+	width: ${props => props.tamanho +'%'};
+	min-width: 15px;
     height: auto;
     position: relative;
-    animation: ${ props => props.move === true ? walkToTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '4s infinite'  : '.5s ease-in-out' };
+    animation: ${ props => props.move === true ? walkToTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
+	(
+		props.velocidade === 10 ? '1s infinite linear'   :
+        props.velocidade ===  9 ? '1.5s infinite linear' :
+        props.velocidade ===  8 ? '2s infinite linear'   :
+        props.velocidade ===  7 ? '2.5s infinite linear' :
+        props.velocidade ===  6 ? '3s infinite linear'   :
+        props.velocidade ===  5 ? '3.5s infinite linear' :
+        props.velocidade ===  4 ? '4s infinite linear'   :
+        props.velocidade ===  3 ? '4.5s infinite linear' :
+        props.velocidade ===  2 ? '5s infinite linear'   :
+        props.velocidade ===  1 ? '5.5s infinite linear' :
+        props.velocidade ===  0 ? '10s infinite linear'  : ''
+    )
+	:'.5s ease-in-out' };
     transition: .2s;
     &:active{
         transform: scale(1.4);
@@ -56,11 +71,20 @@ export const MoveWalkTop = styled.img`
 export const Options = styled.div`
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
-    
+
     img{
         width: 17px;
         position: relative;
         top: -5px;
         right: -25px;
+    }
+`;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
     }
 `;

@@ -1,24 +1,24 @@
 import styled, { keyframes } from 'styled-components';
 
-const goRightToTop = keyframes`
+const goRightToTop = (props) => keyframes`
     0%{
         transform: translateX(0);
         bottom: 0;
         opacity: 1;
     }
     50%{
-        transform: translateX(39vw) rotate(0deg);
+		transform: translateX(${props.percurso + 'vw'}) rotate(0deg);
         bottom: 0;
         opacity: 1;
     }
     75%{
-        transform: translateX(40vw) rotate(-90deg);
+		transform: translateX(${props.percurso + 'vw'}) rotate(-90deg);
         bottom: 2vw;
         transition: 1s;
         opacity: 1;
     }
     100% {
-        transform: translateX(40vw) rotate(-90deg);
+		transform: translateX(${props.percurso + 'vw'}) rotate(-90deg);
         bottom: 20vw;
         transition: 1s;
         opacity: 0.4;
@@ -51,10 +51,25 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveRightToTop = styled.img`
-    width: 130%;
+    width: ${props => props.tamanho + 30 + '%'};
+	min-width: 20px;
     height: auto;
     position: relative;
-    animation: ${ props => props.move === true ? goRightToTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '5s infinite'  : '.5s ease-in-out' };
+    animation: ${ props => props.move === true ? goRightToTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
+	(
+        props.velocidade === 10 ? '1s infinite linear'   :
+        props.velocidade ===  9 ? '1.5s infinite linear' :
+        props.velocidade ===  8 ? '2s infinite linear'   :
+        props.velocidade ===  7 ? '2.5s infinite linear' :
+        props.velocidade ===  6 ? '3s infinite linear'   :
+        props.velocidade ===  5 ? '3.5s infinite linear' :
+        props.velocidade ===  4 ? '4s infinite linear'   :
+        props.velocidade ===  3 ? '4.5s infinite linear' :
+        props.velocidade ===  2 ? '5s infinite linear'   :
+        props.velocidade ===  1 ? '5.5s infinite linear' :
+        props.velocidade ===  0 ? '10s infinite linear'  : ''
+    )
+	: '.5s ease-in-out' };
     transition: .2s;
     &:active{
         transform: scale(1.4);
@@ -64,11 +79,20 @@ export const MoveRightToTop = styled.img`
 export const Options = styled.div`
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
-    
+
     img{
         width: 17px;
         position: relative;
         top: -5px;
         right: -25px;
+    }
+`;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
     }
 `;

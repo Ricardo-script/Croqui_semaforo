@@ -70,7 +70,7 @@ export default function Croqui() {
     const [openSettings, setOpenSettings] = useState(false);
 
     //state contendo as propriedades de cada objeto
-    const [propsSettings, setPropsSettings] = useState({title: '', image: '', object: '', setObject:''});
+    const [propsSettings, setPropsSettings] = useState({type: '', title: '', image: '', object: '', setObject:''});
 
     //states para menu de opções de objetos no editor
     const [openTypesTopRigth, setOpenTypesTopRigth] = useState(false);
@@ -90,7 +90,7 @@ export default function Croqui() {
     // states dos objetos a ser inseridos no mapa
     const [carRight, setCarRight] = useState([]); //{ top: 42, left: 53},{ top: 42, left: 5},{ top: 37, left: 0}
     const [carTop, setCarTop] = useState([]);
-    const [carLeft, setCarLeft] = useState([]); 
+    const [carLeft, setCarLeft] = useState([]);
     const [carBottom, setCarBottom] = useState([]);
     const [carTopToRight, setCarTopToRight] = useState([]);
     const [carTopToLeft, setCarTopToLeft] = useState([]);
@@ -158,7 +158,7 @@ export default function Croqui() {
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
 
-    //Função abrir editor 
+    //Função abrir editor
     const openDrawer = () => {
         if (openTools) {
             setOpenTools(false);
@@ -176,7 +176,7 @@ export default function Croqui() {
             setOpenTypeBottomToRight(false);
             setOpenTypeBottom(false);
             setOpenTypeSemaforo(false);
-            
+
         } else {
             setOpenTools(true);
         }
@@ -186,14 +186,14 @@ export default function Croqui() {
     const addCarRight = () => {
         setRemove(false);
         const objects = [...carRight];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30}); 
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
         setCarRight(objects);
     }
 
     const addCarTop = () => {
         setRemove(false);
         const objects = [...carTop];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 67, velocidade: 5, percurso: 30});
         setCarTop(objects);
     }
 
@@ -207,7 +207,7 @@ export default function Croqui() {
     const addCarBottom = () => {
         setRemove(false);
         const objects = [...carBottom];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
         setCarBottom(objects);
     }
 
@@ -221,7 +221,7 @@ export default function Croqui() {
     const addCarTopToLeft = () => {
         setRemove(false);
         const objects = [...carTopToLeft];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 67, velocidade: 5, percurso: 30});
         setCarTopToLeft(objects);
     }
 
@@ -256,14 +256,14 @@ export default function Croqui() {
     const addCarBottomToLeft = () => {
         setRemove(false);
         const objects = [...carBottomToLeft];
-         objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
         setCarBottomToLeft(objects);
     }
 
     const addCarBottomToRight = () => {
         setRemove(false);
         const objects = [...carBottomToRight];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
         setCarBottomToRight(objects);
     }
 
@@ -290,28 +290,28 @@ export default function Croqui() {
     const addWalkLeft = () => {
         setRemove(false);
         const objects = [...walkLeft];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
         setWalkLeft(objects);
     }
 
     const addWalkRight = () => {
         setRemove(false);
         const objects = [...walkRight];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+		objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
         setWalkRight(objects);
     }
 
     const addWalkBottom = () => {
         setRemove(false);
         const objects = [...walkBottom];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+		objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
         setWalkBottom(objects);
     }
 
     const addWalkTop = () => {
         setRemove(false);
         const objects = [...walkTop];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+		objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
         setWalkTop(objects);
     }
 
@@ -390,7 +390,7 @@ export default function Croqui() {
         const objects = [...arrowBottomToRight];
         objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
         setArrowBottomToRight(objects);
-    }   
+    }
 
     const addArrowBottom = () => {
         setRemove(false);
@@ -779,6 +779,7 @@ export default function Croqui() {
 
     //habilitar icone de excluir objeto
     const enabledClose = () => {
+		setStatusPlay('stop');
         stopAnimate();
         if (remove) {
             setRemove(false);
@@ -921,11 +922,11 @@ export default function Croqui() {
                 setOpenTypeRight(false);
                 setOpenTypeLeftToBottom(true);
                 setOpenTypeLeftToTop(false);
-                setOpenTypeLeft(false);     
-                setOpenTypeBottomToLeft(false); 
-                setOpenTypeBottomToRight(false);   
-                setOpenTypeBottom(false);    
-                setOpenTypeSemaforo(false);   
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
             }else{
                 setOpenTypeLeftToBottom(false);
             }
@@ -1061,117 +1062,149 @@ export default function Croqui() {
                     setPropsSettings={setPropsSettings}
                 />
                 <CarTop carTop={carTop} setCarTop={setCarTop} moveTop={moveTop}
-                    setMoveTop={setMoveTop} remove={remove} removeCarTop={removeCarTop} 
+                    setMoveTop={setMoveTop} remove={remove} removeCarTop={removeCarTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarLeft carLeft={carLeft} setCarLeft={setCarLeft} moveLeft={moveLeft}
                     setMoveLeft={setMoveLeft} remove={remove} removeCarLeft={removeCarLeft} setOpenSettings={setOpenSettings}
                     setPropsSettings={setPropsSettings}
                 />
                 <CarBottom carBottom={carBottom} setCarBottom={setCarBottom} moveBottom={moveBottom}
-                    setMoveBottom={setMoveBottom} remove={remove} removeCarBottom={removeCarBottom}
+                    setMoveBottom={setMoveBottom} remove={remove} removeCarBottom={removeCarBottom} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarTopToRight carTopToRight={carTopToRight} setCarTopToRight={setCarTopToRight} moveTopToRight={moveTopToRight}
                     setMoveTopToRight={setMoveTopToRight} remove={remove} removeCarTopToRight={removeCarTopToRight} setOpenSettings={setOpenSettings}
                     setPropsSettings={setPropsSettings}
                 />
                 <CarTopToLeft carTopToLeft={carTopToLeft} setCarTopToLeft={setCarTopToLeft} moveTopToLeft={moveTopToLeft}
-                    setMoveTopToLeft={setMoveTopToLeft} remove={remove} removeCarTopToLeft={removeCarTopToLeft}
+                    setMoveTopToLeft={setMoveTopToLeft} remove={remove} removeCarTopToLeft={removeCarTopToLeft}  setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarRightToBottom carRightToBottom={carRightToBottom} setCarRightToBottom={setCarRightToBottom} moveRightToBottom={moveRightToBottom}
-                    setMoveRightToBottom={setMoveRightToBottom} remove={remove} removeRightToBottom={removeRightToBottom}
+                    setMoveRightToBottom={setMoveRightToBottom} remove={remove} removeRightToBottom={removeRightToBottom} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarLeftToBottom carLeftToBottom={carLeftToBottom} setCarLeftToBottom={setCarLeftToBottom} moveLeftToBottom={moveLeftToBottom}
-                    setMoveLeftToBottom={setMoveLeftToBottom} remove={remove} removeLeftToBottom={removeLeftToBottom}
+                    setMoveLeftToBottom={setMoveLeftToBottom} remove={remove} removeLeftToBottom={removeLeftToBottom} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarRightToTop carRightToTop={carRightToTop} setCarRightToTop={setCarRightToTop} moveRightToTop={moveRightToTop}
-                    setMoveRightToTop={setMoveRightToTop} remove={remove} removeRightToTop={removeRightToTop}
+                    setMoveRightToTop={setMoveRightToTop} remove={remove} removeRightToTop={removeRightToTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarLeftToTop carLeftToTop={carLeftToTop} setCarLeftToTop={setCarLeftToTop} moveLeftToTop={moveLeftToTop}
-                    setMoveLeftToTop={setMoveLeftToTop} remove={remove} removeLeftToTop={removeLeftToTop}
+                    setMoveLeftToTop={setMoveLeftToTop} remove={remove} removeLeftToTop={removeLeftToTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarBottomToLeft carBottomToLeft={carBottomToLeft} setCarBottomToLeft={setCarBottomToLeft} moveBottomToLeft={moveBottomToLeft}
-                    setMoveBottomToLeft={setMoveBottomToLeft} remove={remove} removeBottomToLeft={removeBottomToLeft}
+                    setMoveBottomToLeft={setMoveBottomToLeft} remove={remove} removeBottomToLeft={removeBottomToLeft} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <CarBottomToRight carBottomToRight={carBottomToRight} setCarBottomToRight={setCarBottomToRight} moveBottomToRight={moveBottomToRight}
-                    setMoveBottomToRight={setMoveBottomToRight} remove={remove} removeBottomToRight={removeBottomToRight}
+                    setMoveBottomToRight={setMoveBottomToRight} remove={remove} removeBottomToRight={removeBottomToRight} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <SemaforoFront objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
-                    remove={remove} removeSemaforo={removeSemaforo}
+                    remove={remove} removeSemaforo={removeSemaforo} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <SemaforoLeft objSemaforoLeft={objSemaforoLeft} setObjSemaforoLeft={setObjSemaforoLeft}
-                    remove={remove} removeSemaforoLeft={removeSemaforoLeft}
+                    remove={remove} removeSemaforoLeft={removeSemaforoLeft} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <SemaforoRight objSemaforoRight={objSemaforoRight} setObjSemaforoRight={setObjSemaforoRight}
-                    remove={remove} removeSemaforoRight={removeSemaforoRight}
+                    remove={remove} removeSemaforoRight={removeSemaforoRight} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <WalkLeft walkLeft={walkLeft} setWalkLeft={setWalkLeft} moveWalkLeft={moveWalkLeft}
-                    setMoveWalkLeft={setMoveWalkLeft} remove={remove} removeWalkLeft={removeWalkLeft}
+                    setMoveWalkLeft={setMoveWalkLeft} remove={remove} removeWalkLeft={removeWalkLeft} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <WalkRight walkRight={walkRight} setWalkRight={setWalkRight} moveWalkRight={moveWalkRight}
-                    setMoveWalkRight={setMoveWalkRight} remove={remove} removeWalkRight={removeWalkRight}
+                    setMoveWalkRight={setMoveWalkRight} remove={remove} removeWalkRight={removeWalkRight} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <WalkBottom walkBottom={walkBottom} setWalkBottom={setWalkBottom} moveWalkBottom={moveWalkBottom}
-                    setMoveWalkBottom={setMoveWalkBottom} remove={remove} removeWalkBottom={removeWalkBottom}
+                    setMoveWalkBottom={setMoveWalkBottom} remove={remove} removeWalkBottom={removeWalkBottom} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <WalkTop walkTop={walkTop} setWalkTop={setWalkTop} moveWalkTop={moveWalkTop}
-                    setMoveWalkTop={setMoveWalkTop} remove={remove} removeWalkTop={removeWalkTop}
+                    setMoveWalkTop={setMoveWalkTop} remove={remove} removeWalkTop={removeWalkTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowTopToRight arrowTopToRight={arrowTopToRight} setArrowTopToRight={setArrowTopToRight} 
-                    remove={remove} moveArrowTopToRight={moveArrowTopToRight} removeArrowTopToRight={removeArrowTopToRight}
+                <ArrowTopToRight arrowTopToRight={arrowTopToRight} setArrowTopToRight={setArrowTopToRight}
+                    remove={remove} moveArrowTopToRight={moveArrowTopToRight} removeArrowTopToRight={removeArrowTopToRight} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowTopToLeft arrowTopToLeft={arrowTopToLeft} setArrowTopToLeft={setArrowTopToLeft} 
-                    remove={remove} removeArrowTopToLeft={removeArrowTopToLeft} moveArrowTopToLeft={moveArrowTopToLeft}
+                <ArrowTopToLeft arrowTopToLeft={arrowTopToLeft} setArrowTopToLeft={setArrowTopToLeft}
+                    remove={remove} removeArrowTopToLeft={removeArrowTopToLeft} moveArrowTopToLeft={moveArrowTopToLeft} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <ArrowTop arrowTop={arrowTop} setArrowTop={setArrowTop} moveArrowTop={moveArrowTop}
-                    setMoveArrowTop={setMoveArrowTop} remove={remove} removeArrowTop={removeArrowTop}
+                    setMoveArrowTop={setMoveArrowTop} remove={remove} removeArrowTop={removeArrowTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <ArrowRight arrowRight={arrowRight} setArrowRight={setArrowRight} moveArrowRight={moveArrowRight}
-                    setMoveArrowRight={setMoveArrowRight} remove={remove} removeArrowRight={removeArrowRight}
+                    setMoveArrowRight={setMoveArrowRight} remove={remove} removeArrowRight={removeArrowRight} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowRightToBottom arrowRightToBottom={arrowRightToBottom} setArrowRightToBottom={setArrowRightToBottom} 
+                <ArrowRightToBottom arrowRightToBottom={arrowRightToBottom} setArrowRightToBottom={setArrowRightToBottom}
                     remove={remove} removeArrowRightToBottom={removeArrowRightToBottom} moveArrowRightToBottom={moveArrowRightToBottom}
+					setOpenSettings={setOpenSettings} setPropsSettings={setPropsSettings}
                 />
-                <ArrowRightToTop arrowRightToTop={arrowRightToTop} setArrowRightToTop={setArrowRightToTop} 
-                    remove={remove} removeArrowRightToTop={removeArrowRightToTop} moveArrowRightToTop={moveArrowRightToTop}
+                <ArrowRightToTop arrowRightToTop={arrowRightToTop} setArrowRightToTop={setArrowRightToTop}
+                    remove={remove} removeArrowRightToTop={removeArrowRightToTop} moveArrowRightToTop={moveArrowRightToTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowLeftToBottom arrowLeftToBottom={arrowLeftToBottom} setArrowLeftToBottom={setArrowLeftToBottom} 
-                    remove={remove} removeArrowLeftToBottom={removeArrowLeftToBottom} moveArrowLeftToBottom={moveArrowLeftToBottom}
+                <ArrowLeftToBottom arrowLeftToBottom={arrowLeftToBottom} setArrowLeftToBottom={setArrowLeftToBottom}
+                    remove={remove} removeArrowLeftToBottom={removeArrowLeftToBottom} moveArrowLeftToBottom={moveArrowLeftToBottom} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowLeftToTop arrowLeftToTop={arrowLeftToTop} setArrowLeftToTop={setArrowLeftToTop} 
-                    remove={remove} removeArrowLeftToTop={removeArrowLeftToTop} moveArrowLeftToTop={moveArrowLeftToTop}
+                <ArrowLeftToTop arrowLeftToTop={arrowLeftToTop} setArrowLeftToTop={setArrowLeftToTop}
+                    remove={remove} removeArrowLeftToTop={removeArrowLeftToTop} moveArrowLeftToTop={moveArrowLeftToTop} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <ArrowLeft arrowLeft={arrowLeft} setArrowLeft={setArrowLeft} moveArrowLeft={moveArrowLeft}
-                    setMoveArrowLeft={setMoveArrowLeft} remove={remove} removeArrowLeft={removeArrowLeft}
+                    setMoveArrowLeft={setMoveArrowLeft} remove={remove} removeArrowLeft={removeArrowLeft} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowBottomToLeft arrowBottomToLeft={arrowBottomToLeft} setArrowBottomToLeft={setArrowBottomToLeft} 
-                    remove={remove} removeArrowBottomToLeft={removeArrowBottomToLeft} moveArrowBottomToLeft={moveArrowBottomToLeft}
+                <ArrowBottomToLeft arrowBottomToLeft={arrowBottomToLeft} setArrowBottomToLeft={setArrowBottomToLeft}
+                    remove={remove} removeArrowBottomToLeft={removeArrowBottomToLeft} moveArrowBottomToLeft={moveArrowBottomToLeft} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
-                <ArrowBottomToRight arrowBottomToRight={arrowBottomToRight} setArrowBottomToRight={setArrowBottomToRight} 
-                    remove={remove} removeArrowBottomToRight={removeArrowBottomToRight} moveArrowBottomToRight={moveArrowBottomToRight}
+                <ArrowBottomToRight arrowBottomToRight={arrowBottomToRight} setArrowBottomToRight={setArrowBottomToRight}
+                    remove={remove} removeArrowBottomToRight={removeArrowBottomToRight} moveArrowBottomToRight={moveArrowBottomToRight} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <ArrowBottom arrowBottom={arrowBottom} setArrowBottom={setArrowBottom} moveArrowBottom={moveArrowBottom}
-                    setMoveArrowBottom={setMoveArrowBottom} remove={remove} removeArrowBottom={removeArrowBottom}
+                    setMoveArrowBottom={setMoveArrowBottom} remove={remove} removeArrowBottom={removeArrowBottom} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <Botoeira objBotoeira={objBotoeira} setObjBotoeira={setObjBotoeira}
-                    remove={remove} removeBotoeira={removeBotoeira}
+                    remove={remove} removeBotoeira={removeBotoeira} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <Ocupacao objOcupacao={objOcupacao} setObjOcupacao={setObjOcupacao}
-                    remove={remove} removeOcupacao={removeOcupacao}
+                    remove={remove} removeOcupacao={removeOcupacao} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <Detector objDetector={objDetector} setObjDetector={setObjDetector}
-                    remove={remove} removeDetector={removeDetector}
+                    remove={remove} removeDetector={removeDetector} setOpenSettings={setOpenSettings}
+                    setPropsSettings={setPropsSettings}
                 />
                 <ModalConfirm openModal={openModal} setOpenModal={setOpenModal} removeAll={removeAll}/>
 
-                <Settings 
-                    title={propsSettings.title} 
-                    open={openSettings} 
-                    close={setOpenSettings} 
-                    imgObject={propsSettings.image} 
-                    object={propsSettings.object} 
-                    setObject={propsSettings.setObject} 
+                <Settings
+					type={propsSettings.type}
+                    title={propsSettings.title}
+                    open={openSettings}
+                    close={setOpenSettings}
+                    imgObject={propsSettings.image}
+                    object={propsSettings.object}
+                    setObject={propsSettings.setObject}
                 />
-                
+
             </AreaMapaCroqui>
             <AreaEditor open={openTools}>
                 <Editor>
@@ -1256,7 +1289,7 @@ export default function Croqui() {
                             <AreaButtons>
                             <OptionButton>
                                 <Buttom onClick={() => openTypes('semaforo')}><Img id='icoSemaforo' src={icoSemaforo} alt='' /></Buttom>
-                                <MenuTypeSemaforo name='semaforo' openTypes={openTypeSemaforo} setOpenTypes={setOpenTypeSemaforo} 
+                                <MenuTypeSemaforo name='semaforo' openTypes={openTypeSemaforo} setOpenTypes={setOpenTypeSemaforo}
                                     addObject={addSemaforo} addObjectLeft={addSemaforoLeft} addObjectRight={addSemaforoRight}
                                 />
                             </OptionButton>

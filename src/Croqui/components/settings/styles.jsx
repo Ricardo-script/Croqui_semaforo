@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const girar = keyframes`
     to {
@@ -7,7 +7,7 @@ const girar = keyframes`
 `;
 
 export const Container = styled.div`
-    
+
     .element {
         position: absolute;
         z-index: 9;
@@ -73,12 +73,11 @@ export const Item = styled.div`
     align-items: center;
     justify-content: center;
     user-select: none;
-   
 
     img{
-        width: 80%;
+        width: ${props => props.type === 'car' ? '80%' : '50%'};
         height: fit-content;
-        animation: ${ girar } 30s linear infinite;  
+		animation: ${props => props.type === 'car' ? css` ${ girar } 30s linear infinite` : css`none`};
     }
 `;
 
@@ -147,7 +146,7 @@ export const Description = styled.div`
     transform: skew(0deg);
     background: #b1b1b1;
     box-shadow: -7px 0px 0px 0px #14A7CA;
-    
+
 `;
 
 export const Title = styled.span`

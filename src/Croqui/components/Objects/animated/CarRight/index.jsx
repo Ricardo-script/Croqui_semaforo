@@ -6,12 +6,12 @@ import settings from '../../../img/tool.png';
 import { Container, Content, MoveRight, Options, ButtonSettings } from './styles';
 
 export default function CarRight(props) {
-    
+
     const insertConfigModalSettings = () => {
-        props.setPropsSettings({title: 'Carro horizontal direita', image: direita, object: props.carRight, setObject: props.setCarRight});
+        props.setPropsSettings({ type: 'car', title: 'Carro horizontal direita', image: direita, object: props.carRight, setObject: props.setCarRight});
         props.setOpenSettings(true);
     }
- 
+
     return (
         <Container>
             {props.carRight.map((item, index) => {

@@ -1,18 +1,18 @@
 import styled, { keyframes } from 'styled-components';
 
-const walkToRight = keyframes`
+const walkToRight = (props) => keyframes`
     0%{
         transform: translateX(0);
         opacity: 1;
     }
 
     98%{
-        transform: translateX(9vw);
+		transform: translateX(${props.percurso + 'vw'});
         opacity: 1;
     }
 
     100% {
-        transform: translateX(9vw);
+		transform: translateX(${props.percurso + 'vw'});
         opacity: 0;
     }
 
@@ -43,7 +43,8 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveWalkRight = styled.img`
-    width: 45%;
+    width: ${props => props.tamanho +'%'};
+	min-width: 15px;
     height: auto;
     position: relative;
     animation: ${ props => props.move === true ? walkToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '4s infinite'  : '.5s ease-in-out' };
@@ -56,11 +57,21 @@ export const MoveWalkRight = styled.img`
 export const Options = styled.div`
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
-    
+
     img{
         width: 17px;
         position: relative;
         top: -5px;
         right: -25px;
+    }
+`;
+
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
     }
 `;

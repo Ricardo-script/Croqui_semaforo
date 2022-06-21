@@ -8,7 +8,7 @@ import { Container, MoveLeft, Options, ButtonSettings } from './styles';
 export default function CarLeft(props) {
 
 	const insertConfigModalSettings = () => {
-		props.setPropsSettings({ title: 'Carro horizontal esquerda', image: esquerda, object: props.carLeft, setObject: props.setCarLeft });
+		props.setPropsSettings({ type: 'car',  title: 'Carro horizontal esquerda', image: esquerda, object: props.carLeft, setObject: props.setCarLeft });
 		props.setOpenSettings(true);
 	}
 

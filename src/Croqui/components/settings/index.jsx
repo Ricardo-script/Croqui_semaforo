@@ -13,7 +13,7 @@ export default function Settings(props){
             /* otherwise, move the DIV from anywhere inside the DIV:*/
             elmnt.onmousedown = dragMouseDown;
         }
-    
+
         function dragMouseDown(e) {
             e = e || window.event;
             e.preventDefault();
@@ -24,7 +24,7 @@ export default function Settings(props){
             // call a function whenever the cursor moves:
             document.onmousemove = elementDrag;
         }
-    
+
         function elementDrag(e) {
             e = e || window.event;
             e.preventDefault();
@@ -37,7 +37,7 @@ export default function Settings(props){
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
         }
-    
+
         function closeDragElement() {
             /* stop moving when mouse button is released:*/
             document.onmouseup = null;
@@ -79,7 +79,7 @@ export default function Settings(props){
                 </div>
 				<BodySettings>
                     <AreaItems>
-                        <Item>
+                        <Item type={props.type}>
                             <img src={props.imgObject} alt="" />
                         </Item>
                         <AreaDescription>
@@ -112,5 +112,5 @@ export default function Settings(props){
                 </BodySettings>
 			</div>
 		</Container>
-    ); 
+    );
 }

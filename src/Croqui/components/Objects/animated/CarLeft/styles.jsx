@@ -39,22 +39,23 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveLeft = styled.img`
-    width: ${props => props.tamanho + 30 + '%'};
+    width: ${props => props.tamanho + 15 + '%'};
+	min-width: 20px;
     height: auto;
-    animation: ${ props => props.move === true ? goLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? 
-        (
-        props.velocidade === 10 ? '1s infinite' :
-        props.velocidade ===  9 ? '1.5s infinite' :
-        props.velocidade ===  8 ? '2s infinite' :
-        props.velocidade ===  7 ? '2.5s infinite' :
-        props.velocidade ===  6 ? '3s infinite' :
-        props.velocidade ===  5 ? '3.5s infinite' :
-        props.velocidade ===  4 ? '4s infinite' :
-        props.velocidade ===  3 ? '4.5s infinite' :
-        props.velocidade ===  2 ? '5s infinite' :
-        props.velocidade ===  1 ? '5.5s infinite' :
-        props.velocidade ===  0 ? '10s infinite' : ''
-    ) 
+    animation: ${ props => props.move === true ? goLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
+    (
+		props.velocidade === 10 ? '1s infinite linear'   :
+        props.velocidade ===  9 ? '1.5s infinite linear' :
+        props.velocidade ===  8 ? '2s infinite linear'   :
+        props.velocidade ===  7 ? '2.5s infinite linear' :
+        props.velocidade ===  6 ? '3s infinite linear'   :
+        props.velocidade ===  5 ? '3.5s infinite linear' :
+        props.velocidade ===  4 ? '4s infinite linear'   :
+        props.velocidade ===  3 ? '4.5s infinite linear' :
+        props.velocidade ===  2 ? '5s infinite linear'   :
+        props.velocidade ===  1 ? '5.5s infinite linear' :
+        props.velocidade ===  0 ? '10s infinite linear'  : ''
+    )
     : '.5s ease-in-out' };
     transition: .2s;
     &:active{
@@ -65,7 +66,7 @@ export const MoveLeft = styled.img`
 export const Options = styled.div`
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
-    
+
     img{
         width: 17px;
         position: relative;

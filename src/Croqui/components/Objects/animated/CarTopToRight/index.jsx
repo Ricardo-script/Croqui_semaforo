@@ -6,13 +6,13 @@ import close from '../../../img/close.png';
 import settings from '../../../img/tool.png';
 import { Container, MoveTopToRight, Options, ButtonSettings } from './styles';
 
-export default function CarTopToRight(props){ 
-    
+export default function CarTopToRight(props){
+
     const insertConfigModalSettings = () => {
-        props.setPropsSettings({title: 'Carro subindo vira a direita', image: direita, object: props.carTopToRight, setObject: props.setCarTopToRight});
+        props.setPropsSettings({ type: 'car', title: 'Carro subindo vira a direita', image: direita, object: props.carTopToRight, setObject: props.setCarTopToRight});
         props.setOpenSettings(true);
     }
-    
+
     return(
         <Container>
             {props.carTopToRight.map((item,index) => {
