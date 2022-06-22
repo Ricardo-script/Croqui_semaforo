@@ -40,7 +40,8 @@ const pause = keyframes` // parar carro no farol vermelho
 export const Container = styled.div``;
 
 export const MoveRight = styled.img`
-    width: 82%;
+    width: ${props => props.tamanho + '%'};
+	min-width: 15px;
     height: auto;
     position: relative;
     animation: ${ props => props.move === true ? goTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '1.3s infinite'  : '.5s ease-in-out' };
@@ -53,7 +54,7 @@ export const MoveRight = styled.img`
 export const Options = styled.div`
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
-    
+
     img{
         width: 17px;
         position: relative;
@@ -61,3 +62,12 @@ export const Options = styled.div`
         right: -25px;
     }
 `;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
+    }
+`

@@ -442,7 +442,9 @@ export default function Croqui() {
         setWalkTop([]);
         setArrowTopToRight([]);
         setArrowTop([]);
+		setArrowLeft([]);
         setArrowRight([]);
+		setArrowTopToLeft([]);
         setArrowRightToTop([]);
         setArrowLeftToBottom([]);
         setArrowLeftToTop([]);
@@ -1215,37 +1217,37 @@ export default function Croqui() {
                         <Fieldset>
                             <Legend>Cima</Legend>
                             <AreaButtons>
-                                <OptionButton>
+                                <OptionButton title='Subindo vire a direita'>
                                     <Buttom onClick={() => openTypes('top-right')}><Img id='top-right' src={arrowSide} alt='' /></Buttom>
                                     <MenuType name='topToright' openTypes={openTypesTopRigth} setOpenTypes={setOpenTypesTopRigth} addObject={addCarTopToRight} addObjectArrow={addArrowTopToRight}/>
                                 </OptionButton>
-                                <OptionButton>
+                                <OptionButton title='Subindo vire a esquerda'>
                                     <Buttom onClick={() => openTypes('top-left')}><Img id='top-left' src={arrowSide} alt='' /></Buttom>
                                     <MenuType name='topToleft' openTypes={openTypesTopLeft} setOpenTypes={setOpenTypesTopLeft} addObject={addCarTopToLeft} addObjectArrow={addArrowTopToLeft}/>
                                 </OptionButton>
-                                <OptionButton>
+                                <OptionButton title='Subindo'>
                                     <Buttom onClick={() => openTypes('top')}><Img id='top' src={arrow} alt='' /></Buttom>
                                     <MenuType name='top' openTypes={openTypesTop} setOpenTypes={setOpenTypesTop} addObject={addCarTop} addObjectArrow={addArrowTop}/>
                                 </OptionButton>
-                                <Buttom onClick={addWalkTop}><Img id='top-pedestre' src={pedestre} alt='' /></Buttom>
+                                <Buttom title='Pedestre subindo' onClick={addWalkTop}><Img id='top-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>
                             <Legend>Direita</Legend>
                             <AreaButtons>
-                                <OptionButton>
+                                <OptionButton title='À direita desce à direita'>
                                     <Buttom onClick={() => openTypes('right-down')}><Img id='right-down' src={arrowSide} alt='' /></Buttom>
                                     <MenuType name='rightToDown' openTypes={openTypeRigthToBottom} setOpenTypes={setopenTypeRigthToBottom} addObject={addCarRightToBottom} addObjectArrow={addArrowRightToBottom}/>
                                 </OptionButton>
-                                <OptionButton>
+                                <OptionButton title='À direita sobe à esquerda'>
                                     <Buttom onClick={() => openTypes('right-top')}><Img id='right-top' src={arrowSide} alt='' /></Buttom>
                                     <MenuType name='rightTotop' openTypes={openTypeRigthToTop} setOpenTypes={setOpenTypeRigthToTop} addObject={addCarRightToTop} addObjectArrow={addArrowRightToTop}/>
                                 </OptionButton>
-                                <OptionButton>
+                                <OptionButton title='Segue a direita'>
                                     <Buttom onClick={() => openTypes('right')}><Img id='right' src={arrow} alt='' /></Buttom>
                                     <MenuType name='right' openTypes={openTypeRight} setOpenTypes={setOpenTypeRight} addObject={addCarRight} addObjectArrow={addArrowRight}/>
                                 </OptionButton>
-                                <Buttom onClick={addWalkRight}><Img id='right-pedestre' src={pedestre} alt='' /></Buttom>
+                                <Buttom title='Pedestre segue a direita' onClick={addWalkRight}><Img id='right-pedestre' src={pedestre} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
                         <Fieldset>

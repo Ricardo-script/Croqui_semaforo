@@ -88,21 +88,21 @@ export default function Settings(props){
                             </Description>
                         </AreaDescription>
                     </AreaItems>
-                    <Group>
+                    <Group id='rangeTamanho' type={props.type}>
                         <Label>Tamanho:</Label>
                         <AreaInput>
                             <Input type="range" min="0" max="200" value={props.object.length === 0 ? 0 : props.object[0].tamanho} onChange={(e) => getTamanho(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].tamanho}</Total>
                         </AreaInput>
                     </Group>
-                    <Group>
+                    <Group id='rangeVelocidade' type={props.type}>
                         <Label>Velocidade:</Label>
                         <AreaInput>
                         <Input type="range" min="0" max="10" value={props.object.length === 0 ? 0 : props.object[0].velocidade} onChange={(e) => getVelocidade(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].velocidade}</Total>
                         </AreaInput>
                     </Group>
-                    <Group>
+                    <Group id='rangePercurso' type={props.type}>
                         <Label>Percurso:</Label>
                         <AreaInput>
                             <Input type="range" min="0" max="100" value={props.object.length === 0 ? 0 : props.object[0].percurso} onChange={(e) => getPercurso(e.target.value)}/>

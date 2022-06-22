@@ -75,7 +75,11 @@ export const Item = styled.div`
     user-select: none;
 
     img{
-        width: ${props => props.type === 'car' ? '80%' : '50%'};
+        width: ${
+			props => props.type === 'car' ? '80%' :
+			props => props.type === 'pedestre' ? '50%' :
+			props => props.type === 'arrow' ? '60%' : ''
+		};
         height: fit-content;
 		animation: ${props => props.type === 'car' ? css` ${ girar } 30s linear infinite` : css`none`};
     }
@@ -84,6 +88,18 @@ export const Item = styled.div`
 export const Group = styled.div`
     display: flex;
     flex-direction: column;
+
+	&#rangeTamanho{
+
+	}
+
+	&#rangeVelocidade{
+		display: ${props => props.type === 'arrow' ? 'none' : 'flex'};
+	}
+
+	&#rangePercurso{
+		display: ${props => props.type === 'arrow' ? 'none' : 'flex'};
+	}
 `;
 
 export const Label = styled.label`
