@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ItemDraggable from '../../../ItemDraggable';
 import close from '../../../img/close.png';
-import { Container, AreaDetector, QntTotal, Options } from './styles';
+import icoDetector from '../../../img/icoDetector.png';
+import settings from '../../../img/tool.png';
+import { Container, AreaDetector, QntTotal, Options, ButtonSettings } from './styles';
 
-export default function Detector(props){  
+export default function Detector(props){
 
     const [total, setTotal] = useState(3);
 
@@ -21,19 +23,27 @@ export default function Detector(props){
             return;
         }
     },3000);
-    
+
+	const insertConfigModalSettings = () => {
+        props.setPropsSettings({ type: 'box', title: 'Detector', image: icoDetector, object: props.objDetector, setObject: props.setObjDetector});
+        props.setOpenSettings(true);
+    }
+
     return(
         <Container>
             {props.objDetector.map((item,index) => {
                 if(props.objDetector[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='objDetector' top={item.top} left={item.left} setObjDetector={props.setObjDetector} objDetector={props.objDetector}>
-                            <AreaDetector total={total}>
+                            <AreaDetector total={total} tamanho={item.tamanho}>
                                 <QntTotal total={total}>{total}</QntTotal>
                             </AreaDetector>
-                            <Options options={props.options} onClick={() => props.optionsDetector(index,item)}>
+                            <Options remove={props.remove} onClick={() => props.removeDetector(index,item)}>
                                 <img src={close} alt="" />
                             </Options>
+							<ButtonSettings remove={props.remove}>
+								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+							</ButtonSettings>
                         </ItemDraggable>
                     );
                 }else{

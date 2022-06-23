@@ -18,14 +18,16 @@ const zoom = keyframes`
 export const Container = styled.div``;
 
 export const AreaOcupacao = styled.div`
-    width: 3.17vw;
-    height: 5.17vh;
+	width: ${props => props.tamanho + 'px'};
+	height:${props => props.tamanho + 'px'};
+	min-width: 20px;
+	min-height: 20px;
     position: relative;
     border: 2px solid #FFF;
     border-radius: 4px;
-    background: ${ 
-        props => props.taxa <= 33 ? '#25ff2596' : 
-        props.taxa >= 33 && props.taxa <= 67 ? '#e4ff00b8' : 
+    background: ${
+        props => props.taxa <= 33 ? '#25ff2596' :
+        props.taxa >= 33 && props.taxa <= 67 ? '#e4ff00b8' :
         props.taxa > 67 ? '#ff5454ba' : ''
     };
     display: flex;
@@ -35,15 +37,15 @@ export const AreaOcupacao = styled.div`
     animation: ${ zoom } .3s ease-in-out;
 
     &:active{
-        transform: scale(1.4); 
+        transform: scale(1.4);
     }
 `;
 
 export const TaxaOcupacao = styled.div`
-    font-size: 1vw;
-    color: ${ 
-        props => props.taxa <= 33 ? '#024602' : 
-        props.taxa >= 33 && props.taxa <= 67 ? '#585c34' : 
+    font-size: 17px;
+    color: ${
+        props => props.taxa <= 33 ? '#024602' :
+        props.taxa >= 33 && props.taxa <= 67 ? '#585c34' :
         props.taxa > 67 ? '#6b1212' : ''
     };
     font-weight: 600;
@@ -51,12 +53,21 @@ export const TaxaOcupacao = styled.div`
 
 export const Options = styled.div`
     cursor: pointer;
-    display: ${props => props.options === false ? 'none' : 'block'};
-    
+    display: ${props => props.remove === false ? 'none' : 'block'};
+
     img{
         width: 17px;
         position: relative;
         top: -5px;
         right: -25px;
+    }
+`;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
     }
 `;

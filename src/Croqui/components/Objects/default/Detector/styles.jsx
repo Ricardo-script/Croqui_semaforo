@@ -18,8 +18,10 @@ const zoom = keyframes`
 export const Container = styled.div``;
 
 export const AreaDetector = styled.div`
-    width: 3.17vw;
-    height: 5.17vh;
+   	width: ${props => props.tamanho + 'px'};
+	height:${props => props.tamanho + 'px'};
+	min-width: 20px;
+	min-height: 20px;
     position: relative;
     border: 2px solid #FFF;
     border-radius: 4px;
@@ -31,24 +33,33 @@ export const AreaDetector = styled.div`
     animation: ${ zoom } .3s ease-in-out;
 
     &:active{
-        transform: scale(1.4); 
+        transform: scale(1.4);
     }
 `;
 
 export const QntTotal = styled.div`
-    font-size: 1vw;
+    font-size: 17px;
     color: #054597;
     font-weight: 600;
 `;
 
 export const Options = styled.div`
     cursor: pointer;
-    display: ${props => props.options === false ? 'none' : 'block'};
-    
+    display: ${props => props.remove === false ? 'none' : 'block'};
+
     img{
         width: 17px;
         position: relative;
         top: -5px;
         right: -25px;
+    }
+`;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
     }
 `;

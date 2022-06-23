@@ -270,20 +270,20 @@ export default function Croqui() {
     const addSemaforo = () => {
         setRemove(false);
         const objects = [...objSemaforo];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 30, velocidade: 5, percurso: 30});
         setObjSemaforo(objects);
     }
 
     const addSemaforoLeft = () => {
         setRemove(false);
         const objects = [...objSemaforoLeft];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 30, velocidade: 5, percurso: 30});
         setObjSemaforoLeft(objects);
     }
     const addSemaforoRight = () => {
         setRemove(false);
         const objects = [...objSemaforoRight];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 30, velocidade: 5, percurso: 30});
         setObjSemaforoRight(objects);
     }
 
@@ -402,21 +402,21 @@ export default function Croqui() {
     const addBotoeira = () => {
         setRemove(false);
         const objects = [...objBotoeira];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 33, velocidade: 5, percurso: 30});
         setObjBotoeira(objects);
     }
 
     const addOcupacao = () => {
         setRemove(false);
         const objects = [...objOcupacao];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
         setObjOcupacao(objects);
     }
 
     const addDetector = () => {
         setRemove(false);
         const objects = [...objDetector];
-        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
         setObjDetector(objects);
     }
 

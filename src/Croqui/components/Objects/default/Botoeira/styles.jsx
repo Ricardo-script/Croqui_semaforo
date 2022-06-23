@@ -18,7 +18,7 @@ const zoom = keyframes`
 export const Container = styled.div``;
 
 export const Img = styled.img`
-    width: 26%;
+    width: ${props => props.tamanho + '%'};
     height: auto;
     position: relative;
     transition: .2s;
@@ -28,14 +28,14 @@ export const Img = styled.img`
         cursor: pointer;
     }
     &:active{
-        transform: scale(1.4); 
+        transform: scale(1.4);
     }
 `;
 
 export const Options = styled.div`
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
-    
+
     img{
         width: 17px;
         position: relative;
@@ -43,3 +43,13 @@ export const Options = styled.div`
         right: -25px;
     }
 `;
+
+export const ButtonSettings = styled(Options)`
+    img{
+        width: 20px;
+        position: relative;
+        top: -29px;
+        right: -48px;
+    }
+`;
+

@@ -78,7 +78,9 @@ export const Item = styled.div`
         width: ${
 			props => props.type === 'car' ? '80%' :
 			props => props.type === 'pedestre' ? '50%' :
-			props => props.type === 'arrow' ? '60%' : ''
+			props => props.type === 'arrow' ? '60%' :
+			props => props.type === 'box' ? '60%' :
+			props => props.type === 'others' ? '33%' : ''
 		};
         height: fit-content;
 		animation: ${props => props.type === 'car' ? css` ${ girar } 30s linear infinite` : css`none`};
@@ -94,11 +96,11 @@ export const Group = styled.div`
 	}
 
 	&#rangeVelocidade{
-		display: ${props => props.type === 'arrow' ? 'none' : 'flex'};
+		display: ${props => props.type !== 'car' ? 'none' : 'flex'};
 	}
 
 	&#rangePercurso{
-		display: ${props => props.type === 'arrow' ? 'none' : 'flex'};
+		display: ${props => props.type !== 'car' ? 'none' : 'flex'};
 	}
 `;
 
