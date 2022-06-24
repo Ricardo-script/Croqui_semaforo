@@ -19,6 +19,7 @@ export const Container = styled.div``;
 
 export const Img = styled.img`
     width: ${props => props.tamanho + '%'};
+	min-width: 10px;
     height: auto;
     position: relative;
     transition: .2s;

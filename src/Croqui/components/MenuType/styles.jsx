@@ -9,7 +9,7 @@ export const TypeObjects = styled.div`
     justify-content: space-around;
     display: flex;
     height: 50px;
-    background: #a9a6a6;
+    background: #a9a6a678;
     border-radius: 6px;
     z-index: 1;
     //right: 285px;

@@ -9,26 +9,28 @@ export const TypeObjects = styled.div`
     justify-content: space-around;
     display: flex;
     height: 50px;
-    background: #a9a6a678;
+	background: #a9a6a678;
     border-radius: 6px;
     z-index: 1;
     //right: 285px;
     top: 80px;
 
-    &#semaforo{
+    &#maps{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '220px'};
+        width: ${props => props.open === false ? '0' : '490px'};
+		height:${props => props.open === false ? '0' : '150px'};
         right: ${props => props.open === false ? '0' : '285px'};
-        top: 375px;
+        top: 520px;
         transition: .3s;
         display: flex;
         gap: 10px;
+		padding: 0 15px;
     }
 `;
 
 export const Buttom = styled.div`
-    width: 24px;
-    height: 24px;
+    width: 90px;
+    height: 90px;
     background: #EEE;
     border-radius: 7px;
     padding: 7px;
@@ -51,5 +53,5 @@ export const Buttom = styled.div`
 `;
 
 export const Ico = styled.img`
-    width: 56%;
+    width: 100%;
 `;

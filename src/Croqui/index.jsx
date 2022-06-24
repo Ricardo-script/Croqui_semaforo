@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, AreaMapaCroqui, ButtonOpen, MapaCroqui, AreaEditor, Editor, Header, AreaTools, Fieldset, Legend, AreaButtons, OptionButton,
-Buttom, Img } from './styles';
+Buttom, ButtomLabel, Img, ButtonSave } from './styles';
 import { GiHamburgerMenu } from "react-icons/gi";
 import ModalConfirm from './components/Modals/modalConfirm';
 import Settings from './components/settings';
@@ -50,13 +50,15 @@ import play from './components/img/play.png';
 import pauseSwitch from './components/img/pause.png';
 import icoSettings from './components/img/icoSettings.png';
 import icoSemaforo from './components/img/icoSemaforo.png';
-//import toolclose from './components/img/toolclose.png';
 import clear from './components/img/clear.png';
 import MenuType from './components/MenuType';
 import MenuTypeSemaforo from './components/MenuTypeSemaforo';
+import MenuTypeMap from './components/MenuTypeMap';
 import botoeiraIco from './components/img/botoeiraIco.png';
 import icoTaxa from './components/img/icoTaxa.png';
 import icoContagem from './components/img/icoContagem.png';
+import icoUpload from './components/img/upload.png';
+import icoDefault from './components/img/icoDefault.png';
 
 export default function Croqui() {
 
@@ -86,6 +88,7 @@ export default function Croqui() {
     const [openTypeBottomToRight, setOpenTypeBottomToRight] = useState(false);
     const [openTypeBottom, setOpenTypeBottom] = useState(false);
     const [openTypeSemaforo, setOpenTypeSemaforo] = useState(false);
+	const [openTypesMaps, setOpenTypesMaps] = useState(false);
 
     // states dos objetos a ser inseridos no mapa
     const [carRight, setCarRight] = useState([]); //{ top: 42, left: 53},{ top: 42, left: 5},{ top: 37, left: 0}
@@ -158,6 +161,14 @@ export default function Croqui() {
     // states para opções do objeto
     const [remove, setRemove] = useState(false);
 
+	//state para salvar imagem do mapa
+	const [file, setFile] = useState(null); // state para conter o arquivo
+    const [imageMap, setImageMap] = useState(MapaCroqui02); // state para pré visualização
+
+	const optionDefaultMap01 = () => {
+		setImageMap(MapaCroqui02);
+	}
+
     //Função abrir editor
     const openDrawer = () => {
         if (openTools) {
@@ -176,6 +187,7 @@ export default function Croqui() {
             setOpenTypeBottomToRight(false);
             setOpenTypeBottom(false);
             setOpenTypeSemaforo(false);
+			setOpenTypesMaps(false);
 
         } else {
             setOpenTools(true);
@@ -815,6 +827,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypesTopRigth(false);
             }
@@ -834,6 +847,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypesTopLeft(false);
             }
@@ -853,6 +867,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypesTop(false);
             }
@@ -872,6 +887,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setopenTypeRigthToBottom(false);
             }
@@ -891,6 +907,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeRigthToTop(false);
             }
@@ -910,6 +927,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeRight(false);
             }
@@ -929,6 +947,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeLeftToBottom(false);
             }
@@ -948,6 +967,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeLeftToTop(false);
             }
@@ -967,6 +987,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeLeft(false);
             }
@@ -986,6 +1007,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeBottomToLeft(false);
             }
@@ -1005,6 +1027,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(true);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeBottomToRight(false);
             }
@@ -1024,6 +1047,7 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(true);
                 setOpenTypeSemaforo(false);
+				setOpenTypesMaps(false);
             }else{
                 setOpenTypeBottom(false);
             }
@@ -1043,18 +1067,61 @@ export default function Croqui() {
                 setOpenTypeBottomToRight(false);
                 setOpenTypeBottom(false);
                 setOpenTypeSemaforo(true);
+				setOpenTypesMaps(false);
 
             }else{
                 setOpenTypeSemaforo(false);
             }
         }
+		if(name === 'maps'){
+            if(openTypesMaps === false){
+                setOpenTypesTopLeft(false);
+                setOpenTypesTopRigth(false);
+                setOpenTypesTop(false);
+                setopenTypeRigthToBottom(false);
+                setOpenTypeRigthToTop(false);
+                setOpenTypeRight(false);
+                setOpenTypeLeftToBottom(false);
+                setOpenTypeLeftToTop(false);
+                setOpenTypeLeft(false);
+                setOpenTypeBottomToLeft(false);
+                setOpenTypeBottomToRight(false);
+                setOpenTypeBottom(false);
+                setOpenTypeSemaforo(false);
+				setOpenTypesMaps(true);
+
+            }else{
+                setOpenTypesMaps(false);
+            }
+        }
     }
+
+	const fileSelected = (e) => { // captura e tratativa de imagem
+        if(e.target.files[0]) {
+            console.log(e.target.files[0]);
+            setFile(e.target.files[0]); // file para post
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                setImageMap(reader.result); //imageMap para preview
+            });
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    }
+
+	/*const fileUploadHandler = async () => { // post de imagem
+        /*const fd = new FormData();
+        fd.append('image', file);
+        await api.post('images', fd);
+		alert('Inserir logica para envio de imagem!')
+
+		//Criar botão salvar, esse botão não somente deverá enviar a imagem como também deverá mandar o JSON com tudo
+    }*/
 
     return (
         <Container>
             <AreaMapaCroqui>
                 <MapaCroqui>
-                    <img src={MapaCroqui02} alt="" />
+                    <img src={imageMap} alt="" />
                 </MapaCroqui>
                 <ButtonOpen onClick={() => openDrawer()} title={openTools === false ? 'Abrir editor' : 'Fechar editor'}>
                     <GiHamburgerMenu size={35} color={openTools === false ? '#062467' : '#FFF'} />
@@ -1309,6 +1376,22 @@ export default function Croqui() {
                                 <Buttom onClick={modalStatus} title='Limpar tudo'><Img id='clear' src={clear} alt='' /></Buttom>
                             </AreaButtons>
                         </Fieldset>
+						<Fieldset>
+                            <Legend>Mapa</Legend>
+                            <AreaButtons>
+								<OptionButton>
+									<Buttom onClick={() => openTypes('maps')}><Img id='default' src={icoDefault} alt='' /></Buttom>
+									<MenuTypeMap name='maps' openTypes={openTypesMaps} setOpenTypes={setOpenTypesMaps} optionDefaultMap01={optionDefaultMap01}/>
+								</OptionButton>
+								<ButtomLabel htmlFor='selectFile'>
+									<input type="file" id='selectFile' onChange={fileSelected}/>
+									<Img id='upload' src={icoUpload} alt='' />
+								</ButtomLabel>
+                                <Buttom><Img id='' src='' alt='' /></Buttom>
+								<Buttom><Img id='' src='' alt='' /></Buttom>
+                            </AreaButtons>
+                        </Fieldset>
+						<ButtonSave>Salvar configurações</ButtonSave>
                     </AreaTools>
                 </Editor>
             </AreaEditor>

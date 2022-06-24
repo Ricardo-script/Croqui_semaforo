@@ -51,6 +51,7 @@ export const AreaEditor = styled.div`
 
     @media(max-width: 580px){
         width: ${props => props.open === true ? '100%' : '0'};
+		overflow: scroll;
     }
 
     @media(max-height: 520px){
@@ -133,12 +134,40 @@ export const Buttom = styled.div`
     }
 `;
 
+export const ButtomLabel = styled.label`
+ 	width: 24px;
+    height: 24px;
+    background: #EEE;
+    border-radius: 7px;
+    padding: 7px;
+    box-shadow: 7px 7px 7px rgb(53 50 50 / 63%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover{
+        background: #00c86f;
+        transition: .5s;
+    }
+
+    &:active{
+        position: relative;
+        top: 1px;
+    }
+
+	input[type='file'] {
+  		display: none;
+	}
+`;
+
 export const OptionButton = styled.div``;
 
 export const Img = styled.img`
     width: 100%;
     //user-select: none;
-   
+
     &#top-left{
         transform: scaleX(-1);
     }
@@ -183,6 +212,55 @@ export const Img = styled.img`
         width: 17px;
     }
     &#clear{
-        
+
     }
+	&#upload{
+		width: 32px;
+	}
+	&#default{
+		width: 40px;
+	}
+`;
+
+export const ButtonSave = styled.button`
+	border-radius: 4px;
+	background-color: #5ca1e1;
+	border: none;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+    padding: 10px;
+	width: 100%;
+	transition: all 0.5s;
+	cursor: pointer;
+	box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+	cursor: pointer;
+
+	&:after {
+		content: '»';
+		position: absolute;
+		opacity: 0;
+		top: -2px;
+    	font-size: 30px;
+		right: -20px;
+		transition: 0.5s;
+	}
+
+	&:hover{
+		padding-right: 24px;
+		padding-left:8px;
+	}
+
+	&:hover:after {
+		opacity: 1;
+		right: 10px;
+	}
+
+	&:active{
+		position: relative;
+		top: 1px;
+	}
 `;
