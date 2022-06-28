@@ -9,7 +9,7 @@ import { Container, MoveTopToRight, Options, ButtonSettings } from './styles';
 export default function CarTopToRight(props){
 
     const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'car', title: 'Carro subindo vira a direita', image: direita, object: props.carTopToRight, setObject: props.setCarTopToRight});
+        props.setPropsSettings({ type: 'car-curve', title: 'Carro subindo vira a direita', image: direita, object: props.carTopToRight, setObject: props.setCarTopToRight});
         props.setOpenSettings(true);
     }
 

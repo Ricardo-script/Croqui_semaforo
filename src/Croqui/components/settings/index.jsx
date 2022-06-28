@@ -103,7 +103,7 @@ export default function Settings(props){
                         </AreaInput>
                     </Group>
                     <Group id='rangePercurso' type={props.type}>
-                        <Label>Percurso:</Label>
+                        <Label>{props.type === 'car-curve' ? 'Momento da curva:' : 'Percurso:'}</Label>
                         <AreaInput>
                             <Input type="range" min="0" max="100" value={props.object.length === 0 ? 0 : props.object[0].percurso} onChange={(e) => getPercurso(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].percurso}</Total>

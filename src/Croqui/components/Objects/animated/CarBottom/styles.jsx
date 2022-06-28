@@ -36,6 +36,17 @@ const pause = keyframes` // parar carro no farol vermelho
     }
 `;
 
+const appearIn = keyframes`
+	0%{
+		top: -40px;
+    	right: 0px;
+	}
+	100%{
+		top: -5px;
+        right: -48px;
+	}
+`;
+
 
 export const Container = styled.div``;
 
@@ -71,8 +82,8 @@ export const Options = styled.div`
     img{
         width: 17px;
         position: relative;
-        top: -5px;
-        right: -25px;
+		animation: ${props => props.remove === false ? '' : appearIn} .3s linear;
+		z-index: -1;
     }
 `;
 
