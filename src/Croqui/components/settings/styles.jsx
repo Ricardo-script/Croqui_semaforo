@@ -73,6 +73,7 @@ export const Item = styled.div`
     align-items: center;
     justify-content: center;
     user-select: none;
+	margin-top: 15px;
 
     img{
         width: ${
@@ -116,11 +117,6 @@ export const Input = styled.input`
     margin: 0;
     width: 100%;
     cursor: ew-resize;
-
-    &::-moz-range-progress{
-    background-color: rgb(238, 62, 62);
-}
-
 `;
 
 export const AreaInput = styled.div`
@@ -151,19 +147,20 @@ export const Total = styled.div`
         top: 1px;
     }
 `;
-// AreaDescription, Description, Title
 
 export const AreaDescription = styled.div`
     width: 60%;
 `;
 
 export const Description = styled.div`
-    width: 100%;
-    height: 19px;
-    margin-top: 40px;
+    width: 183px;
+	height: 20px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 3px;
     transform: skew(0deg);
     background: #b1b1b1;
-    box-shadow: -7px 0px 0px 0px #14A7CA;
+    box-shadow: -3px 0px 0px 0px #14A7CA;
 
 `;
 
@@ -175,6 +172,80 @@ export const Title = styled.span`
     padding-left: 7px;
 `;
 
+export const AreaFields = styled.div``;
+
+export const LabelFloat = styled.div`
+    position: relative;
+    padding-top: 8px;
+	margin-top: 2px;
+
+    input{
+        &:required:invalid + label{
+            color: red;
+        }
+
+        &:focus:required:invalid{
+            border-bottom: 2px solid red;
+        }
+
+        &:required:invalid + label:before{
+            content: '*';
+        }
+        &:focus + label{
+            font-size: 10px;
+			margin-top: 1px;
+			background: #FFF;
+			padding: 0 5px;
+			color: #3951b2;
+        }
+        &:not(:placeholder-shown) + label{
+			font-size: 10px;
+			margin-top: 1px;
+			background: #FFF;
+			padding: 0 5px;
+			color: #3951b2;
+        }
+    }
+`;
+
+export const InputField = styled.input`
+    border: 0;
+    border: 1px solid lightgrey;
+    outline: none;
+    width: 100%;
+	height: 22px;
+    font-size: 12px;
+	font-family: 'Roboto';
+	font-weight: 500;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius: 0;
+	text-indent: 5px;
+	box-shadow: 5px 5px 0px -2px #dbdbdb;
+
+    &:focus{
+        border: 1px solid #3951b2;
+		box-shadow: 5px 5px 0px -2px #2942a7;
+    }
+
+    &::placeholder{
+        color:transparent;
+    }
+`;
+
+export const LabelField = styled.label`
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 13px;
+	margin-top: 12px;
+    transition: all .3s ease-out;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+`;
 
 
 

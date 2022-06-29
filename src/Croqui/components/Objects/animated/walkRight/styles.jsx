@@ -81,7 +81,8 @@ export const ButtonSettings = styled(Options)`
     img{
         width: 20px;
         position: relative;
-        top: -29px;
-        right: -48px;
+		top: -29px;
+		right: -23px;
+    	z-index: 1;
     }
 `;

@@ -56,7 +56,8 @@ export const ButtonSettings = styled(Options)`
         width: 20px;
         position: relative;
         top: -29px;
-        right: -48px;
+		right: -23px;
+    	z-index: 1;
     }
 `;
 

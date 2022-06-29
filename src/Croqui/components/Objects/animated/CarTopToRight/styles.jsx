@@ -66,7 +66,7 @@ export const Container = styled.div``;
 
 export const MoveTopToRight = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 20px;
+	min-width: 10px;
     height: auto;
     position: relative;
     animation: ${ props => props.move === true ? goTopToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
@@ -108,8 +108,9 @@ export const ButtonSettings = styled(Options)`
     img{
         width: 20px;
         position: relative;
-        top: -29px;
-        right: -48px;
+		top: -29px;
+		right: -23px;
+    	z-index: 1;
     }
 `;
 

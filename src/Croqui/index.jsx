@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, AreaMapaCroqui, ButtonOpen, MapaCroqui, AreaEditor, Editor, Header, AreaTools, Fieldset, Legend, AreaButtons, OptionButton,
 Buttom, ButtomLabel, Img, ButtonSave } from './styles';
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -198,237 +198,237 @@ export default function Croqui() {
     const addCarRight = () => {
         setRemove(false);
         const objects = [...carRight];
-        objects.push({objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setCarRight(objects);
     }
 
     const addCarTop = () => {
         setRemove(false);
         const objects = [...carTop];
-        objects.push({objeto: 'carTop', id: objects.length, top: 44.89, left: 48.22 , tamanho: 67, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carTop', id: objects.length, top: 44.89, left: 48.22,grupo: '', anel: '', controlador: '', tamanho: 67, velocidade: 5, percurso: 30});
         setCarTop(objects);
     }
 
     const addCarLeft = () => {
         setRemove(false);
         const objects = [...carLeft];
-        objects.push({objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '',tamanho: 100, velocidade: 5, percurso: 30});
         setCarLeft(objects);
     }
 
     const addCarBottom = () => {
         setRemove(false);
         const objects = [...carBottom];
-        objects.push({objeto: 'carBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30});
         setCarBottom(objects);
     }
 
     const addCarTopToRight = () => {
         setRemove(false);
         const objects = [...carTopToRight];
-        objects.push({objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 67, velocidade: 5, percurso: 18});
+        objects.push({objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 67, velocidade: 5, percurso: 18});
         setCarTopToRight(objects);
     }
 
     const addCarTopToLeft = () => {
         setRemove(false);
         const objects = [...carTopToLeft];
-        objects.push({objeto: 'carTopToLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 67, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 67, velocidade: 5, percurso: 30});
         setCarTopToLeft(objects);
     }
 
     const addCarRightToBottom = () => {
         setRemove(false);
         const objects = [...carRightToBottom];
-        objects.push({objeto: 'carRightToBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setCarRightToBottom(objects);
     }
 
     const addCarLeftToBottom = () => {
         setRemove(false);
         const objects = [...carLeftToBottom];
-        objects.push({objeto: 'carLeftToBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setCarLeftToBottom(objects);
     }
 
     const addCarRightToTop = () => {
         setRemove(false);
         const objects = [...carRightToTop];
-         objects.push({objeto: 'carRightToTop', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'carRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setCarRightToTop(objects);
     }
 
     const addCarLeftToTop = () => {
         setRemove(false);
         const objects = [...carLeftToTop];
-         objects.push({objeto: 'carLeftToTop', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'carLeftToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setCarLeftToTop(objects);
     }
 
     const addCarBottomToLeft = () => {
         setRemove(false);
         const objects = [...carBottomToLeft];
-         objects.push({objeto: 'carBottomToLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'carBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30});
         setCarBottomToLeft(objects);
     }
 
     const addCarBottomToRight = () => {
         setRemove(false);
         const objects = [...carBottomToRight];
-        objects.push({objeto: 'carBottomToRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'carBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30});
         setCarBottomToRight(objects);
     }
 
     const addSemaforo = () => {
         setRemove(false);
         const objects = [...objSemaforo];
-        objects.push({objeto: 'objSemaforo', id: objects.length, top: 44.89, left: 48.22 , tamanho: 30, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'objSemaforo', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30});
         setObjSemaforo(objects);
     }
 
     const addSemaforoLeft = () => {
         setRemove(false);
         const objects = [...objSemaforoLeft];
-        objects.push({objeto: 'objSemaforoLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 30, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'objSemaforoLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30});
         setObjSemaforoLeft(objects);
     }
     const addSemaforoRight = () => {
         setRemove(false);
         const objects = [...objSemaforoRight];
-        objects.push({objeto: 'objSemaforoRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 30, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'objSemaforoRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30});
         setObjSemaforoRight(objects);
     }
 
     const addWalkLeft = () => {
         setRemove(false);
         const objects = [...walkLeft];
-        objects.push({objeto: 'walkLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
+        objects.push({objeto: 'walkLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 12});
         setWalkLeft(objects);
     }
 
     const addWalkRight = () => {
         setRemove(false);
         const objects = [...walkRight];
-		objects.push({objeto: 'walkRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
+		objects.push({objeto: 'walkRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 12});
         setWalkRight(objects);
     }
 
     const addWalkBottom = () => {
         setRemove(false);
         const objects = [...walkBottom];
-		objects.push({objeto: 'walkBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
+		objects.push({objeto: 'walkBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 12});
         setWalkBottom(objects);
     }
 
     const addWalkTop = () => {
         setRemove(false);
         const objects = [...walkTop];
-		objects.push({objeto: 'walkTop', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 12});
+		objects.push({objeto: 'walkTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 12});
         setWalkTop(objects);
     }
 
     const addArrowTopToRight = () => {
         setRemove(false);
         const objects = [...arrowTopToRight];
-         objects.push({objeto: 'arrowTopToRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowTopToRight(objects);
     }
 
     const addArrowTopToLeft = () => {
         setRemove(false);
         const objects = [...arrowTopToLeft];
-         objects.push({objeto: 'arrowTopToLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowTopToLeft(objects);
     }
 
     const addArrowRightToBottom = () => {
         setRemove(false);
         const objects = [...arrowRightToBottom];
-         objects.push({objeto: 'arrowRightToBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowRightToBottom(objects);
     }
 
     const addArrowTop = () => {
         setRemove(false);
         const objects = [...arrowTop];
-         objects.push({objeto: 'arrowTop', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowTop(objects);
     }
 
     const addArrowRightToTop = () => {
         setRemove(false);
         const objects = [...arrowRightToTop];
-         objects.push({objeto: 'arrowRightToTop', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowRightToTop(objects);
     }
 
     const addArrowRight = () => {
         setRemove(false);
         const objects = [...arrowRight];
-         objects.push({objeto: 'arrowRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowRight(objects);
     }
 
     const addArrowLeftToBottom = () => {
         setRemove(false);
         const objects = [...arrowLeftToBottom];
-         objects.push({objeto: 'arrowLeftToBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: 'arrowLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowLeftToBottom(objects);
     }
 
     const addArrowLeftToTop = () => {
         setRemove(false);
         const objects = [...arrowLeftToTop];
-         objects.push({objeto: '', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+         objects.push({objeto: '', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowLeftToTop(objects);
     }
 
     const addArrowLeft = () => {
         setRemove(false);
         const objects = [...arrowLeft];
-        objects.push({objeto: 'arrowLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'arrowLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '',tamanho: 100, velocidade: 5, percurso: 30});
         setArrowLeft(objects);
     }
 
     const addArrowBottomToLeft = () => {
         setRemove(false);
         const objects = [...arrowBottomToLeft];
-        objects.push({objeto: 'arrowBottomToLeft', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'arrowBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowBottomToLeft(objects);
     }
 
     const addArrowBottomToRight = () => {
         setRemove(false);
         const objects = [...arrowBottomToRight];
-        objects.push({objeto: 'arrowBottomToRight', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'arrowBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowBottomToRight(objects);
     }
 
     const addArrowBottom = () => {
         setRemove(false);
         const objects = [...arrowBottom];
-        objects.push({objeto: 'arrowBottom', id: objects.length, top: 44.89, left: 48.22 , tamanho: 100, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'arrowBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30});
         setArrowBottom(objects);
     }
 
     const addBotoeira = () => {
         setRemove(false);
         const objects = [...objBotoeira];
-        objects.push({objeto: 'objBotoeira', id: objects.length, top: 44.89, left: 48.22 , tamanho: 33, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'objBotoeira', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 33, velocidade: 5, percurso: 30});
         setObjBotoeira(objects);
     }
 
     const addOcupacao = () => {
         setRemove(false);
         const objects = [...objOcupacao];
-        objects.push({objeto: 'objOcupacao', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'objOcupacao', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30});
         setObjOcupacao(objects);
     }
 
     const addDetector = () => {
         setRemove(false);
         const objects = [...objDetector];
-        objects.push({objeto: 'objDetector', id: objects.length, top: 44.89, left: 48.22 , tamanho: 50, velocidade: 5, percurso: 30});
+        objects.push({objeto: 'objDetector', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30});
         setObjDetector(objects);
     }
 
@@ -1189,17 +1189,22 @@ export default function Croqui() {
 
 
 	const data = [
-		{ objeto: "carRight", id: 0, left: 39.38506588579795, percurso: 30, tamanho: 100, top: 34.98452012383901, velocidade: 5 },
-		{ objeto: "carRight", id: 1, left: 33.45534407027819, percurso: 30, tamanho: 100, top: 44.169246646026835, velocidade: 5},
-		{ objeto: "walkRight",id: 0, left: 39.53147877013177, percurso: 12, tamanho: 50,  top: 55.830753353973165, velocidade: 5},
-		{ objeto: "carBottom",id: 0, left: 59.88286969253294, percurso: 30, tamanho: 50,  top: 7.8431372549019605, velocidade: 5}
+		{ objeto: "carRight", id: 0, left: 39.38506588579795, grupo: 1, anel: 1, controlador: 'GW1', percurso: 30, tamanho: 100, top: 34.98452012383901, velocidade: 5 },
+		{ objeto: "carRight", id: 1, left: 33.45534407027819, grupo: 2, anel: 2, controlador: 'GW2', percurso: 50, tamanho: 120, top: 44.169246646026835, velocidade: 9},
+		{ objeto: "walkRight",id: 0, left: 39.53147877013177, grupo: 3, anel: 3, controlador: 'GW3', percurso: 12, tamanho: 50,  top: 55.830753353973165, velocidade: 5},
+		{ objeto: "carBottom",id: 0, left: 59.88286969253294, grupo: 4, anel: 4, controlador: 'GW4', percurso: 30, tamanho: 50,  top: 7.8431372549019605, velocidade: 5},
+		{ objeto: "carBottom",id: 1, left: 59.88286969253294, grupo: 5, anel: 5, controlador: 'GW4', percurso: 30, tamanho: 50,  top: 7.8431372549019605, velocidade: 5}
 	]
 
 
 	// Ao iniciar a aplicação fazer a requisição buscando as informações referente ao id e setando as mesmas em seus respectivos states
-	/*useEffect(() => {
+	useEffect(() => {
 
 		const valuesCarRight = [...carRight];
+		const valuesCarBottom = [...carBottom];
+		const valuesWalkRight = [...walkRight];
+
+		/*const valuesCarRight = [...carRight];
 		const valuesCarTop = [...carTop];
 		const valuesCarLeft = [...carLeft];
 		const valuesCarBottom = [...carBottom];
@@ -1216,23 +1221,23 @@ export default function Croqui() {
 		const valuesObjSemaforoRight = [...objSemaforoRight];
 		const valuesObjBotoeira = [...objBotoeira];
 		const valuesObjOcupacao = [...objOcupacao];
-		[...objDetector];
-		[...walkLeft];
+		const valuesObjDetector = [...objDetector];
+		const valuesWalkLeft = [...walkLeft];
 		const valuesWalkRight = [...walkRight];
-		[...walkBottom];
-		[...walkTop];
-		[...arrowTopToRight];
-		[...arrowTopToLeft];
-		[...arrowRightToBottom];
-		[...arrowTop];
-		[...arrowRight];
-		[...arrowLeft];
-		[...arrowRightToTop];
-		[...arrowLeftToBottom];
-		[...arrowLeftToTop];
-		[...arrowBottomToLeft];
-		[...arrowBottomToRight];
-		[...arrowBottom];
+		const valuesWalkBottom = [...walkBottom];
+		const valuesWalkTop = [...walkTop];
+		const valuesArrowTopToRight = [...arrowTopToRight];
+		const valuesArrowTopToLeft = [...arrowTopToLeft];
+		const valuesArrowRightToBottom = [...arrowRightToBottom];
+		const valuesArrowTop = [...arrowTop];
+		const valuesArrowRight = [...arrowRight];
+		const valuesArrowLeft = [...arrowLeft];
+		const valuesArrowRightToTop = [...arrowRightToTop];
+		const valuesArrowLeftToBottom = [...arrowLeftToBottom];
+		const ArrowLeftToTop = [...arrowLeftToTop];
+		const ArrowBottomToLeft = [...arrowBottomToLeft];
+		const ArrowBottomToRight = [...arrowBottomToRight];
+		const ArrowBottom = [...arrowBottom];*/
 
 		data.forEach(item => {
 
@@ -1252,7 +1257,7 @@ export default function Croqui() {
 			}
 
 		});
-	},[]);*/
+	},[]);
 
     return (
         <Container>

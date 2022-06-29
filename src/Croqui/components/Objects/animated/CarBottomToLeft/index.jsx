@@ -9,7 +9,7 @@ import { Container, MoveBottomToLeft, Options, ButtonSettings } from './styles';
 export default function CarBottomToLeft(props){
 
 	const insertConfigModalSettings = () => {
-        props.setPropsSettings({type: 'car-curve', title: 'Carro descendo vira a esquerda', image: esquerda, object: props.carBottomToLeft, setObject: props.setCarBottomToLeft});
+        props.setPropsSettings({ type: 'car-curve', title: 'Carro descendo vira a esquerda', image: esquerda, object: props.carBottomToLeft, setObject: props.setCarBottomToLeft});
         props.setOpenSettings(true);
     }
 

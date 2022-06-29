@@ -1,6 +1,8 @@
 import React from 'react';
 import closeModal from '../img/closeModal.png';
-import { Container, AreaItems, Item, BodySettings, Group, Label, Input, AreaInput, Total, AreaDescription, Description, Title } from './styles';
+import { Container, AreaItems, Item, BodySettings, Group, Label, Input, AreaInput, Total, AreaDescription, Description, Title,
+AreaFields, LabelFloat, InputField, LabelField
+} from './styles';
 
 export default function Settings(props){
 
@@ -45,6 +47,30 @@ export default function Settings(props){
         }
     }
 
+	const getGrupo = (value) => {
+		const values = [...props.object];
+		props.object.forEach( (items,index) => {
+			items.grupo = value;
+		});
+		props.setObject(values);
+	}
+
+	const getAnel = (value) => {
+		const values = [...props.object];
+		props.object.forEach( (items,index) => {
+			items.anel = value;
+		});
+		props.setObject(values);
+	}
+
+	const getControlador = (value) => {
+		const values = [...props.object];
+		props.object.forEach( (items,index) => {
+			items.controlador = value;
+		});
+		props.setObject(values);
+	}
+
     const getTamanho = (value) => {
         const values = [...props.object];
         props.object.forEach( (items,index) =>{
@@ -86,7 +112,22 @@ export default function Settings(props){
                             <Description>
                                 <Title>{props.title}</Title>
                             </Description>
+							<AreaFields>
+							<LabelFloat>
+								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[0].grupo} onChange={(e) => getGrupo(e.target.value)}/>
+								<LabelField>Grupo</LabelField>
+							</LabelFloat>
+							<LabelFloat>
+								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[0].anel} onChange={(e) => getAnel(e.target.value)}/>
+								<LabelField>Anel</LabelField>
+							</LabelFloat>
+							<LabelFloat>
+								<InputField type="text" placeholder=" " value={props.object.length === 0 ? 0 : props.object[0].controlador} onChange={(e) => getControlador(e.target.value)}/>
+								<LabelField>Controlador</LabelField>
+							</LabelFloat>
+						</AreaFields>
                         </AreaDescription>
+
                     </AreaItems>
                     <Group id='rangeTamanho' type={props.type}>
                         <Label>Tamanho:</Label>
