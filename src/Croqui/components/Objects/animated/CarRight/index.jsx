@@ -7,8 +7,8 @@ import { Container, Content, MoveRight, Options, ButtonSettings } from './styles
 
 export default function CarRight(props) {
 
-    const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'car', title: 'Carro horizontal direita', image: direita, object: props.carRight, setObject: props.setCarRight});
+    const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'car', title: 'Carro horizontal direita', image: direita, object: props.carRight, setObject: props.setCarRight});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function CarRight(props) {
                                     <img src={close} alt="" />
                                 </Options>
                                 <ButtonSettings remove={props.remove}>
-                                    <img src={settings} alt="" onClick={insertConfigModalSettings}/>
+                                    <img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
                                 </ButtonSettings>
                             </ItemDraggable>
                         </Content>

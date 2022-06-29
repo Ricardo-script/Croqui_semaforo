@@ -72,7 +72,7 @@ export default function Croqui() {
     const [openSettings, setOpenSettings] = useState(false);
 
     //state contendo as propriedades de cada objeto
-    const [propsSettings, setPropsSettings] = useState({type: '', title: '', image: '', object: '', setObject:''});
+    const [propsSettings, setPropsSettings] = useState({index: '', type: '', title: '', image: '', object: '', setObject:''});
 
     //states para menu de opções de objetos no editor
     const [openTypesTopRigth, setOpenTypesTopRigth] = useState(false);
@@ -1414,6 +1414,7 @@ export default function Croqui() {
                     imgObject={propsSettings.image}
                     object={propsSettings.object}
                     setObject={propsSettings.setObject}
+					index={propsSettings.index}
                 />
 
             </AreaMapaCroqui>

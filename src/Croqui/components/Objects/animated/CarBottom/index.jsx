@@ -8,8 +8,8 @@ import { Container, MoveBottom, Options, ButtonSettings } from './styles';
 
 export default function CarBottom(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({type: 'car', title: 'Carro descendo', image: esquerda, object: props.carBottom, setObject: props.setCarBottom});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({index: index, type: 'car', title: 'Carro descendo', image: esquerda, object: props.carBottom, setObject: props.setCarBottom});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function CarBottom(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

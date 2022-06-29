@@ -114,15 +114,15 @@ export default function Settings(props){
                             </Description>
 							<AreaFields>
 							<LabelFloat>
-								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[0].grupo} onChange={(e) => getGrupo(e.target.value)}/>
+								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].grupo} onChange={(e) => getGrupo(e.target.value)}/>
 								<LabelField>Grupo</LabelField>
 							</LabelFloat>
 							<LabelFloat>
-								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[0].anel} onChange={(e) => getAnel(e.target.value)}/>
+								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].anel} onChange={(e) => getAnel(e.target.value)}/>
 								<LabelField>Anel</LabelField>
 							</LabelFloat>
 							<LabelFloat>
-								<InputField type="text" placeholder=" " value={props.object.length === 0 ? 0 : props.object[0].controlador} onChange={(e) => getControlador(e.target.value)}/>
+								<InputField type="text" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].controlador} onChange={(e) => getControlador(e.target.value)}/>
 								<LabelField>Controlador</LabelField>
 							</LabelFloat>
 						</AreaFields>
@@ -132,21 +132,21 @@ export default function Settings(props){
                     <Group id='rangeTamanho' type={props.type}>
                         <Label>Tamanho:</Label>
                         <AreaInput>
-                            <Input type="range" min="0" max="200" value={props.object.length === 0 ? 0 : props.object[0].tamanho} onChange={(e) => getTamanho(e.target.value)}/>
+                            <Input type="range" min="0" max="200" value={props.object.length === 0 ? 0 : props.object[props.index].tamanho} onChange={(e) => getTamanho(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].tamanho}</Total>
                         </AreaInput>
                     </Group>
                     <Group id='rangeVelocidade' type={props.type}>
                         <Label>Velocidade:</Label>
                         <AreaInput>
-                        <Input type="range" min="0" max="10" value={props.object.length === 0 ? 0 : props.object[0].velocidade} onChange={(e) => getVelocidade(e.target.value)}/>
+                        <Input type="range" min="0" max="10" value={props.object.length === 0 ? 0 : props.object[props.index].velocidade} onChange={(e) => getVelocidade(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].velocidade}</Total>
                         </AreaInput>
                     </Group>
                     <Group id='rangePercurso' type={props.type}>
                         <Label>{props.type === 'car-curve' ? 'Momento da curva:' : 'Percurso:'}</Label>
                         <AreaInput>
-                            <Input type="range" min="0" max="100" value={props.object.length === 0 ? 0 : props.object[0].percurso} onChange={(e) => getPercurso(e.target.value)}/>
+                            <Input type="range" min="0" max="100" value={props.object.length === 0 ? 0 : props.object[props.index].percurso} onChange={(e) => getPercurso(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].percurso}</Total>
                         </AreaInput>
                     </Group>

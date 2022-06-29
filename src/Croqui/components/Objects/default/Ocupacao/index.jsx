@@ -23,8 +23,8 @@ export default function Ocupacao(props){
 		},3000);
 	},[taxa]);
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'box', title: 'Taxa de ocupação', image: icoOcupacao, object: props.objOcupacao, setObject: props.setObjOcupacao});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'box', title: 'Taxa de ocupação', image: icoOcupacao, object: props.objOcupacao, setObject: props.setObjOcupacao});
         props.setOpenSettings(true);
     }
 
@@ -41,7 +41,7 @@ export default function Ocupacao(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

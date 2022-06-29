@@ -7,8 +7,8 @@ import { Container, MoveTop, Options, ButtonSettings } from './styles';
 
 export default function ArrowTop(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'arrow', title: 'Seta subindo', image: arrowStartTop, object: props.arrowTop, setObject: props.setArrowTop});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'arrow', title: 'Seta subindo', image: arrowStartTop, object: props.arrowTop, setObject: props.setArrowTop});
         props.setOpenSettings(true);
     }
 
@@ -23,7 +23,7 @@ export default function ArrowTop(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-                                <img src={settings} alt="" onClick={insertConfigModalSettings}/>
+                                <img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
                             </ButtonSettings>
                         </ItemDraggable>
                     );

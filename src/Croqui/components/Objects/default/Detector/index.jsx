@@ -24,8 +24,8 @@ export default function Detector(props){
         }
     },3000);
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'box', title: 'Detector', image: icoDetector, object: props.objDetector, setObject: props.setObjDetector});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'box', title: 'Detector', image: icoDetector, object: props.objDetector, setObject: props.setObjDetector});
         props.setOpenSettings(true);
     }
 
@@ -42,7 +42,7 @@ export default function Detector(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

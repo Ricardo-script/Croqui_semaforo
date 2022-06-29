@@ -8,8 +8,8 @@ import { Container, MoveRightToBottom, Options, ButtonSettings } from './styles'
 
 export default function ArrowRightToBottom(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'arrow', title: 'À direita vire a direita', image: arrowRigthToBottom, object: props.arrowRightToBottom, setObject: props.setArrowRightToBottom});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'arrow', title: 'À direita vire a direita', image: arrowRigthToBottom, object: props.arrowRightToBottom, setObject: props.setArrowRightToBottom});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function ArrowRightToBottom(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-                                <img src={settings} alt="" onClick={insertConfigModalSettings}/>
+                                <img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
                             </ButtonSettings>
                         </ItemDraggable>
                     );

@@ -7,8 +7,8 @@ import { Container, MoveLeftToBottom, Options, ButtonSettings } from './styles';
 
 export default function CarLeftToBottom(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'car-curve', title: 'Carro desce á esquerda', image: esquerda, object: props.carLeftToBottom, setObject: props.setCarLeftToBottom});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({index: index, type: 'car-curve', title: 'Carro desce á esquerda', image: esquerda, object: props.carLeftToBottom, setObject: props.setCarLeftToBottom});
         props.setOpenSettings(true);
     }
 
@@ -23,7 +23,7 @@ export default function CarLeftToBottom(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

@@ -8,8 +8,8 @@ import { Container, MoveWalkBottom, Options, ButtonSettings } from './styles';
 
 export default function WalkBottom(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'pedestre', title: 'Pedestre descendo', image: walkPauseBottom, object: props.walkBottom, setObject: props.setWalkBottom});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'pedestre', title: 'Pedestre descendo', image: walkPauseBottom, object: props.walkBottom, setObject: props.setWalkBottom});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function WalkBottom(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

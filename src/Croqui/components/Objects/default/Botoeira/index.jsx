@@ -13,8 +13,8 @@ export default function Botoeira(props){
 		audio.play();
 	}
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'others', title: 'Botoeira', image: botoeira, object: props.objBotoeira, setObject: props.setObjBotoeira});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'others', title: 'Botoeira', image: botoeira, object: props.objBotoeira, setObject: props.setObjBotoeira});
         props.setOpenSettings(true);
     }
 
@@ -29,7 +29,7 @@ export default function Botoeira(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

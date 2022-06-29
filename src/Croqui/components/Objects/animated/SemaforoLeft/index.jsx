@@ -30,8 +30,8 @@ export default function SemaforoLeft(props) {
         return testeTrocaCor()
     },4000);
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'others', title: 'Semaforo à esquerda', image: semLeftGreen, object: props.objSemaforoLeft, setObject: props.setObjSemaforoLeft});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'others', title: 'Semaforo à esquerda', image: semLeftGreen, object: props.objSemaforoLeft, setObject: props.setObjSemaforoLeft});
         props.setOpenSettings(true);
     }
 
@@ -46,7 +46,7 @@ export default function SemaforoLeft(props) {
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

@@ -8,8 +8,8 @@ import { Container, MoveWalkRight, Options, ButtonSettings } from './styles';
 
 export default function WalkRight(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'pedestre', title: 'Pedestre à direita', image: walkPauseRight, object: props.walkRight, setObject: props.setWalkRight});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'pedestre', title: 'Pedestre à direita', image: walkPauseRight, object: props.walkRight, setObject: props.setWalkRight});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function WalkRight(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

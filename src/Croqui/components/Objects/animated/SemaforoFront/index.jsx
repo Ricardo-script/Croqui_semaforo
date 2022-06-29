@@ -7,8 +7,8 @@ import { Container, Img, Options, ButtonSettings } from './styles';
 
 export default function SemaforoFront(props) {
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'others', title: 'Semaforo frontal', image: semFrontGreen, object: props.objSemaforo, setObject: props.setObjSemaforo});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'others', title: 'Semaforo frontal', image: semFrontGreen, object: props.objSemaforo, setObject: props.setObjSemaforo});
         props.setOpenSettings(true);
     }
 
@@ -23,7 +23,7 @@ export default function SemaforoFront(props) {
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

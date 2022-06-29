@@ -7,8 +7,8 @@ import { Container, MoveLeft, Options, ButtonSettings } from './styles';
 
 export default function ArrowLeft(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'arrow', title: 'Segue à esquerda', image: arrowStartLeft, object: props.arrowLeft, setObject: props.setArrowLeft});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'arrow', title: 'Segue à esquerda', image: arrowStartLeft, object: props.arrowLeft, setObject: props.setArrowLeft});
         props.setOpenSettings(true);
     }
 
@@ -23,7 +23,7 @@ export default function ArrowLeft(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-                                <img src={settings} alt="" onClick={insertConfigModalSettings}/>
+                                <img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
                             </ButtonSettings>
                         </ItemDraggable>
                     );

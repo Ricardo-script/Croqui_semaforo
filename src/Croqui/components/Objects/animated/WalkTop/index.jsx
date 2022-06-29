@@ -8,8 +8,8 @@ import { Container, MoveWalkTop, Options, ButtonSettings } from './styles';
 
 export default function WalkTop(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'pedestre', title: 'Pedestre subindo', image: walkPauseTop, object: props.walkTop, setObject: props.setWalkTop});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({index: index, type: 'pedestre', title: 'Pedestre subindo', image: walkPauseTop, object: props.walkTop, setObject: props.setWalkTop});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function WalkTop(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

@@ -8,8 +8,8 @@ import { Container, MoveRightToTop, Options, ButtonSettings } from './styles';
 
 export default function ArrowRightToTop(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'arrow', title: 'Seta subindo vira a esquerda', image: arrowStartRigthToTop, object: props.arrowRightToTop, setObject: props.setArrowRightToTop});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'arrow', title: 'Seta subindo vira a esquerda', image: arrowStartRigthToTop, object: props.arrowRightToTop, setObject: props.setArrowRightToTop});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function ArrowRightToTop(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-                                <img src={settings} alt="" onClick={insertConfigModalSettings}/>
+                                <img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
                             </ButtonSettings>
                         </ItemDraggable>
                     );

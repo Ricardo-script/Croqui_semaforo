@@ -8,8 +8,8 @@ import { Container, MoveTopToLeft, Options, ButtonSettings } from './styles';
 
 export default function ArrowTopToLeft(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'arrow', title: 'Seta subindo vira a esquerda', image: arrowStartTopLeft, object: props.arrowTopToLeft, setObject: props.setArrowTopToLeft});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'arrow', title: 'Seta subindo vira a esquerda', image: arrowStartTopLeft, object: props.arrowTopToLeft, setObject: props.setArrowTopToLeft});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function ArrowTopToLeft(props){
                                 <img src={close} alt="" onClick={insertConfigModalSettings}/>
                             </Options>
 							<ButtonSettings remove={props.remove}>
-                                <img src={settings} alt="" onClick={insertConfigModalSettings}/>
+                                <img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
                             </ButtonSettings>
                         </ItemDraggable>
                     );

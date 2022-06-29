@@ -8,8 +8,8 @@ import { Container, MoveTop, Options, ButtonSettings} from './styles';
 
 export default function CarTop(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'car', title: 'Carro subindo', image: direita, object: props.carTop, setObject: props.setCarTop});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'car', title: 'Carro subindo', image: direita, object: props.carTop, setObject: props.setCarTop});
         props.setOpenSettings(true);
     }
 
@@ -24,7 +24,7 @@ export default function CarTop(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );

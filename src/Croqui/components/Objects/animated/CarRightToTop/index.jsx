@@ -7,8 +7,8 @@ import { Container, MoveRightToTop, Options, ButtonSettings } from './styles';
 
 export default function CarRightToTop(props){
 
-	const insertConfigModalSettings = () => {
-        props.setPropsSettings({ type: 'car-curve', title: 'Carro sobe à direita', image: direita, object: props.carRightToTop, setObject: props.setCarRightToTop});
+	const insertConfigModalSettings = (index) => {
+        props.setPropsSettings({ index: index, type: 'car-curve', title: 'Carro sobe à direita', image: direita, object: props.carRightToTop, setObject: props.setCarRightToTop});
         props.setOpenSettings(true);
     }
 
@@ -23,7 +23,7 @@ export default function CarRightToTop(props){
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>
-								<img src={settings} alt="" onClick={insertConfigModalSettings}/>
+								<img src={settings} alt="" onClick={() => insertConfigModalSettings(index)}/>
 							</ButtonSettings>
                         </ItemDraggable>
                     );
