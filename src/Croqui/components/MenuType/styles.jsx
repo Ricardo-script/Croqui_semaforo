@@ -17,82 +17,82 @@ export const TypeObjects = styled.div`
 
     &#topToright{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         transition: .3s;
     }
 
     &#topToleft{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         transition: .3s;
     }
     &#top{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         transition: .3s;
     }
     &#rightToDown{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 150px;
         transition: .3s;
     }
     &#rightTotop{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 150px;
         transition: .3s;
     }
     &#right{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 150px;
         transition: .3s;
     }
     &#leftToBottom{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 227px;
         transition: .3s;
     }
     &#leftToTop{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 227px;
         transition: .3s;
     }
     &#left{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 227px;
         transition: .3s;
     }
     &#bottomToLeft{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 300px;
         transition: .3s;
     }
     &#bottomToRight{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 300px;
         transition: .3s;
     }
     &#bottom{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '170px'};
+        width: ${props => props.open === false ? '0' : '110px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 300px;
         transition: .3s;

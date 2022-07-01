@@ -23,18 +23,18 @@ export default function MenuType(props){
                 <Buttom onClick={props.addObject}>
                     <Ico id={props.name} src={
                         props.name === 'topToright' ? direita :
-                        props.name === 'topToleft'  ? car : 
-                        props.name === 'top' ? car : 
-                        props.name === 'rightToDown' ? car : 
-                        props.name === 'rightTotop' ? car : 
+                        props.name === 'topToleft'  ? car :
+                        props.name === 'top' ? car :
+                        props.name === 'rightToDown' ? car :
+                        props.name === 'rightTotop' ? car :
                         props.name === 'right' ? car :
                         props.name === 'leftToBottom' ? esquerda :
                         props.name === 'leftToTop' ? esquerda :
-                        props.name === 'left' ? esquerda : 
-                        props.name === 'bottomToLeft' ? esquerda : 
-                        props.name === 'bottomToRight' ? esquerda : 
-                        props.name === 'bottom' ? esquerda : 
-                        props.name === 'bottomToLeft' ? esquerda : 
+                        props.name === 'left' ? esquerda :
+                        props.name === 'bottomToLeft' ? esquerda :
+                        props.name === 'bottomToRight' ? esquerda :
+                        props.name === 'bottom' ? esquerda :
+                        props.name === 'bottomToLeft' ? esquerda :
                         props.name === 'semaforo' ? esquerda : ''
 
                     } alt='' />
@@ -42,22 +42,21 @@ export default function MenuType(props){
                 <Buttom onClick={props.addObjectArrow}>
                     <Ico id={'arrow' + props.name} src={
                         props.name === 'topToright' ? arrowSideStart :
-                        props.name === 'topToleft'  ? arrowStartTopLeft : 
-                        props.name === 'top' ? arrowStart :  
-                        props.name === 'rightToDown' ? arrowRigthToBottom : 
+                        props.name === 'topToleft'  ? arrowStartTopLeft :
+                        props.name === 'top' ? arrowStart :
+                        props.name === 'rightToDown' ? arrowRigthToBottom :
                         props.name === 'rightTotop' ? arrowStartRigthToTop :
-                        props.name === 'right' ? arrowStart : 
+                        props.name === 'right' ? arrowStart :
                         props.name === 'leftToBottom' ? arrowLeftToBottom :
-                        props.name === 'leftToTop' ? arrowLeftToTop : 
-                        props.name === 'left' ? arrowStart : 
-                        props.name === 'bottomToLeft' ? arrowStartBottomToLeft : 
-                        props.name === 'bottomToRight' ? arrowStartBottomToRight : 
-                        props.name === 'bottom' ? arrowStartBottom : 
-                        props.name === 'bottomToLeft' ? arrowStartBottom : 
+                        props.name === 'leftToTop' ? arrowLeftToTop :
+                        props.name === 'left' ? arrowStart :
+                        props.name === 'bottomToLeft' ? arrowStartBottomToLeft :
+                        props.name === 'bottomToRight' ? arrowStartBottomToRight :
+                        props.name === 'bottom' ? arrowStartBottom :
+                        props.name === 'bottomToLeft' ? arrowStartBottom :
                         props.name === 'semaforo' ? esquerda : ''
                     } alt='' />
                 </Buttom>
-                <Buttom>3</Buttom>
                 <Buttom style={props.name === 'semaforo' ? {display: 'block'} : {display: 'none'}}>4</Buttom>
             </TypeObjects>
         </Container>

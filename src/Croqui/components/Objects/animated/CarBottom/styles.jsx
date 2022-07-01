@@ -52,7 +52,7 @@ export const Container = styled.div``;
 
 export const MoveBottom = styled.img`
     width: ${props => props.tamanho +'%'};
-	min-width: 20px;
+	min-width: 10px;
     height: auto;
     animation: ${ props => props.move === true ? goBottom : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 	(
