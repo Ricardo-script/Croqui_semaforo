@@ -39,7 +39,7 @@ import ArrowBottomToLeft from './components/Objects/default/ArrowBottomToLeft';
 import ArrowBottomToRight from './components/Objects/default/ArrowBottomToRight';
 import ArrowBottom from './components/Objects/default/ArrowBottom';
 import Botoeira from './components/Objects/default/Botoeira';
-import Detector from './components/Objects/default/Detector';
+import Plug from './components/Objects/default/Plug';
 //import mapa from './components/img/mapaCroqui.jpg';
 //import MapaDefault from './components/img/MapaDefault.png';
 import MapaCroqui02 from './components/img/mapaCroqui02.jpg';
@@ -61,6 +61,7 @@ import icoTaxa from './components/img/icoTaxa.png';
 import icoContagem from './components/img/icoContagem.png';
 import icoUpload from './components/img/upload.png';
 import icoDefault from './components/img/icoDefault.png';
+import plug from './components/img/plug.png';
 
 export default function Croqui() {
 
@@ -110,7 +111,7 @@ export default function Croqui() {
 	const [objSemaforoRight, setObjSemaforoRight] = useState([]);
 	const [objBotoeira, setObjBotoeira] = useState([]);
 	const [objOcupacao, setObjOcupacao] = useState([]);
-	const [objDetector, setObjDetector] = useState([]);
+	const [objPlug, setObjPlug] = useState([]);
 
 	const [walkLeft, setWalkLeft] = useState([]);
 	const [walkRight, setWalkRight] = useState([]);
@@ -427,11 +428,11 @@ export default function Croqui() {
 		setObjOcupacao(objects);
 	}
 
-	const addDetector = () => {
+	const addPlugin = () => {
 		setRemove(false);
-		const objects = [...objDetector];
-		objects.push({ objeto: 'objDetector', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30 });
-		setObjDetector(objects);
+		const objects = [...objPlug];
+		objects.push({ objeto: 'objPlug', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30 });
+		setObjPlug(objects);
 	}
 
 
@@ -471,7 +472,7 @@ export default function Croqui() {
 		setObjSemaforoLeft([]);
 		setObjSemaforoRight([]);
 		setObjOcupacao([]);
-		setObjDetector([]);
+		setObjPlug([]);
 		setOpenModal(false);
 	}
 
@@ -673,10 +674,10 @@ export default function Croqui() {
 		setObjOcupacao(objects.filter(Boolean));
 	}
 
-	const removeDetector = (item, index) => {
-		const objects = [...objDetector];
+	const removePlug = (item, index) => {
+		const objects = [...objPlug];
 		objects[objects.indexOf(index)] = '';
-		setObjDetector(objects.filter(Boolean));
+		setObjPlug(objects.filter(Boolean));
 	}
 
 	// Animações
@@ -1159,7 +1160,7 @@ export default function Croqui() {
 			objSemaforoRight,
 			objBotoeira,
 			objOcupacao,
-			objDetector,
+			objPlug,
 			walkLeft,
 			walkRight,
 			walkBottom,
@@ -1221,7 +1222,7 @@ export default function Croqui() {
 		const valuesObjSemaforoRight = [...objSemaforoRight];
 		const valuesObjBotoeira = [...objBotoeira];
 		const valuesObjOcupacao = [...objOcupacao];
-		const valuesObjDetector = [...objDetector];
+		const valuesObjPlug = [...objPlug];
 		const valuesWalkLeft = [...walkLeft];
 		const valuesWalkRight = [...walkRight];
 		const valuesWalkBottom = [...walkBottom];
@@ -1326,9 +1327,9 @@ export default function Croqui() {
 				setObjOcupacao(valuesObjOcupacao);
 			}
 
-			if (item.objeto === 'objDetector') {
-				valuesObjDetector.push(item);
-				setObjDetector(valuesObjDetector);
+			if (item.objeto === 'objPlug') {
+				valuesObjPlug.push(item);
+				setObjPlug(valuesObjPlug);
 			}
 
 			if (item.objeto === 'walkLeft') {
@@ -1555,8 +1556,8 @@ export default function Croqui() {
 					remove={remove} removeOcupacao={removeOcupacao} setOpenSettings={setOpenSettings}
 					setPropsSettings={setPropsSettings}
 				/>
-				<Detector objDetector={objDetector} setObjDetector={setObjDetector}
-					remove={remove} removeDetector={removeDetector} setOpenSettings={setOpenSettings}
+				<Plug objPlug={objPlug} setObjPlug={setObjPlug}
+					remove={remove} removePlug={removePlug} setOpenSettings={setOpenSettings}
 					setPropsSettings={setPropsSettings}
 				/>
 				<ModalConfirm openModal={openModal} setOpenModal={setOpenModal} removeAll={removeAll} />
@@ -1662,7 +1663,7 @@ export default function Croqui() {
 								</OptionButton>
 								<Buttom onClick={addBotoeira}><Img id='' src={botoeiraIco} alt='' /></Buttom>
 								<Buttom onClick={addOcupacao}><Img id='' src={icoTaxa} alt='' /></Buttom>
-								<Buttom onClick={addDetector}><Img id='' src={icoContagem} alt='' /></Buttom>
+								<Buttom onClick={addPlugin}><Img id='plugin' src={plug} alt='' /></Buttom>
 							</AreaButtons>
 						</Fieldset>
 						<Fieldset>

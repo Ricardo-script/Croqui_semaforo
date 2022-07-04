@@ -220,6 +220,9 @@ export const Img = styled.img`
 	&#default{
 		width: 40px;
 	}
+	&#plugin{
+		width: 36px;
+	}
 `;
 
 export const ButtonSave = styled.button`

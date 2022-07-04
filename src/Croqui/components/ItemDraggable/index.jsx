@@ -10,23 +10,23 @@ export default function ItemDraggable(props){
         } else {
             elmnt.onmousedown = dragMouseDown;
         }
-    
+
         function dragMouseDown(e){
             e = e || window.event;
             e.preventDefault();
-  
+
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;
             document.onmousemove = elementDrag;
         }
-    
+
         function elementDrag(e) {
             e = e || window.event;
             e.preventDefault();
 
             pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY; 
+            pos2 = pos4 - e.clientY;
             pos3 = e.clientX;
             pos4 = e.clientY;
 
@@ -37,7 +37,7 @@ export default function ItemDraggable(props){
             //converte px em vw:
             const top = ((elmnt.offsetTop - pos2) * 100 / document.documentElement.clientHeight);
             const left = ((elmnt.offsetLeft - pos1) * 100 / document.documentElement.clientWidth);
-            
+
 
             //setar valores no state conforme arrasto de objetos no mapa
             if(props.carRight){
@@ -129,7 +129,7 @@ export default function ItemDraggable(props){
                 valuesWalkRight[props.index].top = top;
                 valuesWalkRight[props.index].left = left;
                 props.setWalkRight(valuesWalkRight);
-            } 
+            }
             if(props.walkBottom){
                 const valuesWalkBottom = [...props.walkBottom];
                 valuesWalkBottom[props.index].top = top;
@@ -242,14 +242,14 @@ export default function ItemDraggable(props){
                 valuesOcupacao[props.index].left = left;
                 props.setObjOcupacao(valuesOcupacao);
             }
-            if(props.objDetector){
-                const valuesDetector = [...props.objDetector];
-                valuesDetector[props.index].top = top;
-                valuesDetector[props.index].left = left;
-                props.setObjDetector(valuesDetector);
+            if(props.objPlug){
+                const valuesPlug = [...props.objPlug];
+                valuesPlug[props.index].top = top;
+                valuesPlug[props.index].left = left;
+                props.setObjPlug(valuesPlug);
             }
         }
-    
+
         function closeDragElement() {
             document.onmouseup = null;
             document.onmousemove = null;
@@ -266,6 +266,6 @@ export default function ItemDraggable(props){
                 </div>
 			</div>
 		</Container>
-    ); 
+    );
 }
 

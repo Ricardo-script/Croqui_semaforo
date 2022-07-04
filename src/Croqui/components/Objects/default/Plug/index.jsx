@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import ItemDraggable from '../../../ItemDraggable';
 import close from '../../../img/close.png';
-import icoDetector from '../../../img/icoDetector.png';
+import icoPlug from '../../../img/plug.png';
 import settings from '../../../img/tool.png';
-import { Container, AreaDetector, QntTotal, Options, ButtonSettings } from './styles';
+import click from '../../../img/click.mp3';
+import { Container, Img, Options, ButtonSettings } from './styles';
 
-export default function Detector(props){
+export default function Plug(props){
 
     const [total, setTotal] = useState(3);
 
@@ -25,20 +26,23 @@ export default function Detector(props){
     },3000);
 
 	const insertConfigModalSettings = (index) => {
-        props.setPropsSettings({ index: index, type: 'box', title: 'Detector', image: icoDetector, object: props.objDetector, setObject: props.setObjDetector});
+        props.setPropsSettings({ index: index, type: 'box', title: 'Plug', image: icoPlug, object: props.objPlug, setObject: props.setObjPlug});
         props.setOpenSettings(true);
     }
 
+	const acionarPlug = () => {
+		const som = new Audio(click);
+		som.play();
+	}
+
     return(
         <Container>
-            {props.objDetector.map((item,index) => {
-                if(props.objDetector[index] !== ''){
+            {props.objPlug.map((item,index) => {
+                if(props.objPlug[index] !== ''){
                     return(
-                        <ItemDraggable key={index} index={index} object='objDetector' top={item.top} left={item.left} setObjDetector={props.setObjDetector} objDetector={props.objDetector}>
-                            <AreaDetector total={total} tamanho={item.tamanho}>
-                                <QntTotal total={total}>{total}</QntTotal>
-                            </AreaDetector>
-                            <Options remove={props.remove} onClick={() => props.removeDetector(index,item)}>
+                        <ItemDraggable key={index} index={index} object='objPlug' top={item.top} left={item.left} setObjPlug={props.setObjPlug} objPlug={props.objPlug}>
+                            <Img src={icoPlug} alt="" onDoubleClick={acionarPlug} tamanho={item.tamanho}/>
+                            <Options remove={props.remove} onClick={() => props.removePlug(index,item)}>
                                 <img src={close} alt="" />
                             </Options>
 							<ButtonSettings remove={props.remove}>

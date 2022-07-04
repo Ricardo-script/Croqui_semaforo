@@ -28,7 +28,23 @@ const appearIn = keyframes`
 
 export const Container = styled.div``;
 
-export const AreaDetector = styled.div`
+export const Img = styled.img`
+    width: ${props => props.tamanho + '%'};
+	min-width: 10px;
+    height: auto;
+    position: relative;
+    transition: .2s;
+    animation: ${ zoom } .3s ease-in-out;
+
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        transform: scale(1.4);
+    }
+`;
+
+export const AreaPlug = styled.div`
    	width: ${props => props.tamanho + 'px'};
 	height:${props => props.tamanho + 'px'};
 	min-width: 20px;
