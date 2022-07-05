@@ -1187,18 +1187,18 @@ export default function Croqui() {
 			}
 		});
 
-		const result = JSON.stringify(data)
+		const result = JSON.stringify(data);
 
 		console.log({ id: 'osasco', result });
 	}
 
-
 	const data = [
-		{ objeto: 'carRight', id: 0, left: 39.38506588579795, grupo: 1, anel: 1, controlador: 'GW1', percurso: 30, tamanho: 100, top: 34.98452012383901, velocidade: 5 },
-		{ objeto: 'carRight', id: 1, left: 33.45534407027819, grupo: 2, anel: 2, controlador: 'GW2', percurso: 50, tamanho: 120, top: 44.169246646026835, velocidade: 9 },
-		{ objeto: 'walkRight', id: 0, left: 39.53147877013177, grupo: 3, anel: 3, controlador: 'GW3', percurso: 12, tamanho: 50, top: 55.830753353973165, velocidade: 5 },
-		{ objeto: 'carBottom', id: 0, left: 59.88286969253294, grupo: 4, anel: 4, controlador: 'GW4', percurso: 30, tamanho: 50, top: 7.8431372549019605, velocidade: 5 },
-		{ objeto: 'carBottom', id: 1, left: 59.88286969253294, grupo: 5, anel: 5, controlador: 'GW4', percurso: 30, tamanho: 50, top: 8.6631372549019605, velocidade: 5 }
+		{ objeto: 'carRight', id: 0, left: 2.952755905511811, grupo: 1, anel: 1, controlador: 'GW1', percurso: 30, tamanho: 100, top: 43.13725490196079, velocidade: 5 },
+		{ objeto: 'walkRight', id: 0, left: 47.24409448818898, grupo: 3, anel: 3, controlador: 'GW2', percurso: 12, tamanho: 50, top: 16.202270381836946, velocidade: 5 },
+		{ objeto: 'walkBottom', id: 0, left: 74.0625, grupo: 3, anel: 3, controlador: 'GW3', percurso: 12, tamanho: 50, top: 36.326109391124874, velocidade: 5 },
+		{ objeto: 'objSemaforoLeft', id: 0, left: 43.854166666666664, grupo: 3, anel: 3, controlador: 'GW3', tamanho: 30, top: 32.71413828689371 },
+		{ objeto: 'carRightToBottom', id: 0, left: 2.8215223097112863, grupo: 4, anel: 4, controlador: 'GW4', percurso: 51, tamanho: 100, top: 54.4891640866873, velocidade: 5 },
+		{ objeto: 'carBottom', id: 1, left: 62.13910761154855, grupo: 5, anel: 5, controlador: 'GW4', percurso: 30, tamanho: 50, top: 0.8255933952528379, velocidade: 5 }
 	]
 
 

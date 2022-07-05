@@ -97,11 +97,11 @@ export const Group = styled.div`
 	}
 
 	&#rangeVelocidade{
-		display: ${props => props.type !== 'car' && props.type !== 'car-curve' ? 'none' : 'flex'};
+		display: ${props => props.type !== 'car' && props.type !== 'car-curve' && props.type !== 'pedestre' ? 'none' : 'flex'};
 	}
 
 	&#rangePercurso{
-		display: ${props => props.type !== 'car' && props.type !== 'car-curve' ? 'none' : 'flex'};
+		display: ${props => props.type !== 'car' && props.type !== 'car-curve' && props.type !== 'pedestre' ? 'none' : 'flex'};
 	}
 `;
 

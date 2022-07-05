@@ -57,7 +57,23 @@ export const MoveWalkRight = styled.img`
 	min-width: 15px;
     height: auto;
     position: relative;
-    animation: ${ props => props.move === true ? walkToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '4s infinite'  : '.5s ease-in-out' };
+    animation: ${ props => props.move === true ? walkToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
+
+	(
+		props.velocidade === 10 ? '1s infinite linear'   :
+        props.velocidade ===  9 ? '1.5s infinite linear' :
+        props.velocidade ===  8 ? '2s infinite linear'   :
+        props.velocidade ===  7 ? '2.5s infinite linear' :
+        props.velocidade ===  6 ? '3s infinite linear'   :
+        props.velocidade ===  5 ? '3.5s infinite linear' :
+        props.velocidade ===  4 ? '4s infinite linear'   :
+        props.velocidade ===  3 ? '4.5s infinite linear' :
+        props.velocidade ===  2 ? '5s infinite linear'   :
+        props.velocidade ===  1 ? '5.5s infinite linear' :
+        props.velocidade ===  0 ? '10s infinite linear'  : ''
+	)
+
+	: '.5s ease-in-out' };
     transition: .2s;
     &:active{
         transform: scale(1.4);
