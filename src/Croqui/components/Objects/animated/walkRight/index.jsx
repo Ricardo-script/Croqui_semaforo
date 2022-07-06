@@ -19,7 +19,7 @@ export default function WalkRight(props){
                 if(props.walkRight[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='walkRight' top={item.top} left={item.left} setWalkRight={props.setWalkRight} walkRight={props.walkRight}>
-                            <MoveWalkRight src={props.moveWalkRight === true ? walkRight : walkPauseRight } alt="" move={props.moveWalkRight} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso}/>
+                            <MoveWalkRight src={props.moveWalkRight === true ? walkRight : walkPauseRight } alt="" move={props.moveWalkRight} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeWalkRight(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

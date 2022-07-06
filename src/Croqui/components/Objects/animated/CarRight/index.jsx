@@ -19,7 +19,7 @@ export default function CarRight(props) {
                     return (
                         <Content key={index}>
                             <ItemDraggable key={index} index={index} object='carRight' top={item.top} left={item.left} setCarRight={props.setCarRight} carRight={props.carRight}>
-                                <MoveRight src={direita} alt="" move={props.moveRight} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso}/>
+                                <MoveRight src={direita} alt="" move={props.moveRight} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso} angulo={item.angulo}/>
                                 <Options remove={props.remove} onClick={() => props.removeCarRight(index, item)}>
                                     <img src={close} alt="" />
                                 </Options>

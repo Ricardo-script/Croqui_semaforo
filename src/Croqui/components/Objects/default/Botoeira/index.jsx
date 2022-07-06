@@ -24,7 +24,7 @@ export default function Botoeira(props){
                 if(props.objBotoeira[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='objBotoeira' top={item.top} left={item.left} setObjBotoeira={props.setObjBotoeira} objBotoeira={props.objBotoeira}>
-                            <Img src={botoeira} alt="" onDoubleClick={acionarBotoeira} tamanho={item.tamanho}/>
+                            <Img src={botoeira} alt="" onDoubleClick={acionarBotoeira} tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeBotoeira(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

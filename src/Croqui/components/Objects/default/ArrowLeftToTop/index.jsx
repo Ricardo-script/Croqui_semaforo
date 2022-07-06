@@ -19,7 +19,7 @@ export default function ArrowLeftToTop(props){
                 if(props.arrowLeftToTop[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='arrowLeftToTop' top={item.top} left={item.left} setArrowLeftToTop={props.setArrowLeftToTop} arrowLeftToTop={props.arrowLeftToTop}>
-                            <MoveLeftToTop src={props.moveArrowLeftToTop === false ? arrowLeftToTop : animateArrowLeftToTop} alt="" tamanho={item.tamanho}/>
+                            <MoveLeftToTop src={props.moveArrowLeftToTop === false ? arrowLeftToTop : animateArrowLeftToTop} alt="" tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeArrowLeftToTop(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

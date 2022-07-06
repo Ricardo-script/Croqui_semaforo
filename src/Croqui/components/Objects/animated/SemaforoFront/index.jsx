@@ -18,7 +18,7 @@ export default function SemaforoFront(props) {
                 if (props.objSemaforo[index] !== '') {
                     return (
                         <ItemDraggable key={index} index={index} object='obj-semaforo' top={item.top} left={item.left} setObjSemaforo={props.setObjSemaforo} objSemaforo={props.objSemaforo}>
-                            <Img src={semFrontGreen} alt="" tamanho={item.tamanho}/>
+                            <Img src={semFrontGreen} alt="" tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeSemaforo(index, item)}>
                                 <img src={close} alt="" />
                             </Options>

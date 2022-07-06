@@ -18,7 +18,7 @@ export default function ArrowRight(props){
                 if(props.arrowRight[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='arrowRight' top={item.top} left={item.left} setArrowRight={props.setArrowRight} arrowRight={props.arrowRight}>
-                            <MoveRight src={arrowStart} alt="" move={props.moveArrowRight} tamanho={item.tamanho}/>
+                            <MoveRight src={arrowStart} alt="" move={props.moveArrowRight} tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeArrowRight(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

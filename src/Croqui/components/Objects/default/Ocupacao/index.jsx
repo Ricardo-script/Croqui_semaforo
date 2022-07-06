@@ -34,7 +34,7 @@ export default function Ocupacao(props){
                 if(props.objOcupacao[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='objOcupacao' top={item.top} left={item.left} setObjOcupacao={props.setObjOcupacao} objOcupacao={props.objOcupacao}>
-                            <AreaOcupacao taxa={taxa} tamanho={item.tamanho}>
+                            <AreaOcupacao taxa={taxa} tamanho={item.tamanho} angulo={item.angulo}>
                                 <TaxaOcupacao>{taxa}%</TaxaOcupacao>
                             </AreaOcupacao>
                             <Options remove={props.remove} onClick={() => props.removeOcupacao(index,item)}>

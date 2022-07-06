@@ -19,7 +19,7 @@ export default function ArrowBottom(props){
                 if(props.arrowBottom[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='arrowBottom' top={item.top} left={item.left} setArrowBottom={props.setArrowBottom} arrowBottom={props.arrowBottom}>
-                            <MoveBottom src={arrowStartBottom} alt="" move={props.moveArrowBottom} tamanho={item.tamanho}/>
+                            <MoveBottom src={arrowStartBottom} alt="" move={props.moveArrowBottom} tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeArrowBottom(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

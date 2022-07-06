@@ -18,7 +18,7 @@ export default function SemaforoRight(props) {
                 if (props.objSemaforoRight[index] !== '') {
                     return (
                         <ItemDraggable key={index} index={index} object='obj-semaforoRight' top={item.top} left={item.left} setObjSemaforoRight={props.setObjSemaforoRight} objSemaforoRight={props.objSemaforoRight}>
-                            <Img src={semRightGreen} alt="" tamanho={item.tamanho}/>
+                            <Img src={semRightGreen} alt="" tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeSemaforoRight(index, item)}>
                                 <img src={close} alt="" />
                             </Options>

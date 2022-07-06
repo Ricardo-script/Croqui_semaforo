@@ -19,7 +19,7 @@ export default function WalkBottom(props){
                 if(props.walkBottom[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='walkBottom' top={item.top} left={item.left} setWalkBottom={props.setWalkBottom} walkBottom={props.walkBottom}>
-                            <MoveWalkBottom src={props.moveWalkBottom === true ? walkBottom : walkPauseBottom} alt="" move={props.moveWalkBottom} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso}/>
+                            <MoveWalkBottom src={props.moveWalkBottom === true ? walkBottom : walkPauseBottom} alt="" move={props.moveWalkBottom} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeWalkBottom(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

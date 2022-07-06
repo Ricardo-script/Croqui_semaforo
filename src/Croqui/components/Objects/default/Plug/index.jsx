@@ -41,7 +41,7 @@ export default function Plug(props){
                 if(props.objPlug[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='objPlug' top={item.top} left={item.left} setObjPlug={props.setObjPlug} objPlug={props.objPlug}>
-                            <Img src={icoPlug} alt="" onDoubleClick={acionarPlug} tamanho={item.tamanho}/>
+                            <Img src={icoPlug} alt="" onDoubleClick={acionarPlug} tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removePlug(index,item)}>
                                 <img src={close} alt="" />
                             </Options>

@@ -96,6 +96,14 @@ export default function Settings(props){
         props.setObject(values);
     }
 
+	const getAngulo = (value) => {
+		const values = [...props.object];
+        props.object.forEach( (items,index) =>{
+            items.angulo = parseInt(value);
+        });
+        props.setObject(values);
+	}
+
     return(
         <Container open={props.open}>
 			<div id="mydiv" className="element" onMouseOver={(e) => dragElement(document.getElementById("mydiv"))}>
@@ -150,6 +158,14 @@ export default function Settings(props){
                             <Total>{props.object.length === 0 ? 0 : props.object[0].percurso}</Total>
                         </AreaInput>
                     </Group>
+					<Group id='rangeAngulo' type={props.type}>
+                        <Label>Ângulo:</Label>
+                        <AreaInput>
+                        <Input type="range" min="0" max="360" value={props.object.length === 0 ? 0 : props.object[props.index].angulo} onChange={(e) => getAngulo(e.target.value)}/>
+                            <Total>{props.object.length === 0 ? 0 : props.object[0].angulo}</Total>
+                        </AreaInput>
+                    </Group>
+
                 </BodySettings>
 			</div>
 		</Container>

@@ -18,7 +18,7 @@ export default function ArrowTop(props){
                 if(props.arrowTop[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='arrowTop' top={item.top} left={item.left} setArrowTop={props.setArrowTop} arrowTop={props.arrowTop}>
-                            <MoveTop src={arrowStartTop} alt="" move={props.moveArrowTop} tamanho={item.tamanho}/>
+                            <MoveTop src={arrowStartTop} alt="" move={props.moveArrowTop} tamanho={item.tamanho} angulo={item.angulo}/>
                             <Options remove={props.remove} onClick={() => props.removeArrowTop(index,item)}>
                                 <img src={close} alt="" />
                             </Options>
