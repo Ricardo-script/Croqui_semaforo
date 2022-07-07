@@ -58,7 +58,6 @@ export const BodySettings = styled.div`
 `;
 
 export const AreaItems = styled.div`
-    margin-bottom: 10px;
     display: flex;
     gap: 15px;
 `;
@@ -86,6 +85,36 @@ export const Item = styled.div`
         height: fit-content;
 		animation: ${props => props.type === 'car' || props.type === 'car-curve' ? css` ${ girar } 30s linear infinite` : css`none`};
     }
+`;
+
+export const AreaPlay = styled.div`
+	width: 29px;
+    height: 24px;
+    background: #f3f0f1;
+    position: relative;
+    background: #f3f0f1;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+    color: #6f6cde;
+	margin-bottom: 5px;
+	margin-left: 35px;
+
+	&:active {
+		opacity: 1;
+		box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+		color: #79e3b6;
+	}
+
+	img{
+		width: 14px;
+	}
 `;
 
 export const Group = styled.div`
@@ -161,7 +190,6 @@ export const Description = styled.div`
     transform: skew(0deg);
     background: #b1b1b1;
     box-shadow: -3px 0px 0px 0px #14A7CA;
-
 `;
 
 export const Title = styled.span`

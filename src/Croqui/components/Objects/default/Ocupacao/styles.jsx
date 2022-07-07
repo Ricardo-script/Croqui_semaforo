@@ -46,6 +46,7 @@ export const AreaOcupacao = styled.div`
     justify-content: center;
     transition: .2s;
     animation: ${ zoom } .3s ease-in-out;
+	transform: rotate(${props => props.angulo + 'deg'});
 
     &:active{
         transform: scale(1.4);

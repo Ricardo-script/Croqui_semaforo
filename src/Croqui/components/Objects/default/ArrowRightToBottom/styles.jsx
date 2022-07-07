@@ -33,6 +33,7 @@ export const MoveRightToBottom = styled.img`
 	min-width: 10px;
     height: auto;
     position: relative;
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ zoom } ${props => props.move === true ? '1.3s infinite'  : '.5s ease-in-out' };
     transition: .2s;
     &:active{

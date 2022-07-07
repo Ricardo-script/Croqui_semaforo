@@ -2,15 +2,15 @@ import styled, { keyframes } from 'styled-components';
 
 const goTop = (props) => keyframes`
     0% {
-        transform: translateY(0);
+        transform: rotate(${props.angulo + 'deg'}) translateY(0);
         opacity: 1;
     }
     90%{
-		transform: translateY(${'-' + props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${'-' + props.percurso + 'vw'});
         opacity: 1;
     }
     100% {
-		transform: translateY(${'-' + props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${'-' + props.percurso + 'vw'});
         opacity: 0;
     }
 `;
@@ -54,6 +54,7 @@ export const MoveTop = styled.img`
 	min-width: 20px;
     height: auto;
 	position: relative;
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? goTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 
 	(

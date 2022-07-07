@@ -23,7 +23,6 @@ const goBottomToRight = (props) => keyframes`
         transition: 1s;
         opacity: 0.4;
     }
-
 `;
 
 const zoom = keyframes`

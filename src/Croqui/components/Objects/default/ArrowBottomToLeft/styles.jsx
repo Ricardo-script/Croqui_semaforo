@@ -1,24 +1,24 @@
 import styled, { keyframes } from 'styled-components';
 
-const goBottomToLeft = keyframes`
+const goBottomToLeft = (props) => keyframes`
     0%{
-        transform: translateY(0);
+        transform: rotate(${props.angulo + 'deg'}) translateY(0);
         left: 0;
         opacity: 1;
     }
     50%{
-        transform: translateY(-18vw) rotate(0deg);
+        transform: rotate(${props.angulo + 'deg'}) translateY(-18vw) rotate(0deg);
         left: 0;
         opacity: 1;
     }
     75%{
-        transform: translateY(-19vw) rotate(90deg);
+        transform: rotate(${props.angulo + 'deg'}) translateY(-19vw) rotate(90deg);
         left: 2vw;
         transition: 1s;
         opacity: 1;
     }
     100% {
-        transform: translateY(-19vw) rotate(90deg);
+        transform: rotate(${props.angulo + 'deg'}) translateY(-19vw) rotate(90deg);
         left: 20vw;
         transition: 1s;
         opacity: 0.4;
@@ -65,6 +65,7 @@ export const MoveBottomToLeft = styled.img`
 	min-width: 15px;
     height: auto;
     position: relative;
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? goBottomToLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '3s infinite'  : '.5s ease-in-out' };
     transition: .2s;
     &:active{

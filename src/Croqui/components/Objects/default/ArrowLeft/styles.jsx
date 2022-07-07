@@ -1,16 +1,16 @@
 import styled, { keyframes } from 'styled-components';
 
-const goTop = keyframes`
+const goTop = (props) => keyframes`
     0% {
-        transform: translateX(0);
+        transform: rotate(${props.angulo + 'deg'}) translateX(0);
         opacity: 1;
     }
     90%{
-        transform: translateX(-2.7vw);
+        transform: rotate(${props.angulo + 'deg'}) translateX(-2.7vw);
         opacity: 1;
     }
     100% {
-        transform: translatex(-3vw);
+        transform: rotate(${props.angulo + 'deg'}) translatex(-3vw);
         opacity: 0;
     }
 `;
@@ -54,6 +54,7 @@ export const MoveLeft = styled.img`
 	min-width: 15px;
     height: auto;
     position: relative;
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? goTop : props.move === 'pause' ? pause : zoom } ${props => props.move === true ? '1.3s infinite'  : '.5s ease-in-out' };
     transition: .2s;
     &:active{

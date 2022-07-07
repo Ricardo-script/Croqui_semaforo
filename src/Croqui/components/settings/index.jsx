@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import closeModal from '../img/closeModal.png';
-import { Container, AreaItems, Item, BodySettings, Group, Label, Input, AreaInput, Total, AreaDescription, Description, Title,
+import play from '../img/play.png';
+import pause from '../img/pause.png';
+import { Container, AreaItems, Item, AreaPlay, BodySettings, Group, Label, Input, AreaInput, Total, AreaDescription, Description, Title,
 AreaFields, LabelFloat, InputField, LabelField
 } from './styles';
 
 export default function Settings(props){
+
+	const[playIco, setPlayIco] = useState(play);
 
     function dragElement(elmnt) {
         var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -104,6 +108,27 @@ export default function Settings(props){
         props.setObject(values);
 	}
 
+	const playAnimate = () => {
+		if(props.statusPlay === 'stop'){
+			setPlayIco(pause);
+			props.setStatusPlay('play');
+			props.playAnimate()
+		}else{
+			setPlayIco(play);
+			props.setStatusPlay('stop');
+			props.stopAnimate();
+		}
+	}
+
+	//Altera o icone de play na barra de edição
+	useEffect(() => {
+		if(props.statusPlay === 'stop'){
+			setPlayIco(play);
+		}else{
+			setPlayIco(pause);
+		}
+	},[props.statusPlay]);
+
     return(
         <Container open={props.open}>
 			<div id="mydiv" className="element" onMouseOver={(e) => dragElement(document.getElementById("mydiv"))}>
@@ -135,8 +160,10 @@ export default function Settings(props){
 							</LabelFloat>
 						</AreaFields>
                         </AreaDescription>
-
                     </AreaItems>
+					<AreaPlay onClick={playAnimate}>
+						<img src={playIco} alt="" />
+					</AreaPlay>
                     <Group id='rangeTamanho' type={props.type}>
                         <Label>Tamanho:</Label>
                         <AreaInput>
