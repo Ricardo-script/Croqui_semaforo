@@ -54,7 +54,7 @@ export const AreaEditor = styled.div`
 		overflow: scroll;
     }
 
-    @media(max-height: 520px){
+    @media(max-height: 620px){
         overflow-y: scroll;
         &::-webkit-scrollbar {
 		    width: 4px;

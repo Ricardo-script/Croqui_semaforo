@@ -234,6 +234,22 @@ export const LabelFloat = styled.div`
 			color: #3951b2;
         }
     }
+
+	&#grupo{
+		display: ${props => props.title === 'Botoeira' ? 'none' : 'block'};
+	}
+
+	&#detector{
+		display: ${props => props.title === 'Taxa de ocupação' || props.title !== 'Taxa de ocupação' ? 'block' : 'none'};
+	}
+
+	&#anel{
+		display: ${props => props.title !== 'Botoeira' || props.title !== 'Taxa de ocupação' ? 'block' : 'none'};
+	}
+
+	&#controlador{
+		display: ${props => props.title !== 'Botoeira' || props.title !== 'Taxa de ocupação' ? 'block' : 'none'};
+	}
 `;
 
 export const InputField = styled.input`

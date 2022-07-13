@@ -6,6 +6,8 @@ import { Container, AreaItems, Item, AreaPlay, BodySettings, Group, Label, Input
 AreaFields, LabelFloat, InputField, LabelField
 } from './styles';
 
+var teste = 0;
+
 export default function Settings(props){
 
 	const[playIco, setPlayIco] = useState(play);
@@ -59,6 +61,14 @@ export default function Settings(props){
 		props.setObject(values);
 	}
 
+	const getDetector = (value) => {
+		const values = [...props.object];
+		props.object.forEach( (items,index) => {
+			items.detector = value;
+		});
+		props.setObject(values);
+	}
+
 	const getAnel = (value) => {
 		const values = [...props.object];
 		props.object.forEach( (items,index) => {
@@ -98,14 +108,78 @@ export default function Settings(props){
             items.percurso = parseInt(value);
         });
         props.setObject(values);
+		console.log(values)
     }
+
+	const getPercursoFinal = (value) => {
+		const values = [...props.object];
+        props.object.forEach( (items,index) => {
+            items.percursoFinal = parseInt(value);
+        });
+        props.setObject(values);
+		console.log(values)
+	}
 
 	const getAngulo = (value) => {
 		const values = [...props.object];
         props.object.forEach( (items,index) =>{
-            items.angulo = parseInt(value);
+
+			const values = [...props.object];
+			props.object.forEach( (items,index) =>{
+				items.angulo = parseInt(value);
+			});
+			props.setObject(values);
+
+			/*var angulo = items.angulo * Math.PI/180;
+			//var angulo = items.angulo;
+			var seno = Math.sin(angulo);
+			var cosseno = Math.cos(angulo);
+			teste = angulo;
+
+			items.angulo = parseInt(value);
+			items.retaX = seno * items.percurso;
+			items.retaY = cosseno * items.percurso;
+
+
+
+			console.log('items.angulo',items.angulo)
+			console.log('retaX', items.retaY)
+			console.log('retaY', items.retaX)*/
+
+
+
+
         });
         props.setObject(values);
+		console.log(values);
+	}
+
+	const getAnguloFinal = (value) => {
+		const values = [...props.object];
+        props.object.forEach( (items,index) =>{
+
+			const values = [...props.object];
+			props.object.forEach( (items,index) =>{
+				items.anguloFinal = parseInt(value);
+			});
+			props.setObject(values);
+
+        	/*var anguloFinal = items.anguloFinal * Math.PI/180;
+			//var anguloFinal = items.anguloFinal;
+			var senoFinal = Math.sin(anguloFinal);
+			var cossenoFinal = Math.cos(anguloFinal);
+
+			items.anguloFinal = parseInt(value);
+			items.retaFinalY = senoFinal * items.percursoFinal;
+			items.retaFinalX = cossenoFinal * items.percursoFinal;
+
+			console.log('anguloFinal',anguloFinal)
+			console.log('retaFinalY', items.retaFinalY)
+			console.log('retaFinalX', items.retaFinalX)*/
+
+		});
+        props.setObject(values);
+		console.log(values);
 	}
 
 	const playAnimate = () => {
@@ -146,15 +220,19 @@ export default function Settings(props){
                                 <Title>{props.title}</Title>
                             </Description>
 							<AreaFields>
-							<LabelFloat>
+							<LabelFloat title={props.title} id='grupo'>
 								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].grupo} onChange={(e) => getGrupo(e.target.value)}/>
 								<LabelField>Grupo</LabelField>
 							</LabelFloat>
-							<LabelFloat>
+							<LabelFloat title={props.title} id='detector'>
+								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].detector} onChange={(e) => getDetector(e.target.value)}/>
+								<LabelField>Detector</LabelField>
+							</LabelFloat>
+							<LabelFloat title={props.title} id='anel'>
 								<InputField type="number" min="0" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].anel} onChange={(e) => getAnel(e.target.value)}/>
 								<LabelField>Anel</LabelField>
 							</LabelFloat>
-							<LabelFloat>
+							<LabelFloat title={props.title} id='controlador'>
 								<InputField type="text" placeholder=" " value={props.object.length === 0 ? 0 : props.object[props.index].controlador} onChange={(e) => getControlador(e.target.value)}/>
 								<LabelField>Controlador</LabelField>
 							</LabelFloat>
@@ -179,19 +257,35 @@ export default function Settings(props){
                         </AreaInput>
                     </Group>
                     <Group id='rangePercurso' type={props.type}>
-                        <Label>{props.type === 'car-curve' ? 'Momento da curva:' : 'Percurso:'}</Label>
+                        <Label>Percurso:</Label>
                         <AreaInput>
                             <Input type="range" min="0" max="100" value={props.object.length === 0 ? 0 : props.object[props.index].percurso} onChange={(e) => getPercurso(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].percurso}</Total>
                         </AreaInput>
                     </Group>
+					<Group id='rangePercursoFinal' type={props.type}>
+                        <Label>{props.type === 'car-curve' ? 'Percurso da curva final:' : 'Percurso:'}</Label>
+                        <AreaInput>
+                            <Input type="range" min="0" max="100" value={props.object.length === 0 ? 0 : props.object[props.index].percursoFinal} onChange={(e) => getPercursoFinal(e.target.value)}/>
+                            <Total>{props.object.length === 0 ? 0 : props.object[0].percursoFinal}</Total>
+                        </AreaInput>
+					</Group>
+
 					<Group id='rangeAngulo' type={props.type}>
                         <Label>Ângulo:</Label>
                         <AreaInput>
-                        <Input type="range" min="0" max="360" value={props.object.length === 0 ? 0 : props.object[props.index].angulo} onChange={(e) => getAngulo(e.target.value)}/>
+                        <Input type="range" min="0" max="90" value={props.object.length === 0 ? 0 : props.object[props.index].angulo} onChange={(e) => getAngulo(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].angulo}</Total>
                         </AreaInput>
                     </Group>
+
+					<Group id='rangeAnguloFinal' type={props.type}>
+                        <Label>Ângulo Final:</Label>
+                        <AreaInput>
+                        <Input type="range" min="0" max="90" value={props.object.length === 0 ? 0 : props.object[props.index].anguloFinal} onChange={(e) => getAnguloFinal(e.target.value)}/>
+                            <Total>{props.object.length === 0 ? 0 : props.object[0].anguloFinal}</Total>
+                        </AreaInput>
+					</Group>
 
                 </BodySettings>
 			</div>
