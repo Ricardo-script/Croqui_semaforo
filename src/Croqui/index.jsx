@@ -174,7 +174,7 @@ export default function Croqui() {
 
 	//Função abrir editor
 	const openDrawer = () => {
-		if (openTools) {
+		if (openTools === true && openSettings === false) {
 			setOpenTools(false);
 			//fecha menus de tipos de objetos
 			setOpenTypesTopRigth(false);
@@ -229,7 +229,7 @@ export default function Croqui() {
 	const addCarTopToRight = () => {
 		setRemove(false);
 		const objects = [...carTopToRight];
-		objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 67, velocidade: 3, percurso: 30, percursoFinal: 10, angulo: 0, anguloFinal: 90}); // retaX:0, retaY:0, retaFinalX:0, retaFinalY:0
+		objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 67, velocidade: 3, percurso: 30, percursoFinal: 10, angulo: 90, anguloFinal: 90}); // retaX:0, retaY:0, retaFinalX:0, retaFinalY:0
 		setCarTopToRight(objects);
 	}
 
@@ -682,6 +682,7 @@ export default function Croqui() {
 
 	// Animações
 	const playAnimate = () => {
+		openDrawer();
 		setRemove(false);
 		setMoveRight(true);
 		setMoveTop(true);

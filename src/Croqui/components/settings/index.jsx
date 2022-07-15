@@ -274,7 +274,7 @@ export default function Settings(props){
 					<Group id='rangeAngulo' type={props.type}>
                         <Label>Ângulo:</Label>
                         <AreaInput>
-                        <Input type="range" min="0" max="90" value={props.object.length === 0 ? 0 : props.object[props.index].angulo} onChange={(e) => getAngulo(e.target.value)}/>
+                        <Input type="range" min="0" max="360" value={props.object.length === 0 ? 0 : props.object[props.index].angulo} onChange={(e) => getAngulo(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].angulo}</Total>
                         </AreaInput>
                     </Group>
@@ -282,7 +282,7 @@ export default function Settings(props){
 					<Group id='rangeAnguloFinal' type={props.type}>
                         <Label>Ângulo Final:</Label>
                         <AreaInput>
-                        <Input type="range" min="0" max="90" value={props.object.length === 0 ? 0 : props.object[props.index].anguloFinal} onChange={(e) => getAnguloFinal(e.target.value)}/>
+                        <Input type="range" min="0" max="360" value={props.object.length === 0 ? 0 : props.object[props.index].anguloFinal} onChange={(e) => getAnguloFinal(e.target.value)}/>
                             <Total>{props.object.length === 0 ? 0 : props.object[0].anguloFinal}</Total>
                         </AreaInput>
 					</Group>

@@ -1,74 +1,86 @@
 import styled, { keyframes } from 'styled-components';
 
 const goTopToRight = (props) => keyframes`
-		//Pomto de partida
-   0%{
-        transform: translateY(0) translateX(0) rotate(${props.angulo + 0 + 'deg'});
-        //left: 0;
-        opacity: 1;
-    }
-	//momnto da curva
-    50%{
-        //transform: translateY(-18vw) rotate(0deg);
-        transform: translateY(${-1*props.retaY + 'vw'}) translateX(${props.retaX + 'vw'}) rotate(${props.angulo + 0 + 'deg'});
-        //left: 0;
-        opacity: 1;
-    }
-	//rotação do carro
-    75%{
-        //transform: translateY(-19vw) rotate(90deg);
-        transform: translateY(${-1*props.retaY + 'vw'}) translateX(${props.retaX + 'vw'}) rotate(${props.anguloFinal + 'deg'}); // repete os dados anteriores só alterando ANGULO2.
-        //left: 2vw;
-        transition: 1s;
-        opacity: 1;
-    }
-	//ponto final
-    100% {
-        //transform: translateY(-19vw) rotate(90deg);
-        transform: translateY(${-1*props.retaY + -1*props.retaFinalY+ 'vw'}) translateX(${props.retaFinalX + props.retaX + 'vw'}) rotate(${props.anguloFinal + 'deg'}); //Y tem que ser relacionado com ANGULO2 e X é o percurso Final.
-        //left: 20vw;
-        transition: 1s;
-        opacity: 0.4;
 
+	0%{
+        transform:
+			translateY(0)
+			translateX(0)
+			rotate(${((-1)*props.angulo + 90 ) + 'deg'});
+        opacity: 1;
+    }
+	50%{
+		transform:
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
+			translateX(${(Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			rotate(${( (-1)*props.angulo + 90 ) + 'deg'});
+        opacity: 1;
+	}
+	75%{
+		transform:
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
+			translateX(${(Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			rotate(${( (-1)*props.anguloFinal + 90 ) + 'deg'});
+        opacity: 1;
+	}
+
+    100%{
+        transform:
+			translateY(${(((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180))) * props.percursoFinal) + ((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso)) + 'vw') })
+			translateX(${(Math.cos(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) + (Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			rotate(${( (-1)*props.anguloFinal + 90 ) + 'deg'});
+        opacity: 1;
     }
 
 	/*0%{
-        transform: translateY(0) translateX(0) rotate(${props.angulo + 'deg'});
+        transform:
+			translateY(0)
+			translateX(0)
+			rotate(${((-1)*props.angulo + 90 ) + 'deg'});
         opacity: 1;
     }
-    50%{
+	50%{
         transform:
-			translateY(${props.angulo >= 90 ? 0 : '-' + props.percurso + 'vw'})
-			translateX(${props.angulo + 'vw'}) rotate(${props.angulo + 'deg'});
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
+			translateX(${Math.cos(props.angulo * (Math.PI / 180))*props.percurso + 'vw'})
+			rotate(${props.angulo + 'deg'});
         opacity: 1;
     }
-    75%{
+	75%{
         transform:
-			translateY(${props.angulo >= 90 ? 0 : '-' + props.percurso + 'vw'})
-			translateX(${props.angulo + 'vw'})
-			rotate(${props.percursoFinal === 0 ? (props.angulo + 'deg') : props.anguloFinal === 0 ? (props.angulo + 'deg') : props.anguloFinal + 'deg'});
-        transition: 1s;
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
+			translateX(${Math.cos(props.anguloFinal * (Math.PI / 180))*props.percursoFinal + 'vw'})
+			rotate(${props.anguloFinal + 'deg'});
         opacity: 1;
     }
-    100% {
+    100%{
         transform:
-			translateY(${
-                props.anguloFinal === 0 ? (('-' + props.percurso) + 'vw')
-				:props.anguloFinal < 90 ? ('-' + (props.percurso + props.percursoFinal) + 'vw')
-				:props.angulo === 90 && props.anguloFinal === 90 ? props.percurso
-				:('-' + props.percurso  + 'vw') })
-			translateX(${
-				props.anguloFinal === 0 ? (props.angulo + 'vw')
-				:props.percursoFinal === 0 ? (props.angulo + 'vw')
-                :props.percursoFinal < props.angulo ? ((props.percursoFinal + props.angulo) + 'vw')
-				:props.angulo === 90 && props.anguloFinal === 90 ? (props.angulo + 'vw')
-				:props.anguloFinal <= 90 ? ((props.percursoFinal) + 'vw')
-				:props.angulo >= 90 ? (props.percursoFinal + 'vw')
-				:(props.percursoFinal + props.percurso + 'vw') })
-			rotate(${props.percursoFinal === 0 ? (props.angulo + 'deg') : props.anguloFinal === 0 ? (props.angulo + 'deg') : props.anguloFinal < 90 ? (props.anguloFinal + 'deg') : props.anguloFinal + 'deg'});
-        transition: 1s;
-        opacity: 0.4;
+			translateY(${((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) + 'vw')})
+			translateX(${Math.cos(props.anguloFinal * (Math.PI / 180))*props.percursoFinal + 'vw'})
+			rotate(${( (-1)*props.anguloFinal + 90 ) + 'deg'});
+        opacity: 1;
     }*/
+
+
+
+
+
+
+	/*0%{
+        transform:
+			translateY(0)
+			translateX(0)
+			rotate(${((-1)*props.angulo + 90 ) + 'deg'});
+        opacity: 1;
+    }
+    100%{
+        transform:
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) *props.percurso) + 'vw')})
+			translateX(${Math.cos(props.angulo * (Math.PI / 180))*props.percurso + 'vw'})
+			rotate(${( (-1)*props.angulo + 90 ) + 'deg'});
+        opacity: 1;
+    }
+    */
 
 `;
 
@@ -112,7 +124,7 @@ export const MoveTopToRight = styled.img`
 	min-width: 10px;
     height: auto;
     position: relative;
-	transform: rotate(${props => props.angulo + 'deg'});
+	transform: rotate(${props => ((-1) * props.angulo + 90) + 'deg'});
     animation: ${ props => props.move === true ? goTopToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 
 	 (
