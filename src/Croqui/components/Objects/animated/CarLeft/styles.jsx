@@ -79,7 +79,7 @@ const appearIn = keyframes`
 export const Container = styled.div``;
 
 export const MoveLeft = styled.img`
-    width: ${props => props.tamanho + 15 + '%'};
+    width: ${props => props.tamanho + '%'};
 	min-width: 20px;
     height: auto;
 	transform: rotate(${props => props.angulo + 'deg'});

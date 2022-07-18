@@ -20,7 +20,7 @@ const goTopToRight = (props) => keyframes`
 		transform:
 			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
 			translateX(${(Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
-			rotate(${( (-1)*props.anguloFinal + 90 ) + 'deg'});
+			rotate(${((-1)*props.anguloFinal + 450) + 'deg'});
         opacity: 1;
 	}
 
@@ -28,59 +28,9 @@ const goTopToRight = (props) => keyframes`
         transform:
 			translateY(${(((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180))) * props.percursoFinal) + ((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso)) + 'vw') })
 			translateX(${(Math.cos(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) + (Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
-			rotate(${( (-1)*props.anguloFinal + 90 ) + 'deg'});
+			rotate(${((-1)*props.anguloFinal + 450) + 'deg'});
         opacity: 1;
     }
-
-	/*0%{
-        transform:
-			translateY(0)
-			translateX(0)
-			rotate(${((-1)*props.angulo + 90 ) + 'deg'});
-        opacity: 1;
-    }
-	50%{
-        transform:
-			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
-			translateX(${Math.cos(props.angulo * (Math.PI / 180))*props.percurso + 'vw'})
-			rotate(${props.angulo + 'deg'});
-        opacity: 1;
-    }
-	75%{
-        transform:
-			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
-			translateX(${Math.cos(props.anguloFinal * (Math.PI / 180))*props.percursoFinal + 'vw'})
-			rotate(${props.anguloFinal + 'deg'});
-        opacity: 1;
-    }
-    100%{
-        transform:
-			translateY(${((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) + 'vw')})
-			translateX(${Math.cos(props.anguloFinal * (Math.PI / 180))*props.percursoFinal + 'vw'})
-			rotate(${( (-1)*props.anguloFinal + 90 ) + 'deg'});
-        opacity: 1;
-    }*/
-
-
-
-
-
-
-	/*0%{
-        transform:
-			translateY(0)
-			translateX(0)
-			rotate(${((-1)*props.angulo + 90 ) + 'deg'});
-        opacity: 1;
-    }
-    100%{
-        transform:
-			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) *props.percurso) + 'vw')})
-			translateX(${Math.cos(props.angulo * (Math.PI / 180))*props.percurso + 'vw'})
-			rotate(${( (-1)*props.angulo + 90 ) + 'deg'});
-        opacity: 1;
-    }
-    */
 
 `;
 

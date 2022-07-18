@@ -1,25 +1,34 @@
 import styled, { keyframes } from 'styled-components';
 
 const goTopToLeft = (props) => keyframes`
-    0%{
-        transform: translateY(0);
-        right: 0;
+	0%{
+        transform:
+			translateY(0)
+			translateX(0)
+			rotate(${((-1)*props.angulo + 90 ) + 'deg'});
         opacity: 1;
     }
-    50%{
-		transform: translateY(${'-' + props.percurso + 'vw'}) rotate(0deg);
-        right: 0;
+	50%{
+		transform:
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
+			translateX(${(Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			rotate(${( (-1)*props.angulo + 90 ) + 'deg'});
         opacity: 1;
-    }
-    75%{
-		transform: translateY(${'-' + props.percurso + 'vw'}) rotate(-90deg);
-        right: 2vw;
+	}
+	75%{
+		transform:
+			translateY(${((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso) + 'vw')})
+			translateX(${(Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			rotate(${((-1)*props.anguloFinal + 90) + 'deg'});
         opacity: 1;
-    }
-    100% {
-		transform: translateY(${'-' + props.percurso  + 'vw'}) rotate(-90deg);
-        right: 20vw;
-        opacity: 0.4;
+	}
+
+    100%{
+        transform:
+			translateY(${(((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180))) * props.percursoFinal) + ((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso)) + 'vw') })
+			translateX(${(Math.cos(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) + (Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			rotate(${((-1)*props.anguloFinal + 90) + 'deg'});
+        opacity: 1;
     }
 
 `;
@@ -64,6 +73,7 @@ export const MoveTopToLeft = styled.img`
 	min-width: 20px;
     height: auto;
     position: relative;
+	transform: rotate(${props => ((-1) * props.angulo + 90) + 'deg'});
     animation: ${ props => props.move === true ? goTopToLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 
 	(

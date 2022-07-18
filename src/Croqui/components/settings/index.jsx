@@ -129,26 +129,6 @@ export default function Settings(props){
 				items.angulo = parseInt(value);
 			});
 			props.setObject(values);
-
-			/*var angulo = items.angulo * Math.PI/180;
-			//var angulo = items.angulo;
-			var seno = Math.sin(angulo);
-			var cosseno = Math.cos(angulo);
-			teste = angulo;
-
-			items.angulo = parseInt(value);
-			items.retaX = seno * items.percurso;
-			items.retaY = cosseno * items.percurso;
-
-
-
-			console.log('items.angulo',items.angulo)
-			console.log('retaX', items.retaY)
-			console.log('retaY', items.retaX)*/
-
-
-
-
         });
         props.setObject(values);
 		console.log(values);
@@ -163,19 +143,6 @@ export default function Settings(props){
 				items.anguloFinal = parseInt(value);
 			});
 			props.setObject(values);
-
-        	/*var anguloFinal = items.anguloFinal * Math.PI/180;
-			//var anguloFinal = items.anguloFinal;
-			var senoFinal = Math.sin(anguloFinal);
-			var cossenoFinal = Math.cos(anguloFinal);
-
-			items.anguloFinal = parseInt(value);
-			items.retaFinalY = senoFinal * items.percursoFinal;
-			items.retaFinalX = cossenoFinal * items.percursoFinal;
-
-			console.log('anguloFinal',anguloFinal)
-			console.log('retaFinalY', items.retaFinalY)
-			console.log('retaFinalX', items.retaFinalX)*/
 
 		});
         props.setObject(values);

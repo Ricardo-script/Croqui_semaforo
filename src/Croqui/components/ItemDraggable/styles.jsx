@@ -7,13 +7,16 @@ export const Container = styled.section`
         left: ${props => props.left + 'vw'};
         z-index: 2;
         text-align: center;
-        width: 3.7%;
+        //width: 3.7%;
     }
 
     .elementHeader {
         cursor: grab;
         z-index: 3;
         user-select: none;
+
+		height: 0;
+    	width: 150px;
 
         &:active{
             cursor: grabbing;

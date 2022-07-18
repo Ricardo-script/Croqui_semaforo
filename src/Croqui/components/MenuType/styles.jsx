@@ -127,8 +127,8 @@ export const Ico = styled.img`
     width: 100%;
 
     &#topToright{
-        width: 38px;
-        transform: rotate(-45deg);
+        width: 17px;
+        transform: rotate(45deg);
     }
     &#topToleft{
         width: 38px;
@@ -153,29 +153,31 @@ export const Ico = styled.img`
         width: 38px;
     }
     &#leftToBottom{
-        width: 38px;
+		width: 15px;
+    	transform: rotate(220deg);
     }
     &#leftToTop{
-        width: 38px;
-        transform: rotate(45deg);
+		width: 17px;
+    	transform: rotate(-45deg);
     }
     &#arrowleft{
         transform: rotate(180deg);
     }
     &#left{
-        width: 38px;
+        width: 16px;
+    	transform: rotate(-90deg);
     }
     &#bottomToLeft{
-        width: 38px;
-        transform: rotate(-45deg);
+        width: 16px;
+		transform: rotate(-135deg);
     }
     &#bottomToRight{
-        width: 38px;
-        transform: rotate(-135deg);
+		width: 16px;
+		transform: rotate(135deg);
     }
     &#bottom{
-        width: 38px;
-        transform: rotate(-90deg);
+		width: 16px;
+		transform: rotate(180deg);
     }
 
 `;

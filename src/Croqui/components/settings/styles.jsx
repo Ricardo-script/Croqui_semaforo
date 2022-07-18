@@ -13,7 +13,6 @@ export const Container = styled.div`
         z-index: 9;
         background-color: #FFF;
         text-align: center;
-        //border: 1px solid #d3d3d3;
         top: 0;
         width: 330px;
         border-radius: 9px;
@@ -76,7 +75,7 @@ export const Item = styled.div`
 
     img{
         width: ${
-			props => props.type === 'car' || props.type === 'car-curve' ? '80%' :
+			props => props.type === 'car' || props.type === 'car-curve' ? '30%' :
 			props => props.type === 'pedestre' ? '50%' :
 			props => props.type === 'arrow' ? '60%' :
 			props => props.type === 'box' ? '60%' :

@@ -83,7 +83,7 @@ export const Container = styled.div``;
 export const Content = styled.div``;
 
 export const MoveRight = styled.img`
-    width: ${props => props.tamanho + 30 + '%'};
+    width: ${props => props.tamanho + '%'};
 	min-width: 20px;
     height: auto;
     position: relative;

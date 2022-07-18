@@ -18,7 +18,17 @@ export default function CarLeftToTop(props){
                 if(props.carLeftToTop[index] !== ''){
                     return(
                         <ItemDraggable key={index} index={index} object='carLeftToTop' top={item.top} left={item.left} setCarLeftToTop={props.setCarLeftToTop} carLeftToTop={props.carLeftToTop}>
-                            <MoveLeftToTop src={esquerda} alt="" move={props.moveLeftToTop} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso} angulo={item.angulo}/>
+                            <MoveLeftToTop src={esquerda} alt="" move={props.moveLeftToTop}
+															tamanho={item.tamanho} velocidade={item.velocidade}
+															percursoFinal={item.percursoFinal}
+															percurso={item.percurso}
+															angulo={item.angulo}
+															anguloFinal={item.anguloFinal}
+															retaX={item.retaX}
+															retaY={item.retaY}
+															retaFinalX={item.retaFinalX}
+															retaFinalY={item.retaFinalY}
+															/>
                             <Options remove={props.remove} onClick={() => props.removeLeftToTop(index,item)}>
                                 <img src={close} alt="" />
                             </Options>
