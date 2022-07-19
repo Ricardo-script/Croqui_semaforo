@@ -14,10 +14,8 @@ export const Container = styled.section`
         cursor: grab;
         z-index: 3;
         user-select: none;
-
 		height: 0;
-    	width: 150px;
-
+    	width: 7.5vw;
         &:active{
             cursor: grabbing;
         }

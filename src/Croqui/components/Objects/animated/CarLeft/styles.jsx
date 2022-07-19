@@ -71,8 +71,12 @@ export const MoveLeft = styled.img`
     : '.5s ease-in-out' };
     transition: .2s;
     &:active{
-        transform: scale(1.4);
+        transform: scale(1.4) rotate(-90deg);
     }
+
+	@media(max-width: 580px){
+		min-width: 0;
+	}
 `;
 
 export const Options = styled.div`

@@ -93,6 +93,10 @@ export const MoveLeftToBottom = styled.img`
     &:active{
         transform: scale(1.4) rotate(-90deg);
     }
+
+	@media(max-width: 580px){
+		min-width: 0;
+	}
 `;
 
 export const Options = styled.div`

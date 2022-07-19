@@ -72,6 +72,10 @@ export const MoveBottomToRight = styled.img`
     &:active{
         transform: scale(1.4);
     }
+
+	@media(max-width: 580px){
+		min-width: 0;
+	}
 `;
 
 export const Options = styled.div`
