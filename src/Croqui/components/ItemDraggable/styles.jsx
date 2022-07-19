@@ -7,7 +7,7 @@ export const Container = styled.section`
         left: ${props => props.left + 'vw'};
         z-index: 2;
         text-align: center;
-        //width: 3.7%;
+        width: 3.7%;
     }
 
     .elementHeader {

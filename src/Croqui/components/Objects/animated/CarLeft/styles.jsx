@@ -2,45 +2,16 @@ import styled, { keyframes } from 'styled-components';
 
 const goLeft = (props) => keyframes`
     0% {
-        transform: rotate(${props.angulo + 'deg'}) translateX(0);
+        transform: rotate(${props.angulo + 'deg'}) translateY(0);
         opacity: 1;
-		top: 0;
-		left: 0;
     }
     90%{
-        transform: rotate(${props.angulo + 'deg'}) translateX(${'-' + props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${'-' + props.percurso + 'vw'});
         opacity: 1;
-		top: ${
-			props.angulo === 360 ? '0px' :
-			props.angulo <= 180 ?
-			props.angulo * 2.5 + 'px' :
-			props.angulo > 180 ?
-			'-' + props.angulo * 2.5 + 'px' : ''
-		};
-		left:${
-			props.angulo === 90 || props.angulo === 270  ? '0px' :
-			props.angulo > 90 && props.angulo < 270 ?
-			'-' + props.angulo * 2.5 + 'px' :
-			props.angulo * 2.5 + 'px'
-		};
     }
     100% {
-        transform: rotate(${props.angulo + 'deg'}) translateX(${'-' + props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${'-' + props.percurso + 'vw'});
         opacity: 0;
-		top: ${
-			props.angulo === 360 ? '0px' :
-			props.angulo <= 180 ?
-			props.angulo * 2.5 + 'px' :
-			props.angulo > 180 ?
-			'-' + props.angulo * 2.5 + 'px' : ''
-		};
-		left:${
-			props.angulo === 90 || props.angulo === 270 ? '0px' :
-			props.angulo === 90 ? '0px' :
-			props.angulo > 90 && props.angulo < 270 ?
-			'-' + props.angulo * 2.5 + 'px' :
-			props.angulo * 2.5 + 'px'
-		};
     }
 `;
 

@@ -200,7 +200,7 @@ export default function Croqui() {
 const addCarRight = () => {
 	setRemove(false);
 	const objects = [...carRight];
-	objects.push({ objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 90 });
 	setCarRight(objects);
 }
 
@@ -214,7 +214,7 @@ const addCarTop = () => {
 const addCarLeft = () => {
 	setRemove(false);
 	const objects = [...carLeft];
-	objects.push({ objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 270 });
 	setCarLeft(objects);
 }
 
@@ -228,7 +228,7 @@ const addCarBottom = () => {
 const addCarTopToRight = () => {
 	setRemove(false);
 	const objects = [...carTopToRight];
-	objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 90, anguloFinal: 360}); // ok
+	objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 4, percurso: 18, percursoFinal: 30, angulo: 90, anguloFinal: 360}); // ok
 	setCarTopToRight(objects);
 }
 
@@ -332,84 +332,84 @@ const addWalkTop = () => {
 const addArrowTopToRight = () => {
 	setRemove(false);
 	const objects = [...arrowTopToRight];
-	objects.push({ objeto: 'arrowTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowTopToRight(objects);
 }
 
 const addArrowTopToLeft = () => {
 	setRemove(false);
 	const objects = [...arrowTopToLeft];
-	objects.push({ objeto: 'arrowTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowTopToLeft(objects);
 }
 
 const addArrowRightToBottom = () => {
 	setRemove(false);
 	const objects = [...arrowRightToBottom];
-	objects.push({ objeto: 'arrowRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowRightToBottom(objects);
 }
 
 const addArrowTop = () => {
 	setRemove(false);
 	const objects = [...arrowTop];
-	objects.push({ objeto: 'arrowTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowTop(objects);
 }
 
 const addArrowRightToTop = () => {
 	setRemove(false);
 	const objects = [...arrowRightToTop];
-	objects.push({ objeto: 'arrowRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowRightToTop(objects);
 }
 
 const addArrowRight = () => {
 	setRemove(false);
 	const objects = [...arrowRight];
-	objects.push({ objeto: 'arrowRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowRight(objects);
 }
 
 const addArrowLeftToBottom = () => {
 	setRemove(false);
 	const objects = [...arrowLeftToBottom];
-	objects.push({ objeto: 'arrowLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowLeftToBottom(objects);
 }
 
 const addArrowLeftToTop = () => {
 	setRemove(false);
 	const objects = [...arrowLeftToTop];
-	objects.push({ objeto: '', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: '', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowLeftToTop(objects);
 }
 
 const addArrowLeft = () => {
 	setRemove(false);
 	const objects = [...arrowLeft];
-	objects.push({ objeto: 'arrowLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowLeft(objects);
 }
 
 const addArrowBottomToLeft = () => {
 	setRemove(false);
 	const objects = [...arrowBottomToLeft];
-	objects.push({ objeto: 'arrowBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowBottomToLeft(objects);
 }
 
 const addArrowBottomToRight = () => {
 	setRemove(false);
 	const objects = [...arrowBottomToRight];
-	objects.push({ objeto: 'arrowBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowBottomToRight(objects);
 }
 
 const addArrowBottom = () => {
 	setRemove(false);
 	const objects = [...arrowBottom];
-	objects.push({ objeto: 'arrowBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 100, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'arrowBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 30, velocidade: 5, percurso: 30, angulo: 0 });
 	setArrowBottom(objects);
 }
 
@@ -1191,14 +1191,16 @@ const addPlugin = () => {
 		console.log({ id: 'osasco', result });
 	}
 
-	const data = [
+	/*const data = [
 		{ objeto: 'carRight', id: 0, left: 2.952755905511811, grupo: 1, anel: 1, controlador: 'GW1', percurso: 30, tamanho: 22, top: 43.13725490196079, velocidade: 5, angulo: 0 },
 		{ objeto: 'walkRight', id: 0, left: 47.24409448818898, grupo: 3, anel: 3, controlador: 'GW2', percurso: 12, tamanho: 22, top: 16.202270381836946, velocidade: 5, angulo: 0 },
 		{ objeto: 'walkBottom', id: 0, left: 74.0625, grupo: 3, anel: 3, controlador: 'GW3', percurso: 12, tamanho: 22, top: 36.326109391124874, velocidade: 5, angulo: 0 },
 		{ objeto: 'objSemaforoLeft', id: 0, left: 43.854166666666664, grupo: 3, anel: 3, controlador: 'GW3', tamanho: 14, top: 32.71413828689371, angulo: 0 },
 		{ objeto: 'carRightToBottom', id: 0, left: 2.8215223097112863, grupo: 4, anel: 4, controlador: 'GW4', percurso: 22, tamanho: 22, top: 54.4891640866873, velocidade: 5, angulo: 0 },
 		{ objeto: 'carBottom', id: 1, left: 62.13910761154855, grupo: 5, anel: 5, controlador: 'GW4', percurso: 30, tamanho: 22, top: 0.8255933952528379, velocidade: 5, angulo: 0 }
-	]
+	]*/
+
+	const data = [];
 
 
 	// Ao iniciar a aplicação fazer a requisição buscando as informações referente ao id e setando as mesmas em seus respectivos states

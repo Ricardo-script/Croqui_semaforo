@@ -144,7 +144,7 @@ export const Ico = styled.img`
     }
     &#rightTotop{
         width: 38px;
-        transform: rotate(-90deg);
+        transform: rotate(-45deg);
     }
     &#arrowtop{
         transform: rotate(-90deg);

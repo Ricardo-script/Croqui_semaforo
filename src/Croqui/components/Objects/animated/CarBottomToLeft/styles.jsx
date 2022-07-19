@@ -30,7 +30,6 @@ const goBottomToLeft = (props) => keyframes`
 			rotate(${((-1)*props.anguloFinal + 90) + 'deg'});
         opacity: 1;
     }
-
 `;
 
 const zoom = keyframes`
@@ -91,7 +90,7 @@ export const MoveBottomToLeft = styled.img`
 	: '.5s ease-in-out' };
     transition: .2s;
     &:active{
-        transform: scale(1.4);
+        transform: scale(1.4) rotate(180deg);
     }
 `;
 

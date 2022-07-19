@@ -2,45 +2,16 @@ import styled, { keyframes } from 'styled-components';
 
 const goBottom = (props) => keyframes`
     0% {
-        transform: rotate(${'-' + props.angulo + 90 + 'deg'}) translateY(0);
+        transform: rotate(${props.angulo + 'deg'}) translateY(0);
         opacity: 1;
-		top: 0;
-		left: 0;
     }
     90%{
-		transform: rotate(${'-' + props.angulo + 90 + 'deg'}) translateY(${props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${'-' + props.percurso + 'vw'});
         opacity: 1;
-		top: ${
-			props.angulo === 360 ? '0px' :
-			props.angulo <= 180 ?
-			props.angulo * 2.5 + 'px' :
-			props.angulo > 180 ?
-			'-' + props.angulo * 2.5 + 'px' : ''
-		};
-		left:${
-			props.angulo === 90 || props.angulo === 270  ? '0px' :
-			props.angulo > 90 && props.angulo < 270 ?
-			'-' + props.angulo * 2.5 + 'px' :
-			props.angulo * 2.5 + 'px'
-		};
     }
     100% {
-		transform: rotate(${'-' + props.angulo + 90 + 'deg'}) translateY(${props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${'-' + props.percurso + 'vw'});
         opacity: 0;
-		top: ${
-			props.angulo === 360 ? '0px' :
-			props.angulo <= 180 ?
-			props.angulo * 2.5 + 'px' :
-			props.angulo > 180 ?
-			'-' + props.angulo * 2.5 + 'px' : ''
-		};
-		left:${
-			props.angulo === 90 || props.angulo === 270 ? '0px' :
-			props.angulo === 90 ? '0px' :
-			props.angulo > 90 && props.angulo < 270 ?
-			'-' + props.angulo * 2.5 + 'px' :
-			props.angulo * 2.5 + 'px'
-		};
     }
 `;
 
@@ -83,7 +54,7 @@ export const MoveBottom = styled.img`
     width: ${props => props.tamanho +'%'};
 	min-width: 10px;
     height: auto;
-	transform: rotate(${props => props.angulo + 90 +'deg'});
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? goBottom : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 	(
         props.velocidade === 10 ? '1s infinite linear'   :
@@ -101,7 +72,7 @@ export const MoveBottom = styled.img`
 	: '.5s ease-in-out' };
     transition: .2s;
     &:active{
-        transform: scale(1.4);
+        transform: scale(1.4) rotate(180deg);
     }
 `;
 

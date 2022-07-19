@@ -1,18 +1,16 @@
 import styled, { keyframes } from 'styled-components';
 
 const walkToBottom = (props) => keyframes`
-    0%{
-        transform: translateY(0);
+   0%{
+        transform: rotate(${props.angulo + 'deg'}) translateY(0);
         opacity: 1;
     }
-
-    95%{
-		transform: translateY(${props.percurso + 'vw'});
+    90%{
+		transform: rotate(${props.angulo + 'deg'}) translateY(${props.percurso + 'vw'});
         opacity: 1;
     }
-
     100% {
-		transform: translateY(${props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateY(${props.percurso + 'vw'});
         opacity: 0;
     }
 
@@ -58,6 +56,7 @@ export const MoveWalkBottom = styled.img`
 	min-width: 15px;
     height: auto;
     position: relative;
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? walkToBottom : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 
 	(

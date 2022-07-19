@@ -1,18 +1,16 @@
 import styled, { keyframes } from 'styled-components';
 
 const walkToRight = (props) => keyframes`
-    0%{
-        transform: translateX(0);
+    0% {
+        transform: rotate(${props.angulo + 'deg'}) translateX(0);
         opacity: 1;
     }
-
-    98%{
-		transform: translateX(${props.percurso + 'vw'});
+    90%{
+		transform: rotate(${props.angulo + 'deg'}) translateX(${ props.percurso + 'vw'});
         opacity: 1;
     }
-
     100% {
-		transform: translateX(${props.percurso + 'vw'});
+		transform: rotate(${props.angulo + 'deg'}) translateX(${ props.percurso + 'vw'});
         opacity: 0;
     }
 
@@ -57,6 +55,7 @@ export const MoveWalkRight = styled.img`
 	min-width: 15px;
     height: auto;
     position: relative;
+	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? walkToRight : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
 
 	(

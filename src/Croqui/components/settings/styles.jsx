@@ -120,16 +120,20 @@ export const Group = styled.div`
     display: flex;
     flex-direction: column;
 
-	&#rangeTamanho{
-
-	}
-
 	&#rangeVelocidade{
 		display: ${props => props.type !== 'car' && props.type !== 'car-curve' && props.type !== 'pedestre' ? 'none' : 'flex'};
 	}
 
 	&#rangePercurso{
 		display: ${props => props.type !== 'car' && props.type !== 'car-curve' && props.type !== 'pedestre' ? 'none' : 'flex'};
+	}
+
+	&#rangePercursoFinal{
+		display: ${props => props.type === 'car-curve' ? 'flex' : props.type !== 'car-curve' || props.type !== 'pedestre' ? 'none' : 'flex'};
+	}
+
+	&#rangeAnguloFinal{
+		display: ${ props => props.type === 'car-curve' ? 'flex' : props =>  props.type !== 'car-curve' || props.type !== 'pedestre' ? 'none' : 'flex'};
 	}
 `;
 

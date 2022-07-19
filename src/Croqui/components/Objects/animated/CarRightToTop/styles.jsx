@@ -90,7 +90,7 @@ export const MoveRightToTop = styled.img`
 	: '.5s ease-in-out' };
     transition: .2s;
     &:active{
-        transform: scale(1.4);
+        transform: scale(1.4) rotate(90deg);
     }
 `;
 
