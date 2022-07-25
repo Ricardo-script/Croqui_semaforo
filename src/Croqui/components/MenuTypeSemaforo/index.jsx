@@ -10,16 +10,13 @@ export default function MenuTypeSemaforo(props){
         <Container>
             <TypeObjects id={props.name} open={props.openTypes}>
                 <Buttom onClick={props.addObject}>
-                    <Ico id={props.name} src={semFrontGreen} alt='' />
+                    <Ico id={props.name} src={semFrontGreen} alt='' className='front'/>
                 </Buttom>
                 <Buttom onClick={props.addObjectLeft}>
-                    <Ico id={props.name} src={semLeftGreen} alt='' />
+                    <Ico id={props.name} src={semLeftGreen} alt='' className='left'/>
                 </Buttom>
                 <Buttom onClick={props.addObjectRight}>
-                    <Ico id={props.name} src={semRightGreen} alt='' />
-                </Buttom>
-                <Buttom onClick={props.addObject}>
-                    <Ico id={props.name} src={''} alt='' />
+                    <Ico id={props.name} src={semRightGreen} alt='' className='right' />
                 </Buttom>
             </TypeObjects>
         </Container>

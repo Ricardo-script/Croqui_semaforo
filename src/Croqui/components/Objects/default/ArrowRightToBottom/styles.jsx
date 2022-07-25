@@ -30,7 +30,7 @@ export const Container = styled.div``;
 
 export const MoveRightToBottom = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 10px;
+	min-width: 5px;
     height: auto;
     position: relative;
 	transform: rotate(${props => props.angulo + 'deg'});

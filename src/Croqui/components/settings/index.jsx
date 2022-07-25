@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import closeModal from '../img/closeModal.png';
 import play from '../img/play.png';
 import pause from '../img/pause.png';
+import carRed from '../img/carRed.png';
+import carYellow from '../img/carYellow.png';
+import carGrey from '../img/carGrey.png';
+import carBlue from '../img/carBlue.png';
+import carBrown from '../img/carBrown.png';
 import { Container, AreaItems, Item, AreaPlay, BodySettings, Group, Label, Input, AreaInput, Total, AreaDescription, Description, Title,
-AreaFields, LabelFloat, InputField, LabelField
+AreaFields, LabelFloat, InputField, LabelField, AreaColors, Color
 } from './styles';
-
-var teste = 0;
 
 export default function Settings(props){
 
@@ -52,6 +55,14 @@ export default function Settings(props){
             document.onmousemove = null;
         }
     }
+
+	const getColor = (color) => {
+		const values = [...props.object];
+		props.object.forEach((items, index) => {
+			items.color = color;
+		});
+		props.setObject(values);
+	}
 
 	const getGrupo = (value) => {
 		const values = [...props.object];
@@ -180,7 +191,15 @@ export default function Settings(props){
 				<BodySettings>
                     <AreaItems>
                         <Item type={props.type}>
-                            <img src={props.imgObject} alt="" />
+                            <img src={
+									props.object.length === 0 ? props.imgObject :
+									props.object[props.index].color === 'yellow' ? carYellow :
+									props.object[props.index].color === 'red' ? carRed :
+									props.object[props.index].color === 'grey' ? carGrey :
+									props.object[props.index].color === 'blue' ? carBlue :
+									props.object[props.index].color === 'brown' ? carBrown : props.imgObject
+								} alt=""
+							/>
                         </Item>
                         <AreaDescription>
                             <Description>
@@ -209,6 +228,16 @@ export default function Settings(props){
 					<AreaPlay onClick={playAnimate}>
 						<img src={playIco} alt="" />
 					</AreaPlay>
+					<Group id='rangeColor' type={props.type}>
+                        <Label>Cor:</Label>
+                        <AreaColors>
+							<Color id='red'  onClick={() => getColor('red')}></Color>
+							<Color id='grey' onClick={() => getColor('grey')}></Color>
+							<Color id='yellow' onClick={() => getColor('yellow')}></Color>
+							<Color id='blue'></Color>
+							<Color id='brown' onClick={() => getColor('brown')}></Color>
+						</AreaColors>
+                    </Group>
                     <Group id='rangeTamanho' type={props.type}>
                         <Label>Tamanho:</Label>
                         <AreaInput>

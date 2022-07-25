@@ -69,7 +69,7 @@ export const Container = styled.div``;
 
 export const MoveRightToBottom = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 20px;
+	min-width: 10px;
     height: auto;
     position: relative;
 	transform: rotate(${props => ((-1) * props.angulo + 90) + 'deg'});

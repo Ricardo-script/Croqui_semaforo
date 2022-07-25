@@ -29,10 +29,10 @@ const appearIn = keyframes`
 export const Container = styled.div``;
 
 export const AreaOcupacao = styled.div`
-	width: ${props => props.tamanho + 'px'};
-	height:${props => props.tamanho + 'px'};
-	min-width: 20px;
-	min-height: 20px;
+	width: ${props => props.tamanho + 'vw'};
+	height:${props => props.tamanho + 2.5 +  'vh'};
+	min-width: 5px;
+	min-height: 5px;
     position: relative;
     border: 2px solid #FFF;
     border-radius: 4px;
@@ -54,17 +54,26 @@ export const AreaOcupacao = styled.div`
 
 	@media(max-width: 580px){
 		min-width: 0;
+		height: 2.8vh;
 	}
 `;
 
 export const TaxaOcupacao = styled.div`
-    font-size: 17px;
+    font-size: 1vw;
     color: ${
         props => props.taxa <= 33 ? '#024602' :
         props.taxa >= 33 && props.taxa <= 67 ? '#585c34' :
         props.taxa > 67 ? '#6b1212' : ''
     };
     font-weight: 600;
+
+	@media(max-width: 900px){
+		font-size: 1.3vw;
+	}
+
+	@media(max-width: 580px){
+		font-size: 1.8vw;
+	}
 `;
 
 export const Options = styled.div`

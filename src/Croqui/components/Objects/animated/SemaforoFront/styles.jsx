@@ -32,7 +32,7 @@ const appearIn = keyframes`
 export const Img = styled.img`
     width: ${props => props.tamanho + '%'};
 	transform: rotate(${props => props.angulo + 'deg'});
-	min-width: 10px;
+	min-width: 5px;
     animation: ${ zoom } .3s ease-in-out;
     transition: .2s;
     &:active{

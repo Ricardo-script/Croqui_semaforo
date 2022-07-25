@@ -24,6 +24,14 @@ export const ButtonOpen = styled.div`
     cursor: pointer;
 `;
 
+export const ButtomStagio = styled.div`
+	position: absolute;
+    z-index: 5;
+    top: 7px;
+    left: 7px;
+    cursor: pointer;
+`;
+
 export const MapaCroqui = styled.div`
     width: 100%;
     display: flex;

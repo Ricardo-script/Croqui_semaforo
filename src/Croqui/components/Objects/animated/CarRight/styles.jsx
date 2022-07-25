@@ -55,7 +55,7 @@ export const Content = styled.div``;
 
 export const MoveRight = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 20px;
+	min-width: 10px;
     height: auto;
     position: relative;
 	transform: rotate(${props => props.angulo + 'deg'});

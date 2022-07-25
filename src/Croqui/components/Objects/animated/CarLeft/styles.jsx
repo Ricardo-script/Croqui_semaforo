@@ -51,7 +51,7 @@ export const Container = styled.div``;
 
 export const MoveLeft = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 20px;
+	min-width: 10px;
     height: auto;
 	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? goLeft : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?

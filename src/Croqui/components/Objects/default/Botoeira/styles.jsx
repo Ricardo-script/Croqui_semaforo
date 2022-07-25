@@ -31,7 +31,7 @@ export const Container = styled.div``;
 export const Img = styled.img`
     width: ${props => props.tamanho + '%'};
 	transform: rotate(${props => props.angulo + 'deg'});
-	min-width: 10px;
+	min-width: 5px;
     height: auto;
     position: relative;
     transition: .2s;

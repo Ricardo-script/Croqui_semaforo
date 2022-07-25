@@ -17,7 +17,7 @@ export const TypeObjects = styled.div`
 
     &#semaforo{
         overflow: hidden;
-        width: ${props => props.open === false ? '0' : '220px'};
+        width: ${props => props.open === false ? '0' : '160px'};
         right: ${props => props.open === false ? '0' : '285px'};
         top: 375px;
         transition: .3s;
@@ -51,5 +51,15 @@ export const Buttom = styled.div`
 `;
 
 export const Ico = styled.img`
-    width: 56%;
+
+	&.front{
+		width: 50%;
+	}
+	&.left{
+		width: 48%;
+	}
+	&.right{
+		width: 56%;
+	}
+
 `;

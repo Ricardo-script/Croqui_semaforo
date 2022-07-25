@@ -26,8 +26,12 @@ const goTopToRight = (props) => keyframes`
 
     100%{
         transform:
-			translateY(${(((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180))) * props.percursoFinal) + ((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso)) + 'vw') })
-			translateX(${(Math.cos(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) + (Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
+			translateY(${
+				(((-1)*(Math.sin(props.anguloFinal * (Math.PI / 180))) * props.percursoFinal) +
+				((-1)*(Math.sin(props.angulo * (Math.PI / 180)) * props.percurso)) + 'vw') })
+			translateX(${
+				(Math.cos(props.anguloFinal * (Math.PI / 180)) * props.percursoFinal) +
+				(Math.cos(props.angulo * (Math.PI / 180))*props.percurso) + 'vw'})
 			rotate(${((-1)*props.anguloFinal + 450) + 'deg'});
         opacity: 1;
     }
@@ -71,7 +75,7 @@ export const Container = styled.div``;
 
 export const MoveTopToRight = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 10px;
+	min-width: 5px;
     height: auto;
     position: relative;
 	transform: rotate(${props => ((-1) * props.angulo + 90) + 'deg'});

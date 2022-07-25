@@ -75,7 +75,7 @@ export const Item = styled.div`
 
     img{
         width: ${
-			props => props.type === 'car' || props.type === 'car-curve' ? '30%' :
+			props => props.type === 'car' || props.type === 'car-curve' ? '32%' :
 			props => props.type === 'pedestre' ? '50%' :
 			props => props.type === 'arrow' ? '60%' :
 			props => props.type === 'box' ? '60%' :
@@ -119,6 +119,10 @@ export const AreaPlay = styled.div`
 export const Group = styled.div`
     display: flex;
     flex-direction: column;
+
+	&#rangeColor{
+		display: ${props => props.type !== 'car' && props.type !== 'car-curve' ? 'none' : 'flex'};
+	}
 
 	&#rangeVelocidade{
 		display: ${props => props.type !== 'car' && props.type !== 'car-curve' && props.type !== 'pedestre' ? 'none' : 'flex'};
@@ -294,5 +298,57 @@ export const LabelField = styled.label`
     font-weight: 500;
 `;
 
+export const AreaColors = styled.div`
+    height: 20px;
+    width: 87%;
+	display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 3px;
+`;
+
+export const Color = styled.div`
+    width: 15px;
+    height: 15px;
+	border-radius: 33%;
+	cursor: pointer;
+
+	&#red{
+		background: #fc4141;
+
+		&:hover{
+			transform: scale(1.5);
+		}
+	}
+	&#grey{
+		background: #c9c5c5;
+
+		&:hover{
+			transform: scale(1.5);
+		}
+	}
+	&#yellow{
+		background: #dadd23;
+
+		&:hover{
+			transform: scale(1.5);
+		}
+	}
+	&#blue{
+		background: #2336e0;
+
+		&:hover{
+			transform: scale(1.5);
+		}
+	}
+
+	&#brown{
+		background: #5f2e06;
+
+		&:hover{
+			transform: scale(1.5);
+		}
+	}
+`;
 
 

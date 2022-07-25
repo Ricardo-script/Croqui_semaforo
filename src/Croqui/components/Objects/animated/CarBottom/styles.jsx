@@ -52,7 +52,7 @@ export const Container = styled.div``;
 
 export const MoveBottom = styled.img`
     width: ${props => props.tamanho +'%'};
-	min-width: 10px;
+	min-width: 5px;
     height: auto;
 	transform: rotate(${props => props.angulo + 'deg'});
     animation: ${ props => props.move === true ? goBottom : props.move === 'pause' ? pause : zoom } ${props => props.move === true ?
@@ -76,7 +76,7 @@ export const MoveBottom = styled.img`
     }
 
 	@media(max-width: 580px){
-		min-width: 0;
+		min-width: 0px;
 	}
 `;
 

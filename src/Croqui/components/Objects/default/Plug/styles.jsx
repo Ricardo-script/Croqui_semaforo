@@ -30,7 +30,7 @@ export const Container = styled.div``;
 
 export const Img = styled.img`
     width: ${props => props.tamanho + '%'};
-	min-width: 10px;
+	min-width: 5px;
     height: auto;
     position: relative;
     transition: .2s;
@@ -47,7 +47,7 @@ export const Img = styled.img`
 export const AreaPlug = styled.div`
    	width: ${props => props.tamanho + 'px'};
 	height:${props => props.tamanho + 'px'};
-	min-width: 20px;
+	min-width: 10px;
 	min-height: 20px;
     position: relative;
     border: 2px solid #FFF;

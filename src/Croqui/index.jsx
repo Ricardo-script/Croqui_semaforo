@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
-	Container, AreaMapaCroqui, ButtonOpen, MapaCroqui, AreaEditor, Editor, Header, AreaTools, Fieldset, Legend, AreaButtons, OptionButton,
+	Container, AreaMapaCroqui, ButtonOpen, ButtomStagio, MapaCroqui, AreaEditor, Editor, Header, AreaTools, Fieldset, Legend, AreaButtons, OptionButton,
 	Buttom, ButtomLabel, Img, ButtonSave
 } from './styles';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CgMenuGridR } from "react-icons/cg";
 import ModalConfirm from './components/Modals/modalConfirm';
 import Settings from './components/settings';
 import CarRight from './components/Objects/animated/CarRight';
@@ -62,11 +63,15 @@ import icoContagem from './components/img/icoContagem.png';
 import icoUpload from './components/img/upload.png';
 import icoDefault from './components/img/icoDefault.png';
 import plug from './components/img/plug.png';
+import Drawer from './components/Drawer';
 
 export default function Croqui() {
 
 	//state para abrir editor
 	const [openTools, setOpenTools] = useState(false);
+
+	//state para abrir drawer de estagio
+	const [openDrawerStagio, setOpenDrawerStagio] = useState(false);
 
 	//controlador do play da animação
 	const [statusPlay, setStatusPlay] = useState('stop');
@@ -196,11 +201,21 @@ export default function Croqui() {
 			setOpenTools(true);
 		}
 	}
+
+	//Função abrir editor
+	const openStagio = () => {
+		if (openDrawerStagio === true) {
+			setOpenDrawerStagio(false);
+		}else {
+			setOpenDrawerStagio(true);
+		}
+	}
+
 // funções para adicionar novos objetos em tela
 const addCarRight = () => {
 	setRemove(false);
 	const objects = [...carRight];
-	objects.push({ objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 90 });
+	objects.push({ objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 90 });
 	setCarRight(objects);
 }
 
@@ -423,7 +438,7 @@ const addBotoeira = () => {
 const addOcupacao = () => {
 	setRemove(false);
 	const objects = [...objOcupacao];
-	objects.push({ objeto: 'objOcupacao', id: objects.length, top: 44.89, left: 48.22, detector: '', anel: '', controlador: '', tamanho: 50, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'objOcupacao', id: objects.length, top: 44.89, left: 48.22, detector: '', anel: '', controlador: '', tamanho: 3, velocidade: 5, percurso: 30, angulo: 0 });
 	setObjOcupacao(objects);
 }
 
@@ -472,6 +487,8 @@ const addPlugin = () => {
 		setObjOcupacao([]);
 		setObjPlug([]);
 		setOpenModal(false);
+		setOpenSettings(false);
+		setOpenDrawerStagio(false);
 	}
 
 	const removeCarRight = (item, index) => {
@@ -1189,19 +1206,18 @@ const addPlugin = () => {
 		const result = JSON.stringify(data);
 
 		console.log({ id: 'osasco', result });
+		console.log(data)
 	}
 
-	/*const data = [
-		{ objeto: 'carRight', id: 0, left: 2.952755905511811, grupo: 1, anel: 1, controlador: 'GW1', percurso: 30, tamanho: 22, top: 43.13725490196079, velocidade: 5, angulo: 0 },
-		{ objeto: 'walkRight', id: 0, left: 47.24409448818898, grupo: 3, anel: 3, controlador: 'GW2', percurso: 12, tamanho: 22, top: 16.202270381836946, velocidade: 5, angulo: 0 },
-		{ objeto: 'walkBottom', id: 0, left: 74.0625, grupo: 3, anel: 3, controlador: 'GW3', percurso: 12, tamanho: 22, top: 36.326109391124874, velocidade: 5, angulo: 0 },
-		{ objeto: 'objSemaforoLeft', id: 0, left: 43.854166666666664, grupo: 3, anel: 3, controlador: 'GW3', tamanho: 14, top: 32.71413828689371, angulo: 0 },
-		{ objeto: 'carRightToBottom', id: 0, left: 2.8215223097112863, grupo: 4, anel: 4, controlador: 'GW4', percurso: 22, tamanho: 22, top: 54.4891640866873, velocidade: 5, angulo: 0 },
-		{ objeto: 'carBottom', id: 1, left: 62.13910761154855, grupo: 5, anel: 5, controlador: 'GW4', percurso: 30, tamanho: 22, top: 0.8255933952528379, velocidade: 5, angulo: 0 }
-	]*/
-
-	const data = [];
-
+	const data = [
+		{ objeto: "carRight", id: 0, left: 0.2604166666666667, grupo: 0, anel: 0, controlador: 0, color: 'red', percurso: 30, tamanho: 22, top: 52.63157894736842, velocidade: 5, angulo: 90 },
+		{ objeto: "carBottom", id: 0, left: 52.65625, grupo: 1, anel: 1, controlador: 1, percurso: 30, tamanho: 22, top: 3.7151702786377707, velocidade: 5, angulo: 180 },
+		{ objeto: "carTopToRight", id: 0, left: 57.708333333333336, grupo: 2, anel: 2, controlador: 1, percurso: 18, tamanho: 22, top: 89.57688338493293, velocidade: 4, angulo: 90, percursoFinal: 30, anguloFinal: 360  },
+		{ objeto: "walkLeft", id: 0, left: 62.604166666666664, grupo: 3, anel: 3, controlador: 3, percurso: 12, tamanho: 22, top: 17.853457172342623, velocidade: 5, angulo: 0 },
+		{ objeto: "walkTop", id: 0, left: 39.947916666666664, grupo: 3, anel: 3, controlador: 3, percurso: 12, tamanho: 22, top: 56.656346749226, velocidade: 5, angulo: 0 },
+		{ objeto: "walkBottom", id: 0, left: 37.239583333333336, grupo: 3, anel: 3, controlador: 3, percurso: 12, tamanho: 22, top: 32.19814241486068, velocidade: 5, angulo: 0 },
+		{ objeto: "objSemaforoLeft", id: 0, left: 41.40625, grupo: 3, anel: 3, controlador: 3, percurso: 30, tamanho: 14, top: 33.84932920536636, velocidade: 5, angulo: 0 }
+	];
 
 	// Ao iniciar a aplicação fazer a requisição buscando as informações referente ao id e setando as mesmas em seus respectivos states
 	useEffect(() => {
@@ -1425,6 +1441,9 @@ const addPlugin = () => {
 				<ButtonOpen onClick={() => openDrawer()} title={openTools === false ? 'Abrir editor' : 'Fechar editor'}>
 					<GiHamburgerMenu size={35} color={openTools === false ? '#062467' : '#FFF'} />
 				</ButtonOpen>
+				<ButtomStagio onClick={() => openStagio()} title={openDrawerStagio === false ? 'Abrir drawer de estagios' : 'Fechar drawer de estagios'}>
+					<CgMenuGridR size={35} color="#FFF" />{/*color={openDrawerStagio === false ? '#FFF' : '#062467'}*/}
+				</ButtomStagio>
 				<CarRight carRight={carRight} setCarRight={setCarRight} moveRight={moveRight}
 					setMoveRight={setMoveRight} remove={remove} removeCarRight={removeCarRight} setOpenSettings={setOpenSettings}
 					setPropsSettings={setPropsSettings}
@@ -1579,6 +1598,7 @@ const addPlugin = () => {
 				/>
 
 			</AreaMapaCroqui>
+			<Drawer open={openDrawerStagio}/>
 			<AreaEditor open={openTools}>
 				<Editor>
 					<Header>
