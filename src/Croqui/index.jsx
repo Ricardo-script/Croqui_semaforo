@@ -41,10 +41,7 @@ import ArrowBottomToRight from './components/Objects/default/ArrowBottomToRight'
 import ArrowBottom from './components/Objects/default/ArrowBottom';
 import Botoeira from './components/Objects/default/Botoeira';
 import Plug from './components/Objects/default/Plug';
-//import mapa from './components/img/mapaCroqui.jpg';
-//import MapaDefault from './components/img/MapaDefault.png';
 import MapaCroqui02 from './components/img/mapaCroqui02.jpg';
-//import cruzamento from './components/img/cruzamento.png';
 import logo from './components/img/logoCroqui.svg';
 import arrow from './components/img/arrow.png';
 import arrowSide from './components/img/arrow-side.png';
@@ -59,7 +56,6 @@ import MenuTypeSemaforo from './components/MenuTypeSemaforo';
 import MenuTypeMap from './components/MenuTypeMap';
 import botoeiraIco from './components/img/botoeiraIco.png';
 import icoTaxa from './components/img/icoTaxa.png';
-import icoContagem from './components/img/icoContagem.png';
 import icoUpload from './components/img/upload.png';
 import icoDefault from './components/img/icoDefault.png';
 import plug from './components/img/plug.png';
@@ -222,77 +218,77 @@ const addCarRight = () => {
 const addCarTop = () => {
 	setRemove(false);
 	const objects = [...carTop];
-	objects.push({ objeto: 'carTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'carTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 0 });
 	setCarTop(objects);
 }
 
 const addCarLeft = () => {
 	setRemove(false);
 	const objects = [...carLeft];
-	objects.push({ objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 270 });
+	objects.push({ objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 270 });
 	setCarLeft(objects);
 }
 
 const addCarBottom = () => {
 	setRemove(false);
 	const objects = [...carBottom];
-	objects.push({ objeto: 'carBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 5, percurso: 30, angulo: 180 });
+	objects.push({ objeto: 'carBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 180 });
 	setCarBottom(objects);
 }
 
 const addCarTopToRight = () => {
 	setRemove(false);
 	const objects = [...carTopToRight];
-	objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 4, percurso: 18, percursoFinal: 30, angulo: 90, anguloFinal: 360}); // ok
+	objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 4, percurso: 18, percursoFinal: 30, angulo: 90, anguloFinal: 360}); // ok
 	setCarTopToRight(objects);
 }
 
 const addCarTopToLeft = () => {
 	setRemove(false);
 	const objects = [...carTopToLeft];
-	objects.push({ objeto: 'carTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 90, anguloFinal: 180}); // ok
+	objects.push({ objeto: 'carTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 90, anguloFinal: 180}); // ok
 	setCarTopToLeft(objects);
 }
 
 const addCarRightToBottom = () => {
 	setRemove(false);
 	const objects = [...carRightToBottom];
-	objects.push({ objeto: 'carRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 360, anguloFinal: 270}); //ok
+	objects.push({ objeto: 'carRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 360, anguloFinal: 270}); //ok
 	setCarRightToBottom(objects);
 }
 
 const addCarRightToTop = () => {
 	setRemove(false);
 	const objects = [...carRightToTop];
-	objects.push({ objeto: 'carRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 0, anguloFinal: 90}); //ok
+	objects.push({ objeto: 'carRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 0, anguloFinal: 90}); //ok
 	setCarRightToTop(objects);
 }
 
 const addCarLeftToBottom = () => {
 	setRemove(false);
 	const objects = [...carLeftToBottom];
-	objects.push({ objeto: 'carLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 270}); // ok
+	objects.push({ objeto: 'carLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 270}); // ok
 	setCarLeftToBottom(objects);
 }
 
 const addCarLeftToTop = () => {
 	setRemove(false);
 	const objects = [...carLeftToTop];
-	objects.push({ objeto: 'carLeftToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 90}); //ok
+	objects.push({ objeto: 'carLeftToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 90}); //ok
 	setCarLeftToTop(objects);
 }
 
 const addCarBottomToLeft = () => {
 	setRemove(false);
 	const objects = [...carBottomToLeft];
-	objects.push({ objeto: 'carBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 180}); //ok
+	objects.push({ objeto: 'carBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 180}); //ok
 	setCarBottomToLeft(objects);
 }
 
 const addCarBottomToRight = () => {
 	setRemove(false);
 	const objects = [...carBottomToRight];
-	objects.push({ objeto: 'carBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 360}); //ok
+	objects.push({ objeto: 'carBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 360}); //ok
 	setCarBottomToRight(objects);
 }
 

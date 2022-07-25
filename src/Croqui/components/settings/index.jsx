@@ -234,7 +234,7 @@ export default function Settings(props){
 							<Color id='red'  onClick={() => getColor('red')}></Color>
 							<Color id='grey' onClick={() => getColor('grey')}></Color>
 							<Color id='yellow' onClick={() => getColor('yellow')}></Color>
-							<Color id='blue'></Color>
+							<Color id='blue' onClick={() => getColor('blue')}></Color>
 							<Color id='brown' onClick={() => getColor('brown')}></Color>
 						</AreaColors>
                     </Group>
