@@ -1,5 +1,5 @@
 import React from 'react';
-import direita from '../../components/img/direita.png';
+import carRed from '../../components/img/carRed.png';
 import car from '../../components/img/car.png';
 import esquerda from '../../components/img/esquerda.png';
 import arrowSideStart from '../../components/img/Setas/arrowSideStart.png';
@@ -22,7 +22,7 @@ export default function MenuType(props){
             <TypeObjects id={props.name} open={props.openTypes}>
                 <Buttom onClick={props.addObject}>
                     <Ico id={props.name} src={
-                        props.name === 'topToright' ? direita :
+                        props.name === 'topToright' ? carRed :
                         props.name === 'topToleft'  ? car :
                         props.name === 'top' ? car :
                         props.name === 'rightToDown' ? car :

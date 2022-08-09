@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ItemDraggable from '../../../ItemDraggable';
-import carRed from '../../../img/direita.png';
-import carYellow from '../../../img/carYellow.png';
-import carGrey from '../../../img/esquerda.png';
-import carBlue from '../../../img/carBlue.png';
-import carBrown from '../../../img/carBrown.png';
+import carRed from '../../../img/carRed - Copia.png';
+import carYellow from '../../../img/carYellow - Copia.png';
+import carGrey from '../../../img/carGrey - Copia.png';
+import carBlue from '../../../img/carBlue - Copia.png';
+import carBrown from '../../../img/carBrown - Copia.png';
 import close from '../../../img/close.png';
 import settings from '../../../img/tool.png';
+import motoRed from '../../../img/motoRed - Copia.png';
+import busGrey from '../../../img/busGrey.png';
 import { Container, MoveTop, Options, ButtonSettings } from './styles';
 
 export default function CarTop(props) {
@@ -23,12 +25,23 @@ export default function CarTop(props) {
 					return (
 						<ItemDraggable key={index} index={index} object='carTop' top={item.top} left={item.left} setCarTop={props.setCarTop} carTop={props.carTop}>
 							<MoveTop src={
-								props.carTop[index].color === 'red' ? carRed :
-									props.carTop[index].color === 'grey' ? carGrey :
-										props.carTop[index].color === 'yellow' ? carYellow :
-											props.carTop[index].color === 'blue' ? carBlue :
-												props.carTop[index].color === 'brown' ? carBrown : ''
-							} alt="" move={props.moveTop} tamanho={item.tamanho} velocidade={item.velocidade} percurso={item.percurso} angulo={item.angulo} />
+								props.changeCars === true && props.taxaOcupacao === 33 ? motoRed :
+									props.changeCars === true && props.taxaOcupacao === 80 ? busGrey :
+										props.carTop[index].color === 'red' ? carRed :
+											props.carTop[index].color === 'grey' ? carGrey :
+												props.carTop[index].color === 'yellow' ? carYellow :
+													props.carTop[index].color === 'blue' ? carBlue :
+														props.carTop[index].color === 'brown' ? carBrown : ''
+
+							} alt=""
+								move={props.moveTop}
+								tamanho={item.tamanho}
+								velocidade={item.velocidade}
+								percurso={item.percurso}
+								angulo={item.angulo}
+								taxaOcupacao={props.taxaOcupacao}
+								changeCars={props.changeCars}
+							/>
 							<Options remove={props.remove} onClick={() => props.removeCarTop(index, item)}>
 								<img src={close} alt="" />
 							</Options>

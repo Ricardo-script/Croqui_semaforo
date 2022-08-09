@@ -54,14 +54,29 @@ const pause = keyframes` // parar carro no farol vermelho
     }
 `;
 
-const appearIn = keyframes`
+const appearSetting = keyframes`
 	0%{
-		top: -40px;
-    	right: 0px;
+		top: 81px;
+    	right: -5px;
+		z-index: -1;
 	}
 	100%{
-		top: -5px;
-        right: -48px;
+		top: 114px;
+    	right: -16px;
+		z-index: -1;
+	}
+`;
+
+const appearClose = keyframes`
+	0%{
+		top: 83px;
+    	right: 13px;
+		z-index: -1;
+	}
+	100%{
+		top: 113px;
+    	right: -30px;
+		z-index: -1;
 	}
 `;
 
@@ -99,23 +114,29 @@ export const MoveRightToTop = styled.img`
 `;
 
 export const Options = styled.div`
+    width: 0;
+    height: 0;
     cursor: pointer;
     display: ${props => props.remove === false ? 'none' : 'block'};
+	position: absolute;
+	top: 113px;
+    right: -30px;
+	animation: ${props => props.remove === false ? '' : appearClose} .3s linear;
 
     img{
         width: 17px;
-        position: relative;
-        animation: ${props => props.remove === false ? '' : appearIn} .3s linear;
-		z-index: -1;
     }
 `;
 
-export const ButtonSettings = styled(Options)`
+export const ButtonSettings = styled.div`
+   	cursor: pointer;
+    display: ${props => props.remove === false ? 'none' : 'block'};
+	position: absolute;
+    top: 114px;
+    right: -16px;
+	animation: ${props => props.remove === false ? '' : appearSetting} .3s linear;
+	z-index: 4;
     img{
         width: 20px;
-        position: relative;
-        top: -29px;
-		right: -23px;
-    	z-index: 1;
     }
 `;

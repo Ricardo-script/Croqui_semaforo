@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import closeModal from '../img/closeModal.png';
 import play from '../img/play.png';
 import pause from '../img/pause.png';
-import carRed from '../img/carRed.png';
-import carYellow from '../img/carYellow.png';
-import carGrey from '../img/carGrey.png';
-import carBlue from '../img/carBlue.png';
-import carBrown from '../img/carBrown.png';
-import { Container, AreaItems, Item, AreaPlay, BodySettings, Group, Label, Input, AreaInput, Total, AreaDescription, Description, Title,
+import carRed from '../img/carRed - Copia.png';
+import carYellow from '../img/carYellow - Copia.png';
+import carGrey from '../img/carGrey - Copia.png';
+import carBlue from '../img/carBlue - Copia.png';
+import carBrown from '../img/carBrown - Copia.png';
+import { Container, AreaItems, Item, AreaPlay, BodySettings, Group, Label, Input, AreaInput, Switch, Total, AreaDescription, Description, Title,
 AreaFields, LabelFloat, InputField, LabelField, AreaColors, Color
 } from './styles';
 
@@ -55,6 +55,14 @@ export default function Settings(props){
             document.onmousemove = null;
         }
     }
+
+	const getSwitch = () => {
+		if(props.changeCars){
+			props.setChangeCars(false);
+		}else{
+			props.setChangeCars(true);
+		}
+	}
 
 	const getColor = (color) => {
 		const values = [...props.object];
@@ -228,6 +236,14 @@ export default function Settings(props){
 					<AreaPlay onClick={playAnimate}>
 						<img src={playIco} alt="" />
 					</AreaPlay>
+					<Group id='switch' type={props.type}>
+						<Label>Trocar objetos por ocupação:</Label>
+						<Switch>
+							<input type="checkbox" class="switch-input" onClick={getSwitch}/>
+							<span className="switch-label" data-on="On" data-off="Off"></span>
+							<span className="switch-handle"></span>
+						</Switch>
+					</Group>
 					<Group id='rangeColor' type={props.type}>
                         <Label>Cor:</Label>
                         <AreaColors>

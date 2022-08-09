@@ -78,6 +78,11 @@ export default function Croqui() {
 	//state contendo as propriedades de cada objeto
 	const [propsSettings, setPropsSettings] = useState({ index: '', type: '', title: '', image: '', object: '', setObject: '' });
 
+	// state contendo o valor da taxa de ocupação
+	const [taxaOcupacao, setTaxaOcupacao] = useState(0);
+
+	const [changeCars, setChangeCars] = useState(false);
+
 	//states para menu de opções de objetos no editor
 	const [openTypesTopRigth, setOpenTypesTopRigth] = useState(false);
 	const [openTypesTopLeft, setOpenTypesTopLeft] = useState(false);
@@ -211,84 +216,84 @@ export default function Croqui() {
 const addCarRight = () => {
 	setRemove(false);
 	const objects = [...carRight];
-	objects.push({ objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 90 });
+	objects.push({ objeto: 'carRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 5, percurso: 30, angulo: 90 });
 	setCarRight(objects);
 }
 
 const addCarTop = () => {
 	setRemove(false);
 	const objects = [...carTop];
-	objects.push({ objeto: 'carTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 0 });
+	objects.push({ objeto: 'carTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 5, percurso: 30, angulo: 0 });
 	setCarTop(objects);
 }
 
 const addCarLeft = () => {
 	setRemove(false);
 	const objects = [...carLeft];
-	objects.push({ objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 270 });
+	objects.push({ objeto: 'carLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 5, percurso: 30, angulo: 270 });
 	setCarLeft(objects);
 }
 
 const addCarBottom = () => {
 	setRemove(false);
 	const objects = [...carBottom];
-	objects.push({ objeto: 'carBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 5, percurso: 30, angulo: 180 });
+	objects.push({ objeto: 'carBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 5, percurso: 30, angulo: 180 });
 	setCarBottom(objects);
 }
 
 const addCarTopToRight = () => {
 	setRemove(false);
 	const objects = [...carTopToRight];
-	objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 4, percurso: 18, percursoFinal: 30, angulo: 90, anguloFinal: 360}); // ok
+	objects.push({ objeto: 'carTopToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 4, percurso: 18, percursoFinal: 30, angulo: 90, anguloFinal: 360}); // ok
 	setCarTopToRight(objects);
 }
 
 const addCarTopToLeft = () => {
 	setRemove(false);
 	const objects = [...carTopToLeft];
-	objects.push({ objeto: 'carTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 90, anguloFinal: 180}); // ok
+	objects.push({ objeto: 'carTopToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 90, anguloFinal: 180}); // ok
 	setCarTopToLeft(objects);
 }
 
 const addCarRightToBottom = () => {
 	setRemove(false);
 	const objects = [...carRightToBottom];
-	objects.push({ objeto: 'carRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 360, anguloFinal: 270}); //ok
+	objects.push({ objeto: 'carRightToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 360, anguloFinal: 270}); //ok
 	setCarRightToBottom(objects);
 }
 
 const addCarRightToTop = () => {
 	setRemove(false);
 	const objects = [...carRightToTop];
-	objects.push({ objeto: 'carRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 0, anguloFinal: 90}); //ok
+	objects.push({ objeto: 'carRightToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 0, anguloFinal: 90}); //ok
 	setCarRightToTop(objects);
 }
 
 const addCarLeftToBottom = () => {
 	setRemove(false);
 	const objects = [...carLeftToBottom];
-	objects.push({ objeto: 'carLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 270}); // ok
+	objects.push({ objeto: 'carLeftToBottom', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 270}); // ok
 	setCarLeftToBottom(objects);
 }
 
 const addCarLeftToTop = () => {
 	setRemove(false);
 	const objects = [...carLeftToTop];
-	objects.push({ objeto: 'carLeftToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 90}); //ok
+	objects.push({ objeto: 'carLeftToTop', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 180, anguloFinal: 90}); //ok
 	setCarLeftToTop(objects);
 }
 
 const addCarBottomToLeft = () => {
 	setRemove(false);
 	const objects = [...carBottomToLeft];
-	objects.push({ objeto: 'carBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 180}); //ok
+	objects.push({ objeto: 'carBottomToLeft', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 180}); //ok
 	setCarBottomToLeft(objects);
 }
 
 const addCarBottomToRight = () => {
 	setRemove(false);
 	const objects = [...carBottomToRight];
-	objects.push({ objeto: 'carBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 22, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 360}); //ok
+	objects.push({ objeto: 'carBottomToRight', id: objects.length, top: 44.89, left: 48.22, grupo: '', anel: '', controlador: '', color: 'red', tamanho: 32, velocidade: 3, percurso: 30, percursoFinal: 30, angulo: 270, anguloFinal: 360}); //ok
 	setCarBottomToRight(objects);
 }
 
@@ -1206,9 +1211,9 @@ const addPlugin = () => {
 	}
 
 	const data = [
-		{ objeto: "carRight", id: 0, left: 0.2604166666666667, grupo: 0, anel: 0, controlador: 0, color: 'red', percurso: 30, tamanho: 22, top: 52.63157894736842, velocidade: 5, angulo: 90 },
-		{ objeto: "carBottom", id: 0, left: 52.65625, grupo: 1, anel: 1, controlador: 1, percurso: 30, tamanho: 22, top: 3.7151702786377707, velocidade: 5, angulo: 180 },
-		{ objeto: "carTopToRight", id: 0, left: 57.708333333333336, grupo: 2, anel: 2, controlador: 1, percurso: 18, tamanho: 22, top: 89.57688338493293, velocidade: 4, angulo: 90, percursoFinal: 30, anguloFinal: 360  },
+		{ objeto: "carRight", id: 0, left: 1.25, grupo: 0, anel: 0, controlador: 0, color: 'red', percurso: 30, tamanho: 32, top: 46.23323013415893, velocidade: 5, angulo: 90 },
+		{ objeto: "carBottom", id: 0, left: 52.708333, grupo: 1, anel: 1, controlador: 1, color: 'red', percurso: 32, tamanho: 32, top: 0.309598, velocidade: 5, angulo: 180 },
+		{ objeto: "carTopToRight", id: 0, left: 58.447917, grupo: 2, anel: 2, color: 'red', controlador: 1, percurso: 18, tamanho: 32, top: 82.416925, velocidade: 4, angulo: 90, percursoFinal: 30, anguloFinal: 360  },
 		{ objeto: "walkLeft", id: 0, left: 62.604166666666664, grupo: 3, anel: 3, controlador: 3, percurso: 12, tamanho: 22, top: 17.853457172342623, velocidade: 5, angulo: 0 },
 		{ objeto: "walkTop", id: 0, left: 39.947916666666664, grupo: 3, anel: 3, controlador: 3, percurso: 12, tamanho: 22, top: 56.656346749226, velocidade: 5, angulo: 0 },
 		{ objeto: "walkBottom", id: 0, left: 37.239583333333336, grupo: 3, anel: 3, controlador: 3, percurso: 12, tamanho: 22, top: 32.19814241486068, velocidade: 5, angulo: 0 },
@@ -1442,51 +1447,63 @@ const addPlugin = () => {
 				</ButtomStagio>
 				<CarRight carRight={carRight} setCarRight={setCarRight} moveRight={moveRight}
 					setMoveRight={setMoveRight} remove={remove} removeCarRight={removeCarRight} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarTop carTop={carTop} setCarTop={setCarTop} moveTop={moveTop}
 					setMoveTop={setMoveTop} remove={remove} removeCarTop={removeCarTop} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarLeft carLeft={carLeft} setCarLeft={setCarLeft} moveLeft={moveLeft}
 					setMoveLeft={setMoveLeft} remove={remove} removeCarLeft={removeCarLeft} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarBottom carBottom={carBottom} setCarBottom={setCarBottom} moveBottom={moveBottom}
 					setMoveBottom={setMoveBottom} remove={remove} removeCarBottom={removeCarBottom} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarTopToRight carTopToRight={carTopToRight} setCarTopToRight={setCarTopToRight} moveTopToRight={moveTopToRight}
 					setMoveTopToRight={setMoveTopToRight} remove={remove} removeCarTopToRight={removeCarTopToRight} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarTopToLeft carTopToLeft={carTopToLeft} setCarTopToLeft={setCarTopToLeft} moveTopToLeft={moveTopToLeft}
 					setMoveTopToLeft={setMoveTopToLeft} remove={remove} removeCarTopToLeft={removeCarTopToLeft} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarRightToBottom carRightToBottom={carRightToBottom} setCarRightToBottom={setCarRightToBottom} moveRightToBottom={moveRightToBottom}
 					setMoveRightToBottom={setMoveRightToBottom} remove={remove} removeRightToBottom={removeRightToBottom} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarLeftToBottom carLeftToBottom={carLeftToBottom} setCarLeftToBottom={setCarLeftToBottom} moveLeftToBottom={moveLeftToBottom}
 					setMoveLeftToBottom={setMoveLeftToBottom} remove={remove} removeLeftToBottom={removeLeftToBottom} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarRightToTop carRightToTop={carRightToTop} setCarRightToTop={setCarRightToTop} moveRightToTop={moveRightToTop}
 					setMoveRightToTop={setMoveRightToTop} remove={remove} removeRightToTop={removeRightToTop} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarLeftToTop carLeftToTop={carLeftToTop} setCarLeftToTop={setCarLeftToTop} moveLeftToTop={moveLeftToTop}
 					setMoveLeftToTop={setMoveLeftToTop} remove={remove} removeLeftToTop={removeLeftToTop} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarBottomToLeft carBottomToLeft={carBottomToLeft} setCarBottomToLeft={setCarBottomToLeft} moveBottomToLeft={moveBottomToLeft}
 					setMoveBottomToLeft={setMoveBottomToLeft} remove={remove} removeBottomToLeft={removeBottomToLeft} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<CarBottomToRight carBottomToRight={carBottomToRight} setCarBottomToRight={setCarBottomToRight} moveBottomToRight={moveBottomToRight}
 					setMoveBottomToRight={setMoveBottomToRight} remove={remove} removeBottomToRight={removeBottomToRight} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars}
 				/>
 				<SemaforoFront objSemaforo={objSemaforo} setObjSemaforo={setObjSemaforo}
 					remove={remove} removeSemaforo={removeSemaforo} setOpenSettings={setOpenSettings}
@@ -1570,7 +1587,8 @@ const addPlugin = () => {
 				/>
 				<Ocupacao objOcupacao={objOcupacao} setObjOcupacao={setObjOcupacao}
 					remove={remove} removeOcupacao={removeOcupacao} setOpenSettings={setOpenSettings}
-					setPropsSettings={setPropsSettings}
+					setPropsSettings={setPropsSettings} taxaOcupacao={taxaOcupacao} setTaxaOcupacao={setTaxaOcupacao}
+					changeCars={changeCars} setChangeCars={setChangeCars}
 				/>
 				<Plug objPlug={objPlug} setObjPlug={setObjPlug}
 					remove={remove} removePlug={removePlug} setOpenSettings={setOpenSettings}
@@ -1591,6 +1609,8 @@ const addPlugin = () => {
 					statusPlay={statusPlay}
 					playAnimate={playAnimate}
 					stopAnimate={stopAnimate}
+					changeCars={changeCars}
+					setChangeCars={setChangeCars}
 				/>
 
 			</AreaMapaCroqui>
